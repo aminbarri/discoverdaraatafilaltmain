@@ -1,0 +1,73 @@
+.box-hotel{
+    margin-top: 50px;
+    width: 270px;
+    height: max-content;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid black;
+    display: inline-table;
+    margin-right: 20px;
+    
+}
+.box-hotel>img{
+    border-radius: 5px;
+    border-bottom: 2px solid darkgreen;
+    
+}
+.box-hotel>span{
+    color: white;
+    background-color:darkgreen ;
+    position: absolute;
+    left: 189px;
+    top: 106px;
+
+    padding:10px;
+}
+.hotel-name{
+    position: relative;
+    font-weight: bold;
+}
+
+.bi-star-fill{
+    color: rgb(250, 167, 13);
+    
+}
+.rating{position:absolute;
+    left: 168px;
+    top: 160px;
+    }
+.description{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.dure{
+    border-top: 1px solid black;
+    padding: 5px 0px 5px 10px;
+}
+.dure>span{
+    font-size: 1.1em;
+}
+.dure>a{   
+     padding-left: 103px;
+    font-weight: bolder;
+    text-decoration: none
+    ;
+    color: green;
+    position: relative;
+    top:-2px;
+    font-size: larger;
+
+    
+}
+.text{
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    align-items: center;
+}
+

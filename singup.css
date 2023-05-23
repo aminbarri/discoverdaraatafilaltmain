@@ -1,0 +1,53 @@
+
+.first-singup{
+    width: 40%;
+    background-color: aquamarine;
+    float: left;
+    height: 635px;
+}
+.main-signup{
+    height: 100%;
+      
+
+}
+
+
+  
+.secend-singup{
+    width: 60%;
+    height: 100%;
+    float: right;
+    position: relative;
+}
+.secend-singup>h4{
+    position: absolute;
+    top: 23px;
+    left: 523px;
+    font-size: medium;
+}
+.secend-singup>form{
+    width: 350px;
+    margin-left: 250px;
+    margin-top: 98px;
+    position: relative;
+}
+#exampleInputname11,#exampleInputUsername11{
+    width: 168px;
+}
+.username-input{
+    position: absolute;
+    top: 0px;
+    left: 183px;
+}
+.secend-singup>form>div>label{
+    font-weight: bold;
+}
+.form-control{
+    background-color: rgb(216, 216, 216);
+}
+
+.first-singup>h3{
+    color:rgb(56, 145, 145);
+    margin-top: 111px;
+    margin-left: 50px;
+}

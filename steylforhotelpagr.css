@@ -1,0 +1,188 @@
+
+.containner{}
+.top_containner{
+  width: 1294px;
+
+}
+ 
+  .top_bar{
+      margin-left: 150px;
+  }
+  .top_bar>ul>li{
+      padding-left: 20px;
+      padding-right: 20px;
+     
+  }
+  .top{
+     
+  
+  }
+  .banner { position: relative; overflow: auto; }
+.banner li { list-style: none; }
+  .banner ul li { float: left; }
+  #backstretch {
+  left: 0px;
+  right: 0px;
+    width: 100%;
+  height: 600px;
+}
+.bar_top_first{
+width: 100%;
+height: 50px;
+background-color: #1C5425;
+
+
+}
+
+
+.bar_top_sec{
+background-color: #469754;
+}
+.bar_top_sec >ul>li{
+list-style: none;
+display: inline;
+margin:0 20px 0 20px;
+}
+.bar_top_sec >ul>li>a{
+text-decoration: none;
+color: white;
+}
+.bar_top_first>ul>li{
+list-style: none;
+display: inline;
+
+border-left: solid 1px wheat;
+}
+.bar_top_first>ul{
+position: relative;
+
+}
+.bar_top_first>ul>li>a{
+text-decoration: none;
+color: white;
+}
+.search-container {
+display: flex;
+align-items: center;
+width: 150px;
+height: 40px;
+
+overflow: hidden;
+}
+
+
+
+
+
+
+.bar_top_first {
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 40px;
+/*padding: 0 10px;*/
+
+}
+
+.bar_top_first ul {
+list-style: none;
+margin: 0;
+padding: 0;
+height: 100%;
+display: flex;
+position: relative;
+left: 960px;
+}
+
+
+.search-container {
+display: flex;
+align-items: center;
+
+height: 100%;
+}
+
+.search-container input[type="text"] {
+width: 150px;
+height: 100%;
+border: none;
+outline: none;
+padding: 0 10px;
+font-size: 16px;
+color: white;
+background-color:  #1F5C3F
+;
+}
+::placeholder { 
+color: white;
+opacity: 1; /* Firefox */
+}
+dl, ol, ul {
+margin-top: auto;
+margin-bottom: auto;
+}
+.social_media{
+
+padding: 9px 12px 0 12px;
+}
+.bar_top_sec{
+height: 100%;
+/*background-color: #A7C44F;*/
+display: flex;
+align-items: center;
+
+}
+.logo{
+
+padding-right: 150px;
+}
+.pre_paragraf{
+color: rgb(255, 255, 255);
+padding-left: 70px;
+padding-top: 135px;
+font-size: 2em;
+font-weight: lighter;
+font-family:  'Roboto Condensed'
+;
+
+}
+.welcome{
+width: max-content;
+
+padding:14px  46px 8px 8px;
+background-color: hsl(0, 0%, 0%,0.3);
+
+}
+.region{
+width: max-content;
+color: black;
+padding: 10px;
+background-color: yellow;
+}
+.welcome>span{
+font-weight: bold;
+
+}
+.bi-caret-left-fill {
+background-color: blue;
+}
+.bi-caret-right-fill{
+background-color: blue;
+
+}
+.pre_paragraf>div:last-child{
+margin-top: 20px;
+}
+.pre_paragraf>div>i{
+padding: 5px;
+margin: 12px 4px 8px 5px;
+}
+.hotel_sec{
+margin:50px;
+padding-left: 19px;
+padding-top: 29px;
+}
+
+.hotel_sec>div{
+margin-left: 15px;
+}

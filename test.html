@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unslider Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/unslider/2.0.3/css/unslider.css">
+  <style>
+    .slider {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 400px;
+    }
+    .slider ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 300%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+    .slider li {
+      float: left;
+      width: 33.333%;
+      height: 100%;
+    }
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider">
+   
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/unslider/2.0.3/js/unslider-min.js"></script>
+  <script src="jquery.backstretch.min.js"></script>
+  <script>
+  
+  $.backstretch([
+      "images/outside.jpg"
+    , "images/garfield-interior.jpg"
+    , "images/cheers.jpg"
+  ], {duration: 3000, fade: 750});
+  </script>
+</body>
+</html>

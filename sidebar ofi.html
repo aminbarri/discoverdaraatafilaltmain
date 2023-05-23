@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script type="text/javascript" src="jquery/jquery-3.6.3.min.js"></script>
+    <script src="jquery.backstretch.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="addarticle.css">
+    <script type="text/javascript" src="jquery/jquery-3.6.3.min.js"></script>
+    <style>
+
+
+ul li {
+    list-style: none;
+    
+}
+.nav-item {
+    padding: 5px 0 5px 0 ;
+    padding-left: 30px;
+}
+ul li a{
+    text-decoration: none;
+    color: azure;
+}
+.menu-title,.nav-link{
+    color: azure; 
+    font-size: small;
+    
+}
+.nav-link>i{
+    color: azure;
+
+}
+.nav-link{
+    width: 250px;
+}
+.nav{
+    display: block;
+    width: 25%;
+    background-color:saddlebrown ;
+
+}    
+#admins.collapsed  {
+    display: block;
+}
+
+#circuit.collapsed {
+    display: block;
+}
+
+a.active {
+  background-color: rgb(8, 3, 8);
+}
+
+</style>
+</head>
+<body>
+    <div>
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="mdi mdi-grid-large menu-icon"></i>
+                  <span class="menu-title">Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item nav-category">Utilisateurs</li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="mdi mdi-account menu-icon"></i>
+                  <span class="menu-title">Mon profile</span>
+                </a>
+              </li>
+              <li class="nav-item" >
+                <a class="nav-link" id="administr" data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="admins">
+                  <i class="mdi mdi-account-multiple-plus menu-icon"></i>
+                  <span class="menu-title">Gérer les administrateurs</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="admins">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Afficher les administrateurs</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Ajouter un administrateur</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="users">
+                  <i class="mdi mdi-account-group-outline menu-icon"></i>
+                  <span class="menu-title">Gérer les clients</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="users">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Afficher les clients</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item nav-category">Articles</li>
+              <li class="nav-item">
+                <a class="nav-link" id='Circuits'data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="circuit">
+                  <i class="mdi mdi-sine-wave menu-icon"></i>
+                  <span class="menu-title">Circuits</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="circuit">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Afficher les circuits</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Ajouter un circuit</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="destination">
+                  <i class="mdi mdi-map-marker menu-icon"></i>
+                  <span class="menu-title">Destinations</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="destination">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Afficher les destinations</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Ajouter une destination</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="restaurant">
+                  <i class="mdi mdi-silverware-variant menu-icon"></i>
+                  <span class="menu-title">Restaurants</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="restaurant">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Afficher les restaurants</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Ajouter un restaurant</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="hotel">
+                  <i class="mdi mdi-bed-empty menu-icon"></i>
+                  <span class="menu-title">Hôtels</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="hotel">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Afficher les hôtels</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Ajouter un hôtel</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="artisanat">
+                  <i class="mdi mdi-math-compass menu-icon"></i>
+                  <span class="menu-title">Artisanat</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="artisanat">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Afficher les artisanats</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Ajouter un artisanat</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="moussem">
+                  <i class="mdi mdi-chess-knight menu-icon"></i>
+                  <span class="menu-title">Moussems</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="moussem">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Afficher les Moussems</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Ajouter un moussem</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="cuisine">
+                  <i class="mdi mdi-chef-hat menu-icon"></i>
+                  <span class="menu-title">Spécialité Culinaire</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="cuisine">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Afficher les plats</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Ajouter un plat</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item nav-category">Reservations</li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="reservation">
+                  <i class="mdi mdi-checkbook menu-icon"></i>
+                  <span class="menu-title">Gérer les réservations</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="reservation">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="#">Les reservations d'hôtels</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Les reservations de voyage</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item nav-category">Messages</li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="mdi mdi-chat menu-icon"></i>
+                  <span class="menu-title">Gérer les messages</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://staspnnnckpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+//        $('.nav-link').click(function() {
+//   var $admins = $(this);
+//   var currentColor = $admins.css("backgroundColor");
+
+//   if (currentColor === "rgb(255, 0, 0)") {
+//     $admins.css("backgroundColor", "initial");
+//   } else {
+//     $admins.css("backgroundColor", "red");
+//   }
+// });
+       $(document).ready(function() {
+         $('#administr').click(function() {
+         $('#admins').toggleClass('collapsed');
+        
+         });
+          });
+          $(document).ready(function() {
+          $('#Circuits').click(function() {
+         $('#circuit').toggleClass('collapsed');
+       
+         });
+        });
+        $(document).ready(function() {
+  $('a').click(function() {
+    $('a').removeClass('active');
+    $(this).addClass('active');
+  });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  
+  
+  form label {
+    font-weight: bold;
+  }
+  
+  form input[type="text"],
+  form textarea,
+  form select {
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+  }
+  
+  form input[type="file"] {
+    border: none;
+    padding: 0;
+  }
+  
+  form button[type="submit"],
+  form button[type="button"] {
+    margin-right: 10
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  .container {
+    margin-top: 30px;
+  }
+  
+  form label {
+    font-weight: bold;
+  }
+  
+  form input[type="text"],
+  form textarea,
+  form select,
+  form input[type="file"] {
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+  }
+  
+  form input[type="file"] {
+    padding: 0;
+  }
+  
+  form button[type="submit"],
+  form button[type="button"] {
+    margin-right: 10px;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+
+  .container {
+    margin-top: 30px;
+  }
+
+  form label {
+    font-weight: bold;
+  }
+
+  .form-group-inline label {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  form input[type="text"],
+  form textarea,
+  form select,
+  form input[type="file"] {
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+    margin-bottom: 10px;
+  }
+
+  form input[type="file"] {
+    padding: 0;
+  }
+
+  form button[type="submit"],
+  form button[type="button"] {
+    margin-right: 10px;
+  }
+  .text-right{
+    float: right;
+    margin-top: 15px;
+  }

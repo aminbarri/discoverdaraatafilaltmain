@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="font/bootstrap-icons.min.css">
+
+    <style>
+        .input-group{
+            width: 250px;
+            
+           
+        }
+        .information>form>div ,.chamber,.dure,.confirmation_res,.payment,.prix{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+   
+        .information{
+            position: relative;
+          
+        }
+        .chamber{
+            position: relative;
+        }
+        .chamber>div>select,.chamber>div>input,  .dure>div>input{
+            width: 250px;
+            
+        }
+    
+        .prix{
+            width: 500px;
+            
+        }
+
+    .prix>span{
+        text-align: center;
+    }
+    .payment>label{
+        width: 250px;
+        border: 1px solid black;
+    }
+    .confirmation_res>button{
+        width: 250px;
+        border: 1px solid black;
+        border-radius: none;
+    }
+    .reservehotel{
+        border: 1px solid black;
+        width: 700px;
+        float: right;
+        padding: 25px;
+        margin-top: 50px;
+    }
+    h4{
+        margin-top: 12px;
+    }
+    .secd_name{
+        position: absolute;
+        top: 35px;
+    left: 267px;
+    }
+    .telephone_num{
+        position: absolute;
+        top: 88px;
+    left: 267px;
+    }
+    .nomber-per{
+        position: absolute;
+        top: 36px;
+    left: 277px;
+    }
+
+    .mb-3 {
+    margin-bottom: 16px;
+}
+    
+.img_hotel{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: blueviolet;
+   
+}
+.img_hotel>img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.date-fin{
+    position: absolute;
+    top: 36px;
+    left: 276px;
+}
+.hotel_des{
+    float: left;
+    margin-top: 50px;
+    margin-left: 150px ;
+}
+.dure{
+    position: relative;
+}
+.bi-star-fill{
+            color: rgb(250, 167, 13);
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="hotel_des">
+       <div class="img_hotel"><img src="img/3.jpg" alt="" width="100%" height="100%"></div> 
+       <h4>Hôtel Palais du Désert & Spa</h4>
+       <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+    </div>
+    <div class="description"> </div>
+   
+    </div>
+    <div class="reservehotel">
+
+        <div class="information">
+            <form action="" class="">
+                <h4>Personel Information</h4>
+                <div class="input-group mb-3 frst_name">
+                    <i class="bi bi-person-circle input-group-text"></i>
+                    <input type="text" class="form-control " placeholder='Enter votre nom'>
+                </div>
+                <div class="input-group mb-3 secd_name">
+                    <i class="bi bi-person-circle input-group-text"></i>
+                    <input type="text" class="form-control " placeholder='Enter votre prenom'>
+                </div>
+                <div class="input-group mb-3 email_rese">
+                    <i class="bi bi-envelope-fill input-group-text"></i>
+                <input type="email" class="form-control " placeholder='email'>
+                </div>
+                <div class="input-group mb-3 telephone_num">
+                    <i class="bi bi-telephone-fill  input-group-text" ></i>
+                    <input type="number" class="form-control " placeholder='Enter votre telephone'>
+                </div>
+                
+
+            </form>
+        </div>
+        <div class="chamber">
+            <h4>Chamber</h4>
+            <div class="type-chamber">
+                <label for="">Type de chamber</label>
+                <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="nomber-per">
+                <label for="">Nomber of personne</label>
+                <input type="number" class="form-control" placeholder="Nomber of personne">
+            </div>
+           
+        </div>
+        <div class="dure">
+           <h4>dure</h4>
+           <div>
+            <label for="">Date debut</label>
+            <input type="date" class="form-control">
+           </div> 
+           <div class="date-fin">
+            <label for="">Date fin</label>
+            <input type="date"  class="form-control">
+           </div>
+            
+        </div>
+        <div class="prix">
+            <h4>Prix Total</h4>
+            <span class="input-group-text">Prix Total</span>
+        </div>
+
+        <div class="payment">
+            <h4>Payment</h4>
+            <input type="radio" class="btn-check" name="option"  id='btn-check1' autocomplete="off" checked>
+    
+                 <label class="btn btn-secondary" for="btn-check1">in hotel</label>
+    
+             <input type="radio" class="btn-check" name="option" id='btn-check2' autocomplete="off">
+    
+            <label class="btn btn-secondary" for="btn-check2">carte</label>
+        </div>
+        <div class="confirmation_res">
+            <h4>Confirmer</h4>
+            <button type="button" class="btn ">Confirmer</button>
+            <button type="button" class="btn">Cancel</button>
+        </div>
+
+    </div>
+</body>
+</html>
