@@ -107,8 +107,14 @@
   padding: 0 10px;
   font-size: 16px;
   color: white;
-  background-color:  #1e945b
-;
+  background-color:  #1e945b;
+  background-image: url('img/search.svg');
+  background-repeat: no-repeat;
+  background-size: 2.1em;
+  background-position-x: 97%;
+  background-position-y: center;
+  
+
 }
 .center-bar>form>input::placeholder{
  color: white;
@@ -130,6 +136,22 @@ nav{
 }
 .bar_top_sec >ul>li{
     margin-top: 5px;
+}
+.hot{
+    color: white;
+    font-size: 1.7em;
+    background-color: hsla(0, 0%, 0%, 0.404);
+    font-family: Anton;
+}
+.htl{
+    font-family: Lobster;
+    margin-top: 186px;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: white;
+}
+.bi-arrow-down-square{
+    color: white;
 }
     </style>
 </head>
@@ -159,12 +181,24 @@ nav{
            
               </div>  
             </nav>
-                <center><a href="#second"><div class="der"><i class="bi bi-arrow-down-square"></i></div></a></center>
+                <center>
+                    <div>
+                        <div class="htl">HOTELS</div>
+                        <div class="hot">discover les meilleurs hotels de la region DRAA TAFILALET</div>
+                    
+                    </div>
+                </center><a href="#second">
+                    <div class="der">
+                        
+                        <span></span>
+                    <i class="bi bi-arrow-down-square"></i>
+                
+                        </div></a>
         </div>
         <div id="second">
         <div class="center-bar">
             <form action="">
-                <input type="text" placeholder="Search...">
+                <input type="text" placeholder="Taper province...">
             </form>
         </div> 
         <div  id="second2" >
