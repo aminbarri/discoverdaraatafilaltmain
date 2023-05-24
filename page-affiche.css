@@ -127,13 +127,19 @@ color: white;
 font-size: 1.7em;
 background-color: hsla(0, 0%, 0%, 0.404);
 font-family: Anton;
+position: absolute;
+left: 50%;
+top: 40%;
 }
 .htl{
 font-family: Lobster;
-margin-top: 186px;
+
 font-size: xx-large;
 font-weight: bolder;
 color: white;
+position: absolute;
+left: 50%;
+top: 40%;
 }
 .bi-arrow-down-square{
 color: white;
