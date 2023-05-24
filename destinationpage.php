@@ -52,8 +52,8 @@
             
                 <center>
                     <div>
-                        <div class="htl">HOTELS</div>
-                        <div class="hot">discover les meilleurs hotels de la region DRAA TAFILALET</div>
+                        <div class="htl">DESTINATIONS</div>
+                        <div class="hot">discover les meilleurs distinations de la region DRAA TAFILALET</div>
                     
                     </div>
                 </center><a href="#second">

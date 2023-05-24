@@ -1,5 +1,7 @@
 
-
+body{
+    background-color: rgb(214, 214, 202);
+}
     .bottom_footer{
         position: relative;
 bottom: -29px;
@@ -7,6 +9,12 @@ background-color: #1e4633;
 height: 30px;
 text-align: center;
 
+    }
+
+
+    .box-hotel{
+        background-color: white;
+        border: none;
     }
     .countainer{
         margin: 0px;

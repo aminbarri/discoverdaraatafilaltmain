@@ -37,7 +37,7 @@ $i = 0;
                 <div class="adress">kasr ifri, Achbaro</div>
                 <div class="description">1-star hotel</div>
                 </div>
-                <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
+                 <div class="dure"> <a href="#">RESERVER</a></div>
     
                </div>
    
