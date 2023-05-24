@@ -1,3 +1,8 @@
+<?php
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +12,7 @@
     <link rel="stylesheet" href="font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="hotel.css">
     <link rel="stylesheet" href="page-affiche.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
       
     <link rel="stylesheet" href="">
@@ -31,17 +37,19 @@
               <div   class=" bar_top_sec collapse navbar-collapse"  id="navbarScroll">
                   <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" >
                    
-                    <li class="nav-item"><a href="#">HOME</a></li>
-                    <li class="nav-item"><a href="#">home</a></li>
-                    <li class="nav-item"><a href="#">home</a></li>
-                    <li class="nav-item"><a href="#">home</a></li>
-                    <li class="nav-item"><a href="#">home</a></li>
-        
+                    <li class="nav-item"><a href="#">ACCUEIL</a></li>
+                    <li class="nav-item"><a href="#">HOTELS</a></li>
+                    <li class="nav-item"><a href="#">DESTINATION</a></li>
+                    <li class="nav-item"><a href="#">MOUSSEM</a></li>
+                    <li class="nav-item"><a href="#">RESTURANT</a></li>
+                    <li class="nav-item"><a href="#">CONTACT</a></li>
+                    <li class="nav-item"><a href="#">SE CONNECTER</a></li>
             
                   </ul>
            
               </div>  
             </nav>
+            
                 <center>
                     <div>
                         <div class="htl">HOTELS</div>
@@ -58,14 +66,22 @@
         </div>
         <div id="second">
         <div class="center-bar">
-            <form action="">
-                <input type="text" placeholder="Taper province...">
-            </form>
+        <div>
+            
+            <input type="text"  placeholder="Taper province..." id='province'>
+       
+           
+        </div>
+               
+          
         </div> 
         <div  id="second2" >
              
-            <div class="box-hotel">
-                <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
+           
+        </div>
+        <div  id="second3" >
+        <div class="box-hotel"> 
+                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
                 <div class="text">
                 <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
                     <i class="bi bi-star-fill"></i>
@@ -77,43 +93,12 @@
             
                 <div class="adress">kasr ifri, Achbaro</div>
                 <div class="description">1-star hotel</div>
-            </div>
+                </div>
                 <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-        </div>
-        <div class="box-hotel">
-            <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-            <div class="text">
-            <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-            </div>
-        
-            <div class="adress">kasr ifri, Achbaro</div>
-            <div class="description">1-star hotel</div>
-        </div>
-            <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-        </div>
-            <div class="box-hotel">
-            <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-            <div class="text">
-            <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-            </div>
-
-            <div class="adress">kasr ifri, Achbaro</div>
-            <div class="description">1-star hotel</div>
-            </div>
-            <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-            </div>
-            <div class="box-hotel">
-                <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
+    
+               </div>
+               <div class="box-hotel"> 
+                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
                 <div class="text">
                 <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
                     <i class="bi bi-star-fill"></i>
@@ -122,14 +107,51 @@
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
                 </div>
-        
+            
                 <div class="adress">kasr ifri, Achbaro</div>
                 <div class="description">1-star hotel</div>
                 </div>
                 <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
+    
+               </div>
+               <div class="box-hotel"> 
+                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
+                <div class="text">
+                <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
                 </div>
+            
+                <div class="adress">kasr ifri, Achbaro</div>
+                <div class="description">1-star hotel</div>
                 </div>
-            </div>
+                <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
+    
+               </div>
+               <div class="box-hotel"> 
+                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
+                <div class="text">
+                <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                </div>
+            
+                <div class="adress">kasr ifri, Achbaro</div>
+                <div class="description">1-star hotel</div>
+                </div>
+                <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
+    
+               </div>
+           
+        </div>
+        
+   
             
         </div>
     <footer class="">
@@ -150,6 +172,31 @@
         //     navbarCollapse.classList.toggle("show");
         //   });
         // });
+
       </script>
+      <script type="text/javascript">
+   $(document).ready(function() {
+  $('#province').keyup(function() { // Listen for keyup event on the input field
+    $.ajax({
+      method: 'GET',
+      url: 'selecthotel.php',
+      data: {
+        province1: $('#province').val()
+      },
+      beforeSend: function() {
+        $("#second3").show();
+          $("#second2").hide();
+        // Actions to be performed before the AJAX request is sent
+      },
+      success: function(data) {
+        $('#second2').html(data);
+        $("#second3").hide();
+          $("#second2").show();
+      }
+    });
+  });
+});
+
+</script>
 </body>
 </html>
