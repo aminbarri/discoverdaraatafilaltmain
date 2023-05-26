@@ -20,7 +20,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-  
+<style>
+          .mainborder{
+            width: 300px;
+             height: max-content;
+            background-color: white;
+            border-radius: 5px;
+            position: relative;
+        }
+        .imageclass{
+            width: 100%;
+            height: 50%;
+            background-image: url('');
+            background-repeat: no-repeat;
+            background-size: cover;
+           
+        }
+        .htl{
+          left:44%;
+        }
+        .divtext{
+            text-align: center;
+        }
+        .divtext>h3{
+            margin: 33px 10px 5px 10px;
+            color: black;
+           font-weight:bold;
+        }
+
+     .divtext>h5{
+        font-weight: normal;
+        color: rgba(0, 0, 0, 0.425);
+        margin: 23px 10px 16px 10px;
+
+
+     }
+     .imageclass>img{
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+     }
+     .bottombar{
+        height: 30px;
+        background-color:rgb(214, 203, 182);
+       
+        bottom: 0px;
+        width: 100%;
+        text-align: center;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding-top: 5px;
+     }
+     .bottombar:hover{
+        background-color: rgb(175, 160, 149);
+     }
+     .bottombar>a{
+        text-decoration: none;
+       color: black;
+       font-weight: bold;
+       
+     }
+</style>
 </head>
 <body>
     
@@ -80,80 +141,58 @@
            
         </div>
         <div  id="second3" >
+ 
         <div class="box-hotel"> 
-                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                <div class="text">
-                <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
+              <div class="mainborder">
+              <div class="imageclass">
+                  <img src="img/2.jpg" alt="">
+              </div>
+              <div class="divtext">
+                  <h3 class="tiltle">Kasbah N’Kob</h3>
+
+                  <h5>N'kob is the only village in Morocco that counts more than forty Kasbahs all built with rammed earth.</h5>
+              </div>
+              <div class="bottombar">
+                  <a href="">READ MORE...</a>
+              </div>
                 </div>
-            
-                <div class="adress">kasr ifri, Achbaro</div>
-                <div class="description">1-star hotel</div>
+          </div>   
+          <div class="box-hotel"> 
+              <div class="mainborder">
+              <div class="imageclass">
+                  <img src="img/2.jpg" alt="">
+              </div>
+              <div class="divtext">
+                  <h3 class="tiltle">Kasbah N’Kob</h3>
+
+                  <h5>N'kob is the only village in Morocco that counts more than forty Kasbahs all built with rammed earth.</h5>
+              </div>
+              <div class="bottombar">
+                  <a href="">READ MORE...</a>
+              </div>
                 </div>
-                 <div class="dure"> <a href="#">RESERVER</a></div>
-    
-               </div>
-        <div class="box-hotel"> 
-                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                <div class="text">
-                <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
+          </div>   
+          <div class="box-hotel"> 
+              <div class="mainborder">
+              <div class="imageclass">
+                  <img src="img/2.jpg" alt="">
+              </div>
+              <div class="divtext">
+                  <h3 class="tiltle">Kasbah N’Kob</h3>
+
+                  <h5>N'kob is the only village in Morocco that counts more than forty Kasbahs all built with rammed earth.</h5>
+              </div>
+              <div class="bottombar">
+                  <a href="">READ MORE...</a>
+              </div>
                 </div>
-            
-                <div class="adress">kasr ifri, Achbaro</div>
-                <div class="description">1-star hotel</div>
-                </div>
-                 <div class="dure"> <a href="#">RESERVER</a></div>
-    
-               </div>
-        <div class="box-hotel"> 
-                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                <div class="text">
-                <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                </div>
-            
-                <div class="adress">kasr ifri, Achbaro</div>
-                <div class="description">1-star hotel</div>
-                </div>
-                 <div class="dure"> <a href="#">RESERVER</a></div>
-    
-               </div>
-        <div class="box-hotel"> 
-                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                <div class="text">
-                <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                </div>
-            
-                <div class="adress">kasr ifri, Achbaro</div>
-                <div class="description">1-star hotel</div>
-                </div>
-                <div class="dure"> <a href="#">RESERVER</a></div>
-    
-               </div>
-           
+          </div>   
+        </div>
         </div>
         
-   
-            
         </div>
+        
+    </div>
     <footer class="">
        
         <div class="bottom_footer">

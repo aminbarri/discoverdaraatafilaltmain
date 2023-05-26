@@ -16,6 +16,7 @@ $selecthotel = $statement->fetchAll(PDO::FETCH_ASSOC);
 $i = 0;
  if ($selecthotel) {
 	// show the publishers
+    
 	foreach ($selecthotel as $publisher) {
 	
 	

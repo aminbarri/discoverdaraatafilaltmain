@@ -10,7 +10,11 @@ height: 30px;
 text-align: center;
 
     }
-
+    .test{
+        height:auto;
+        width: 100%;
+      
+    }
 
     .box-hotel{
         background-color: white;
@@ -35,6 +39,7 @@ text-align: center;
    
     #second2,#second3{
         width: 80%;
+        
         display: flex;
         flex-wrap: wrap;
         justify-content: center;

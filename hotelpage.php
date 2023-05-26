@@ -64,7 +64,7 @@
                 
                         </div></a>
         </div>
-        <div id="second">
+   <div id="second" class='test'>
         <div class="center-bar">
         <div>
             
@@ -175,23 +175,54 @@
 
       </script>
       <script type="text/javascript">
-   $(document).ready(function() {
+  $(document).ready(function() {
   $('#province').keyup(function() { // Listen for keyup event on the input field
+    var provinceValue = $('#province').val(); // Get the value of the input field
+    if (provinceValue.trim() === '') {
+      $("#second3").show();
+      $("#second2").hide();
+      $('.test').css({
+            "height":"100vh"
+          });
+      return; // Exit the function if the value is empty
+    }
+    
     $.ajax({
       method: 'GET',
       url: 'selecthotel.php',
       data: {
-        province1: $('#province').val()
+        province1: provinceValue
       },
       beforeSend: function() {
-        $("#second3").show();
-          $("#second2").hide();
+        $('.test').css({
+            "height":"100vh"
+            
+          });
+          $('#second').css({
+           
+               
+          });
+        $("#second3").hide();
+        $("#second2").hide();
         // Actions to be performed before the AJAX request is sent
       },
       success: function(data) {
-        $('#second2').html(data);
-        $("#second3").hide();
+        if (data.trim() === '') {
+          $("#second3").show().text("No results found.");
+          $('.test').css({
+            "height":"100vh"
+            
+          });
+          $("#second2").hide();
+        } else {
+          $('#second2').html(data);
+          $('.test').css({
+            "height":"max-content",
+            "padding-bottom":"200px"
+          });
+          $("#second3").hide();
           $("#second2").show();
+        }
       }
     });
   });
