@@ -1,8 +1,8 @@
+
 <?php
+session_start();
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,7 +104,18 @@
                     <li class="nav-item"><a href="#">MOUSSEM</a></li>
                     <li class="nav-item"><a href="#">RESTURANT</a></li>
                     <li class="nav-item"><a href="#">CONTACT</a></li>
-                    <li class="nav-item"><a href="#">SE CONNECTER</a></li>
+                    <li class="nav-item">
+                      <?php
+                      if(@$_SESSION['login']!= 'oui') {
+                        echo "<a href='login.php' name=''>SE CONNECTER</a>";
+                      }
+                      else{
+                        echo "<a href='deconection.php' name=''>DECONNECTER</a>";
+                      }
+                      ?>
+                    
+                  
+                  </li>
             
                   </ul>
            

@@ -1,3 +1,23 @@
+
+<?php
+
+
+
+session_start();
+$_SESSION['login']= 'non';
+foreach ($_POST as $key => $value) {
+  ${$key }=$value;
+}
+if(isset($valider)){
+
+  if($email=='user@test.com' && $password==1234){
+    $_SESSION['login']= 'oui';
+    header('Location:destinationpage.php');
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,19 +76,19 @@
         </div>
         <div class="login_class">
             <h4>Not a member <a href="">Sing up now!</a></h4>
-            <form>
+            <form method='post'>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Username Or Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
                   
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                   </div>
 
-                  <button type="submit" class="btn btn-primary">Sign In</button>
+                  <button type="submit" class="btn btn-primary" name='valider'>Sign In</button>
 
             </form> 
             <div><a href="">forget password?</a></div>  

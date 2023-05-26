@@ -1,20 +1,38 @@
 <?php 
 include 'connection.php';
 
-if((isset($_POST['submit']))){
-    foreach($_POST as $key => $value){
+
+
+
+
+
+
+$message2 = '';
+
+if (isset($_POST['submit'])) {
+    foreach ($_POST as $key => $value) {
         ${$key} = $value;
     }
 
-    $statement = $pdo->prepare ( 'INSERT into client(nom, prenom,email,`password`,`date-adding`)
-        VALUES(?,?,?,?,CURRENT_TIMESTAMP)');
-$statement->execute(array($name,$username,$email,md5($password)));
+    $sql = 'SELECT * FROM client WHERE email = :email';
+    $statement1 = $pdo->prepare($sql);
+    $statement1->bindParam(':email', $email);
+    $statement1->execute();
+    $existingUser = $statement1->fetch(PDO::FETCH_ASSOC);
 
+    if (!$existingUser) {
+        $sql = 'INSERT INTO client (nom, prenom, email, password, `date-adding`) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)';
+        $statement = $pdo->prepare($sql);
+        $hashedPassword = md5($password);
+        $statement->execute([$name, $username, $email, $hashedPassword]);
 
-
-if($statement){
-    header('location: login.html');
-}
+        if ($statement) {
+            header('location: login.html');
+            exit;
+        }
+    } else {
+        $message2 = 'Email already exists!';
+    }
 }
 ?>
 
@@ -76,8 +94,11 @@ if($statement){
                       </div>
 
                       <button type="submit" name="submit" class="btn btn-primary">Create account</button>
+                    
+            </form>  
+            <?php echo $message2 ; ?>
 
-            </form>
+            
         </div>
 
     </div>

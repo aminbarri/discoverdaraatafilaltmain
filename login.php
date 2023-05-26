@@ -1,3 +1,47 @@
+
+<?php
+
+include 'connection.php';
+
+session_start();
+$_SESSION['login']= 'non';
+$message="";
+foreach ($_POST as $key => $value) {
+    ${$key} = $value;
+  }
+  @$password = md5(@$password); // Encrypt the user input password with MD5
+  
+  $sql = 'SELECT *
+          FROM client
+          WHERE `email` = :email AND `password` = :password';
+  
+  $statement = $pdo->prepare($sql);
+  $statement->bindValue(':email', @$email);
+  $statement->bindValue(':password', @$password);
+  $statement->execute();
+  
+  $loggin = $statement->fetchAll(PDO::FETCH_ASSOC);
+  if (isset($valider)) {
+    if (empty($email)) {
+      $message .= 'Enter email!';
+    }
+  
+    if (empty($password)) {
+      $message .= 'Enter password!';
+    }
+  
+ {
+      if (@$email === @$loggin[0]['email'] && @$password === @$loggin[0]['password']) {
+        $_SESSION['login'] = true;
+        header('Location: destinationpage.php');
+        exit; // Make sure to exit after redirecting
+      } else {
+        $message .= 'Wrong password or email!';
+      }
+    }
+  }
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,22 +123,26 @@
             <div class="login_class">
               
                 
-                <form>
+                <form method='post'>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Username Or Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
                       
                     </div>
     
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <input type="password" class="form-control" id="exampleInputPassword1"name="password">
                       </div>
     
-                      <button type="submit" class="btn btn-primary">Sign In</button>
+                      <button type="submit" class="btn btn-primary"name='valider' >Sign In</button>
                     
                 </form>
                  <h4><a href="">forget password?</a></h4>
+                 <?php 
+                    echo $message;
+                ?>
+
             </div>
         </div>
 
