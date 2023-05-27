@@ -19,19 +19,23 @@ if (isset($_POST['submit'])) {
     $statement1->bindParam(':email', $email);
     $statement1->execute();
     $existingUser = $statement1->fetch(PDO::FETCH_ASSOC);
-
+if(isset($flexCheckChecked)){
     if (!$existingUser) {
+
         $sql = 'INSERT INTO client (nom, prenom, email, password, `date-adding`) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)';
         $statement = $pdo->prepare($sql);
         $hashedPassword = md5($password);
         $statement->execute([$name, $username, $email, $hashedPassword]);
 
         if ($statement) {
-            header('location: login.html');
+            header('location: login.php');
             exit;
         }
     } else {
-        $message2 = 'Email already exists!';
+        $message2 .= 'Email already exists!';
+    }}
+    else{
+        $message2  .= 'agrer terms';
     }
 }
 ?>
@@ -64,7 +68,7 @@ if (isset($_POST['submit'])) {
             </h3>
         </div>
         <div class="secend-singup">
-            <h4>Aready a member? <a href="loggin2.html">Sing in now!</a></h4>
+            <h4>Aready a member? <a href="login.php">Sing in now!</a></h4>
 
             <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
                 <div class="mb-3">

@@ -77,6 +77,13 @@ if(isset($valider)){
         <div class="login_class">
             <h4>Not a member <a href="">Sing up now!</a></h4>
             <form method='post'>
+            <?php 
+                if($_GET['success']){?>
+                    <div class="alert alert-success" role="alert">
+                    <?php echo$_GET['success']; ?>
+                  </div>
+                <?php }?>
+                ?>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Username Or Email address</label>
                   <input type="email" class="form-control" name="email" aria-describedby="emailHelp">

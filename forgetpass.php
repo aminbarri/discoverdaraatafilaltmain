@@ -1,3 +1,29 @@
+
+<?php
+include 'connection.php';
+$meass = '';
+foreach ($_POST as $key => $value) {
+    ${$key} = $value;
+}
+
+if (isset($_POST['submit'])) {
+    $sql = 'SELECT * FROM client WHERE email=:email';
+    $statement = $pdo->prepare($sql);
+    $statement->execute([':email' => $email]);
+    $publishers = $statement->fetchAll(PDO::FETCH_ASSOC);
+    
+    $id =$publishers[0]['id_client'];
+    if ($statement->rowCount() > 0) {
+        header("Location: changepass.php?id=$id");
+        exit;
+    } else {
+        header("Location: forgetpass.php?error=Invalid email");
+        exit;
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,22 +108,48 @@
         <div class="secend-forget">
             <div class="login_class">
                 
-                <form>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label"><a href=""><i class="bi bi-arrow-left"></i></a>  address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <form method="post">
+                   <div id='first'>
+                     <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="bi bi-arrow-left"  onclick="goBack()"></i>  address</label>
+                      <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
                       
                     </div>
     
                   
-    
-                      <button type="submit" class="btn btn-primary">Send</button>
+                    <input type="hidden" name="hidd" value='<?php echo $publishers[0]['id_client'] ; ?>'>
+                      <button type="submit" class="btn btn-primary" name='submit'>Envoyer</button>
                     
+                    
+                <?php 
+                  if(isset($_GET['error'])){ ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo$_GET['error']; ?>
+                    </div>
+                <?php } 
+                ob_end_flush();?>
+                   </div>
+                 
+            </div>
+
+
+        <?php
+
+                                                ?>
+                  
+
                 </form>
                 
             </div>
         </div>
 
     </div>
+
+   
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 </body>
 </html>

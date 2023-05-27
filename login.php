@@ -80,7 +80,7 @@ foreach ($_POST as $key => $value) {
 }
 .login_class>h4{
     position: absolute;
-    top: 255px;
+    top: 282px;
     left: 497px;
     font-size: small;
 }
@@ -119,11 +119,17 @@ foreach ($_POST as $key => $value) {
             </h3>
         </div>
         <div class="secend-signin">
-              <h5>Not a member <a href="">Sing up now!</a></h5>
+              <h5>Not a member <a href="SingUp.php">Sing up now!</a></h5>
             <div class="login_class">
-              
+           
                 
-                <form method='post'>
+                <form method='post'> 
+                    <?php 
+                  if(isset($_GET['success'])){ ?>
+                    <div class="alert alert-success" role="alert">
+                      <?php echo$_GET['success']; ?>
+                    </div>
+                <?php } ?>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Username Or Email address</label>
                       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
@@ -138,7 +144,7 @@ foreach ($_POST as $key => $value) {
                       <button type="submit" class="btn btn-primary"name='valider' >Sign In</button>
                     
                 </form>
-                 <h4><a href="">forget password?</a></h4>
+                 <h4><a href="forgetpass.php">forget password?</a></h4>
                  <?php 
                     echo $message;
                 ?>
