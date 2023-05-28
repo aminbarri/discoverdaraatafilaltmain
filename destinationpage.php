@@ -121,7 +121,7 @@ session_start();
            
               </div>  
             </nav>
-            
+            <div class="medium">
                 <center>
                     <div>
                         <div class="htl">DESTINATIONS</div>
@@ -135,6 +135,8 @@ session_start();
                     <i class="bi bi-arrow-down-square"></i>
                 
                         </div></a>
+
+                        </div>
         </div>
         <div id="second">
         <div class="center-bar">

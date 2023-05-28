@@ -131,13 +131,14 @@ float: right;
 margin-top: 5px;
 }
 .hot{
+    
 color: white;
 font-size: 1.7em;
 background-color: hsla(0, 0%, 0%, 0.404);
 font-family: Anton;
-position: absolute;
+/* position: absolute;
 left: 27%;
-top: 60%;
+top: 60%; */
 }
 .htl{
 font-family: Lobster;
@@ -145,10 +146,17 @@ font-family: Lobster;
 font-size: xx-large;
 font-weight: bolder;
 color: white;
-position: absolute;
+/* position: absolute;
 left: 46%;
-top: 52%;
+top: 52%; */
 }
 .bi-arrow-down-square{
 color: white;
+}
+
+.medium{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+   
 }

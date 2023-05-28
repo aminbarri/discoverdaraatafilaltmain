@@ -1,10 +1,12 @@
 
 .containner{}
 .top_containner{
-  width: 1294px;
+  width: 100%;
+
 
 }
  
+
   .top_bar{
       margin-left: 150px;
   }
