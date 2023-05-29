@@ -65,13 +65,13 @@ session_start();
                     <div class='h'>
                         <div class="htl">HOTELS</div>
                         <div class="hot">discover les meilleurs hotels de la region DRAA TAFILALET</div>
-                    <a href="#second">
+                   
                     <div class="der">
                         
-                     
+                      <a href="#second">
                     <i class="bi bi-arrow-down-square"></i>
-                
-                        </div></a>
+                </a>
+                        </div>
                     </div>
                 </center>
         </div>

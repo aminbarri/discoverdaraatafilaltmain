@@ -121,21 +121,21 @@ session_start();
            
               </div>  
             </nav>
-            <div class="medium">
+            <div class="h">
                 <center>
                     <div>
                         <div class="htl">DESTINATIONS</div>
                         <div class="hot">discover les meilleurs distinations de la region DRAA TAFILALET</div>
                     
                     </div>
-                </center><a href="#second">
+                
                     <div class="der">
-                        
+                        <a href="#second">
                         <span></span>
                     <i class="bi bi-arrow-down-square"></i>
                 
                         </div></a>
-
+                        </center>
                         </div>
         </div>
         <div id="second">

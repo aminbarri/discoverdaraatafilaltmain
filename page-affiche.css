@@ -85,8 +85,8 @@ padding-right: 7px;
 .der{
 position: absolute;
 font-size: xx-large;
-top: 79%;
-    left: 50%;
+
+    left: 49%;
 }
 .bottom_footer>span{
 color: white;
@@ -160,5 +160,5 @@ color: white;
     width: 100%;
     position:absolute;
     top:47vh;
-    left: 8vw;
+   left:8vw;
 }

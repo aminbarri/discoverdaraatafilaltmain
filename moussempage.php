@@ -126,9 +126,9 @@ session_start();
                     <div>
                         <div class="htl">MOUSSEMS</div>
                         <div class="hot">discover les meilleurs moussems de la region DRAA TAFILALET</div>
-                      <a href="#second">
+                  
                     <div class="der">
-                
+                     <a href="#second">
                     <i class="bi bi-arrow-down-square"></i>
                 
                         </div></a>
