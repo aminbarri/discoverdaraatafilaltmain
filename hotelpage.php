@@ -62,20 +62,20 @@ session_start();
             </nav>
             
                 <center>
-                    <div>
+                    <div class='h'>
                         <div class="htl">HOTELS</div>
                         <div class="hot">discover les meilleurs hotels de la region DRAA TAFILALET</div>
-                    
-                    </div>
-                </center><a href="#second">
+                    <a href="#second">
                     <div class="der">
                         
-                        <span></span>
+                     
                     <i class="bi bi-arrow-down-square"></i>
                 
                         </div></a>
+                    </div>
+                </center>
         </div>
-   <div id="second" class='test'>
+        <div id="second" class='test'>
         <div class="center-bar">
         <div>
             

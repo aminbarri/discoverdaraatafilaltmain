@@ -121,20 +121,19 @@ session_start();
            
               </div>  
             </nav>
-            <div class="medium">
+            <div class="h">
                 <center>
                     <div>
                         <div class="htl">MOUSSEMS</div>
                         <div class="hot">discover les meilleurs moussems de la region DRAA TAFILALET</div>
-                    
-                    </div>
-                </center><a href="#second">
+                      <a href="#second">
                     <div class="der">
-                        
-                        <span></span>
+                
                     <i class="bi bi-arrow-down-square"></i>
                 
                         </div></a>
+                    </div>
+                </center>
 
                         </div>
         </div>

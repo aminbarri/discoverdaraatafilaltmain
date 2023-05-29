@@ -15,14 +15,14 @@ if(isset($submit)){
     $ins->execute(array($name ,$email, $sujet,$content));
     if($ins){
       
-      header('Location: contact.php?success= effectue!');
+      header('Location: contact.php?success= Message envoyé avec succès!');
     }
     else{
-      header('Location: contact.php?error= error!');
+      header("Location: contact.php?error= Échec de l'envoi du message");
     }
   }
   else{
-    header('Location: contact.php?error= error!');
+    header('Location: contact.php?error= Il y a un champ vide!');
   }
 }
 
