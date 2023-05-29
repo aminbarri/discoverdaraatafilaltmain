@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .sendmsg{
+            width: 100vw;
+            height: 100vh;
+            background-color: hsla(0, 0%, 0%, 0.884);
+        }
+        form{
+            display: flex;
+          flex-direction: column;
+        }
+        form>div{
+            margin:5px 0 5px 0;
+            
+        }
+        textarea{
+            width: 37vw;
+            height: 29vh;
+            background-color: rgba(0, 0, 0, 0.411);
+            border: none;
+            border-radius: 5px;
+        }
+        input{
+             width: 37vw;
+             background-color: rgba(0, 0, 0, 0.411);
+             border: none;
+             height: 5vh;
+             border-radius: 5px;
+             color: white;
+        }
+       
+        input:placeholder{
+            margin-left: 10px;
+            color: white;
+        }
+       
+       
+    </style>
+</head>
+<body>
+    
+
+
+    <div class="sendmsg">
+        <form action="" method="post">
+            <div>
+             <input type="text" name="name" placeholder="Votre nom">
+            </div>
+            <div>
+             <input type="email" name="email" placeholder="Votre email">
+            </div>
+            <div>
+             <input type="text" name="sujet" placeholder="Sujet">
+            </div>
+            <div>
+             <textarea name="content" id="" placeholder="Votre message"></textarea>
+            </div>
+
+            <div>
+                <input type="submit" value="Envoyer">
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

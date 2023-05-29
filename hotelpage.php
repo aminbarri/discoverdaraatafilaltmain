@@ -42,7 +42,7 @@ session_start();
                     <li class="nav-item"><a href="#">DESTINATION</a></li>
                     <li class="nav-item"><a href="#">MOUSSEM</a></li>
                     <li class="nav-item"><a href="#">RESTURANT</a></li>
-                    <li class="nav-item"><a href="#">CONTACT</a></li>
+                    <li class="nav-item"><a href="contact.php">CONTACT</a></li>
                     <li class="nav-item">
                       
                     <?php

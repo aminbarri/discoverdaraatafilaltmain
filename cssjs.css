@@ -1,0 +1,48 @@
+
+
+
+
+/*     styling SVG Map                 */
+
+svg {  
+    height:50vh;
+    width: 70vw;
+    
+    --mapColor:#BCD5CE;
+    --mapHColor:#E4A441;
+}
+#errachidia{
+    
+    fill: var(--mapColor);
+}
+#tinghir{
+    
+    fill: var(--mapColor);
+}
+#zagora{
+    
+    fill: var(--mapColor);
+}
+#midelt{
+    
+    fill: var(--mapColor);
+}
+#ouarzazate{
+    
+    fill: var(--mapColor);
+}
+#errachidia:hover{
+    fill: var(--mapHColor);
+}
+#ouarzazate:hover{
+    fill: var(--mapHColor);
+}
+#zagora:hover{
+    fill: var(--mapHColor);
+}
+#midelt:hover{
+    fill: var(--mapHColor);
+}
+#tinghir:hover{
+    fill: var(--mapHColor);
+}
