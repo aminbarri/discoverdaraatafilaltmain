@@ -1,0 +1,178 @@
+.second2{
+    padding: 50px;
+}
+        
+.input-group{
+            width: 250px;
+            
+           
+        }
+        .information>form>div ,.chamber,.dure,.confirmation_res,.payment,.prix{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+   
+     
+        .chamber>div>select,.chamber>div>input,  .dure>div>input{
+            width: 250px;
+            
+        }
+    
+        .prix{
+            width: 100%;
+            
+        }
+
+    .prix>span{
+        text-align: center;
+    }
+    .payment>label{
+        width: 250px;
+        border: 1px solid black;
+    }
+    .confirmation_res>button{
+        width: 250px;
+        border: 1px solid black;
+        border-radius: none;
+    }
+    .reservehotel{
+        border: 1px solid black;
+      
+        padding: 25px;
+
+    }
+    h4{
+        /* margin-top: 12px; */
+    }
+    
+    
+    .nomber-per{
+      
+    }
+
+    .mb-3 {
+    margin-bottom: 16px;
+}
+    
+.img_hotel{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: blueviolet;
+   
+}
+.img_hotel>img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.date-fin{
+
+}
+.hotel_des{
+   width:50%;
+    padding:25px;
+}
+.all-page{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.dure, .information,.chamber,.confirmation_res{
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+}
+.bi-star-fill{
+            color: rgb(250, 167, 13);
+            
+        }
+        .bottom_footer{
+ 
+ background-color: #1e4633;
+ height: 30px;
+ text-align: center;
+ 
+     }
+     .test{
+         height:auto;
+         width: 100%;
+       
+     }
+ 
+     .box-hotel{
+         background-color: white;
+         border: none;
+     }
+     .countainer{
+         margin: 0px;
+         padding: 0px;
+         
+         flex-wrap: wrap;
+     justify-content: center;
+    
+     }
+     .top-header{
+         width: 100%;
+        height: 100%;
+         background-image: url('img/tinghir.jpg');
+         background-repeat: no-repeat;
+         background-size: cover;
+     }
+     
+  
+     footer{
+         width: 100%;
+     }
+     .center-bar{
+ 
+         background-color: rgb(25, 63, 32);
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+     align-items: center;
+     }
+     .center-bar>div>input{
+         display: flex;
+          align-items: center;
+          width: 100%;
+      height: 50px;
+     }
+     .center-bar>div{
+         box-sizing: unset;
+         width: 80%;
+     }
+     .bottom_footer>span>a{
+ text-decoration: none;
+ color: white;
+ border-right: 1px solid white;
+ padding-right: 7px;
+ }
+ 
+ .bottom_footer>span{
+ color: white;
+ position: relative;
+ top: 3px;
+ }
+   
+ 
+ nav{
+ background-color:#469754;
+ }
+ .logo{
+ margin-left: 79px;
+ }
+ @media (max-width: 600px) {
+         .logo {
+             float: left;
+ margin-left:0px; /* Change margin for smaller screens */
+ }
+ .bar_top_sec {
+ float: right;
+ }
+ }
+ .bar_top_sec >ul>li{
+ margin-top: 5px;
+ }
+

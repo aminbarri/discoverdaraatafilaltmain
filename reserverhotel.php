@@ -1,107 +1,96 @@
+
+<?php
+session_start();
+include 'connection.php';
+
+foreach ($_POST as $key => $value) {
+  ${$key} = $value;
+}
+
+if(isset($submit)){
+  if(!empty($content)&&!empty($name)&&!empty($email)&&!empty($sujet)){
+  $sql='INSERT INTO message ( `name`, `email`, `sujet`, `content`, `date_sending`) 
+    VALUES (?,?,?,?,CURRENT_TIMESTAMP)';
+    $ins = $pdo->prepare($sql);
+    $ins->execute(array($name ,$email, $sujet,$content));
+    if($ins){
+      
+      header('Location: contact.php?success= Message envoyé avec succès!');
+    }
+    else{
+      header("Location: contact.php?error= Échec de l'envoi du message");
+    }
+  }
+  else{
+    header('Location: contact.php?error= Il y a un champ vide!');
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="font/bootstrap-icons.min.css">
-
-    <style>
-        .input-group{
-            width: 250px;
-            
-           
-        }
-        .information>form>div ,.chamber,.dure,.confirmation_res,.payment,.prix{
-            margin-left: 10px;
-            margin-right: 10px;
-        }
+    <link rel="stylesheet" href="resrrve.css">
+  
    
-     
-        .chamber>div>select,.chamber>div>input,  .dure>div>input{
-            width: 250px;
-            
-        }
-    
-        .prix{
-            width: 100%;
-            
-        }
-
-    .prix>span{
-        text-align: center;
-    }
-    .payment>label{
-        width: 250px;
-        border: 1px solid black;
-    }
-    .confirmation_res>button{
-        width: 250px;
-        border: 1px solid black;
-        border-radius: none;
-    }
-    .reservehotel{
-        border: 1px solid black;
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
       
-        padding: 25px;
-
-    }
-    h4{
-        /* margin-top: 12px; */
-    }
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="steylforhotelpagr.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserver Hotel</title>
     
-    
-    .nomber-per{
-      
-    }
 
-    .mb-3 {
-    margin-bottom: 16px;
-}
-    
-.img_hotel{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: blueviolet;
-   
-}
-.img_hotel>img{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
-.date-fin{
-
-}
-.hotel_des{
-   width:50%;
-    padding:25px;
-}
-.all-page{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-.dure, .information,.chamber,.confirmation_res{
-    display: flex;
-    justify-content:space-between;
-    flex-wrap: wrap;
-}
-.bi-star-fill{
-            color: rgb(250, 167, 13);
-            
-        }
-
-      
-    </style>
 </head>
 <body>
+    
+    <div class="countainer">
+        <div class="top " id="">
+           
+         
+       
+            <nav class="navbar  navbar-expand-lg  container-fluid">
+                <div class="logo"><a href=""><img src="img/logo.png" alt="" width="200px" height="70px"></a></div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+              <div   class=" bar_top_sec collapse navbar-collapse"  id="navbarScroll">
+                  <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" >
+                   
+                    <li class="nav-item"><a href="#">ACCUEIL</a></li>
+                    <li class="nav-item"><a href="#">HOTELS</a></li>
+                    <li class="nav-item"><a href="#">DESTINATION</a></li>
+                    <li class="nav-item"><a href="#">MOUSSEM</a></li>
+                    <li class="nav-item"><a href="#">RESTURANT</a></li>
+                    <li class="nav-item"><a href="contact.php">CONTACT</a></li>
+                    <li class="nav-item">
+                      <?php
+                      if(@$_SESSION['login']!= 'oui') {
+                        echo "<a href='login.php' name=''>SE CONNECTER</a>";
+                      }
+                      else{
+                        echo "<a href='deconection.php' name=''>DECONNECTER</a>";
+                      }
+                      ?>
+                    
+                  
+                  </li>
+            
+                  </ul>
+           
+              </div>  
+            </nav>
+                    </div> 
+        <div  id="second2" >
 
+        <?php // include'resehotel.html';?>
+
+        
     <div class="all-page">
         <div class="hotel_des">
        <div class="img_hotel"><img src="img/3.jpg" alt="" width="100%" height="100%"></div> 
@@ -193,6 +182,21 @@
 
     </div>
     </div>
+        </div>
+
+        <footer class="">
+       
+       <div class="bottom_footer">
+
+               <span><i class="bi bi-c-circle"></i> <a href="">discoverdaraatafilalt.com</a> All right reserved</span>
+       </div>
+       
+   </footer>
+    </div>        
     
+
+   
+</div>
+   </div>
 </body>
 </html>
