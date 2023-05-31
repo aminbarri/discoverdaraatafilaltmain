@@ -7,26 +7,24 @@ foreach ($_POST as $key => $value) {
   ${$key} = $value;
 }
 
-$id=7;
+$id=4;
 
 if(isset($confirmer)){
-  if(!empty($name)&&!empty($scname)&&!empty($email)&&!empty($phone)&&!empty($type)&&!empty($nbrpersone)
-  &&!empty($datedebut)&&!empty($datefin)){
-  $sql='INSERT INTO `reserver-hotel` ( `id-hotel`, `nom`, `prenom`, `email`, `phone`, `type`, `nmbre-perssone`, 
-    `date-debut`, `date-fin`, `date-reservartion`) 
-    VALUES (?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)';
+  if(!empty($name)&&!empty($scname)&&!empty($email)&&!empty($phone)){
+  $sql='INSERT INTO `reserver-voyage` ( `id-cer`, `nom`, `prenom`, `email`, `phone`,  `date-reservartion`) 
+    VALUES (?,?,?,?,?,CURRENT_TIMESTAMP)';
     $ins = $pdo->prepare($sql);
-    $ins->execute([$id,$name ,$scname,$email, $phone,$type,$nbrpersone,$datedebut,$datefin]);
+    $ins->execute([$id,$name ,$scname,$email, $phone]);
     if($ins){
       
       header('Location: index.html?success= Message envoyé avec succès!');
     }
     else{
-      header("Location: index.html?error= Échec de l'envoi du message");
+      header("Location: reservervoyage.php?error= Échec de poursuivre le processus!");
     }
   }
   else{
-    header('Location: index.html?error= Il y a un champ vide!');
+    header('Location: reservervoyage.php?error=Échec de poursuivre le processus!');
   }
 }
 
@@ -82,9 +80,12 @@ if(isset($confirmer)){
                 </div>
             </nav>
         </div>
+       
         <div id="second2">
             <?php // include 'resehotel.html';?>
+            
             <div class="all-page">
+            
                 <div class="hotel_des">
                     <div class="img_hotel">
                         <img src="img/3.jpg" alt="" width="100%" height="100%">
@@ -101,6 +102,12 @@ if(isset($confirmer)){
                     <div class="description"></div>
                 </div>
                 <div class="reservehotel">
+                <?php 
+                  if(isset($_GET['error'])){ ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo$_GET['error']; ?>
+                    </div>
+                <?php } ?>
                     <h4>Personel Information</h4>
                     <div>
                         <form action="" class="" method="post">
@@ -127,33 +134,8 @@ if(isset($confirmer)){
                        
 
                     </div>
-                    <h4>Chamber</h4>
-                    <div class="chamber">
-                        <div class="type-chamber">
-                            <label for="">Type de chambre</label>
-                            <select class="form-select" aria-label="Default select example" name='type'>
-                                <option selected>Open this select menu</option>
-                                <option value="seul">seul</option>
-                                <option value="partagé">partagé</option>
-                            </select>
-                        </div>
-                        <div class="nomber-per">
-                            <label for="">Nombre of personne</label>
-                            <input type="number" class="form-control" name='nbrpersone' placeholder="Number of personne">
-                        </div>
-                    </div>
-                    <h4>Duree</h4>
-                    <div class="dure">
-                        <div>
-                            <label for="">Date debut</label>
-                            <input type="date" name='datedebut' class="form-control">
-                        </div>
-                        <div class="date-fin">
-                            <label for="">Date fin</label>
-                            <input type="date" name="datefin" class="form-control">
-                        </div>
-                    </div>
-                    <h4>Prix Total</h4>
+                    
+                    
                     <div class="prix">
                         <span class="input-group-text" id='datefun' name='datefun'>Prix Total</span>
                     </div>

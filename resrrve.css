@@ -35,9 +35,11 @@
     .confirmation_res>button,.confirmation_res>input{
         width: 250px;
         margin-top: 5px;
+        border: none;
         background-color: bisque;
         border-radius: 3px;
         margin-right: 5px;
+
     }
     .confirmation_res>button>a{
         
@@ -45,7 +47,7 @@
         color: #212529;
     }
     
-    .confirmation_res>button:hover{
+    .confirmation_res>button:hover,.confirmation_res>input:hover{
         
         background-color: rgb(192, 192, 191);
     }
