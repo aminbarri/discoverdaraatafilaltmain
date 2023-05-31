@@ -50,7 +50,7 @@ ul li a{
     display: block;
 }
 
-#circuit.collapsed {
+#Voyage.collapsed {
     display: block;
 }
 
@@ -104,15 +104,15 @@ a.active {
               </li>
               <li class="nav-item nav-category">Articles</li>
               <li class="nav-item">
-                <a class="nav-link" id='Circuits'data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="circuit">
+                <a class="nav-link" id='Voyage'data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="Voyage">
                   <i class="mdi mdi-sine-wave menu-icon"></i>
-                  <span class="menu-title">Circuits</span>
+                  <span class="menu-title">Voyage</span>
                   <i class="menu-arrow"></i>
                 </a>
-                <div class="collapse" id="circuit">
+                <div class="collapse" id="Voyage">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#">Afficher les circuits</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Ajouter un circuit</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Afficher les Voyages</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Ajouter un Voyage</a></li>
                   </ul>
                 </div>
               </li>
@@ -243,8 +243,8 @@ a.active {
          });
           });
           $(document).ready(function() {
-          $('#Circuits').click(function() {
-         $('#circuit').toggleClass('collapsed');
+          $('#Voyage').click(function() {
+         $('#Voyage').toggleClass('collapsed');
        
          });
         });

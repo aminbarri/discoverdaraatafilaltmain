@@ -133,8 +133,8 @@ if(isset($confirmer)){
                             <label for="">Type de chambre</label>
                             <select class="form-select" aria-label="Default select example" name='type'>
                                 <option selected>Open this select menu</option>
-                                <option value="1">seul</option>
-                                <option value="2">partagé</option>
+                                <option value="seul">seul</option>
+                                <option value="partagé">partagé</option>
                             </select>
                         </div>
                         <div class="nomber-per">
