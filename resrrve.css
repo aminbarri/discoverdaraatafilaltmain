@@ -1,5 +1,7 @@
-.second2{
+.all-page{
     padding: 50px;
+    
+    background-color: rgb(197, 187, 176);
 }
         
 .input-group{
@@ -30,19 +32,32 @@
         width: 250px;
         border: 1px solid black;
     }
-    .confirmation_res>button{
+    .confirmation_res>button,.confirmation_res>input{
         width: 250px;
-        border: 1px solid black;
-        border-radius: none;
+        margin-top: 5px;
+        background-color: bisque;
+        border-radius: 3px;
+        margin-right: 5px;
+    }
+    .confirmation_res>button>a{
+        
+        text-decoration: none;
+        color: #212529;
+    }
+    
+    .confirmation_res>button:hover{
+        
+        background-color: rgb(192, 192, 191);
     }
     .reservehotel{
-        border: 1px solid black;
-      
+        border-radius: 10px;
+       background-color: rgb(255, 255, 255);
         padding: 25px;
 
     }
     h4{
-        /* margin-top: 12px; */
+         margin-top: 12px;
+         margin-bottom: 12px; 
     }
     
     
@@ -79,7 +94,9 @@
     justify-content: center;
     align-items: center;
 }
+
 .dure, .information,.chamber,.confirmation_res{
+    width: 100%;
     display: flex;
     justify-content:space-between;
     flex-wrap: wrap;
