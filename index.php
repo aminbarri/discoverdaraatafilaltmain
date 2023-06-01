@@ -8,6 +8,8 @@
     <script type="text/javascript" src="jquery/jquery-3.6.3.min.js"></script>
     <script src="jquery.backstretch.min.js"></script>
     
+    <link rel="stylesheet" href="cssjs.css">
+    
     <title>Document</title> 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="hotel.css">
@@ -24,7 +26,7 @@
 
 
 
-    <div class="top_containner ">
+    <div class="top_containner">
        
      
       <div class="top " id="backstretch">
@@ -61,31 +63,8 @@
         
         </div>
       </div> 
-      <div class="hotel_res ">
-        <form action="">
-           <div class="">
-            <label for="" class="form-label">Check in date</label><br>
-            <input type="date" class="form-control" >
-           </div>
-            
-          <div>  <label for="" class="form-label">Check out date</label><br>
-            <input type="date" class="form-control" >
-          </div>
-          <div><label class="form-label">Location</label><br>
-                <input type="text" class="form-control hotel_search1" >
-          </div>
-          <div>
-            <label for="" class="form-label">Adult</label><br>
-                <input type="number" class="form-control" placeholder="1">
-               </div>
-            <div><label for="" class="form-label">Children</label><br>
-                <input type="number" class="form-control" placeholder="1">
-            </div>
-            <div>
-                <input type="submit" class=" form-control" name="" id="submit" value="SEARCH">
-            </div>
-        </form>
-    </div>
+      <header>
+     <?php include 'htmljs.html'; ?>
       <div class="hotel_sec">
         <div class="box-hotel">
           <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
@@ -158,7 +137,7 @@
  
  
 
-  
+      </header>
 
   <footer>
     <div class="top_footer">

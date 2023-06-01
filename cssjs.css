@@ -8,8 +8,11 @@ svg {
     height:50vh;
     width: 70vw;
     
-    --mapColor:#BCD5CE;
-    --mapHColor:#E4A441;
+    --mapColor:#c49e21;
+    --mapHColor:#b49464;
+}
+.st1{
+    color: beige;
 }
 #errachidia{
     
@@ -45,4 +48,26 @@ svg {
 }
 #tinghir:hover{
     fill: var(--mapHColor);
+}
+
+.main-prp{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.textabout{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.textabout>h3{
+    padding: 15px;
+    border-bottom: 3px solid darkgray;
 }

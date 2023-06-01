@@ -54,11 +54,11 @@ margin-top: 26px;
 .medium_footer>ul{margin-right: 7px;
 margin-left: 64px;
 }
-.info{
+.medium_footer>.info{
     color: white;
     padding-left: 200px;
 }
-.info>li>span{
+.medium_footer>.info>li>span{
     margin-left: 35px;
 }
 .bottom_footer{
