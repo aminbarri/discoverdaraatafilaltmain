@@ -53,7 +53,8 @@ svg {
 .main-prp{
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
     align-items: center;
     justify-content: center;
     

@@ -12,7 +12,7 @@
 <style>
     footer{
         width: 100%;
-        height: 330px;
+        height: 100%;
         background-color: #1F5C3F;
     }
     .social_media_footer{
@@ -35,9 +35,10 @@
     }
     .top_footer{
         display: flex;
-        
-        padding-left: 73px;
+        flex-wrap: wrap;
+        padding-left: 54px;
         padding-top: 30px;
+
     }
     .top_footer>ul>li,.medium_footer>ul>li{
           list-style: none;
@@ -45,8 +46,7 @@
           
     }
     .top_footer>ul{
-        display: flex;
-        padding-left: 840px;
+        display: flex;justify-content: flex-end;
     }
     .medium_footer>ul>li>a{
         text-decoration: none;
@@ -62,13 +62,15 @@
         display: flex;
     width: 100%;
     margin-top: 26px;
+    flex-wrap: wrap;
+    justify-content: space-between;
     }
     .medium_footer>ul{margin-right: 7px;
     margin-left: 64px;
     }
     .info{
         color: white;
-        padding-left: 200px;
+        /* padding-left: 200px; */
     }
     .info>li>span{
         margin-left: 35px;
