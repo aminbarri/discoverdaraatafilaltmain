@@ -140,6 +140,7 @@ align-items: center;
 }
 .logo{
 padding-right: 150px;
+margin-left: 79px;
 }
 .pre_paragraf{
 color: rgb(255, 255, 255);
@@ -151,6 +152,9 @@ font-family:  'Roboto Condensed'
 ;
 
 }
+.bar_top_sec{
+  height: 100%;
+}
 .welcome{
 width: max-content;
 
@@ -161,7 +165,13 @@ background-color: hsl(0, 0%, 0%,0.3);
 
 @media screen and (max-width: 600px) {
   .welcome{
-    padding:14px  38px 8px 8px;
+    padding:14px 26px 8px 8px;
+  }
+  .logo{
+    text-align: center;
+    padding-right: 0;
+    margin-left: 0;
+
   }
 }
 
@@ -193,6 +203,8 @@ margin: 12px 4px 8px 5px;
 /* margin:50px;
 padding-left: 19px; */
 padding-top: 29px;
+position: relative;
+padding-bottom: 50px;
 }
 
 .hotel_sec>div{
@@ -251,5 +263,41 @@ text-align: center;
   .sectoptext{
     font-size: 20px;
   }
+  .pre_paragraf{
+    padding-left: 8px;
+  }
+  .bar_top_sec >ul>li {
+    margin: 0 20px 0 20px;
+  }
   
 }
+
+
+.swapp{
+ /* font-weight: bold; */
+ font-size: 2em;
+position: absolute;
+
+}
+.swiper-button-nextt{
+  left:1px;
+  position: absolute;
+    top: 51%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.swiper-button-prevv{
+  right: 1px;
+  position: absolute;
+  top: 51%;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.swiper>i{
+  color: #00ff43;
+}
+nav{
+  background-color:#469754;
+  }

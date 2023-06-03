@@ -11,7 +11,7 @@ session_start();
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="hotel.css">
-    <link rel="stylesheet" href="page-affiche.css">
+     <link rel="stylesheet" href="page-affiche.css">  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
       
@@ -140,10 +140,10 @@ session_start();
         </div>
         <div id="second">
         <div class="center-bar">
-        <div>
+        <div class="tttt">
             
-            <input type="text"  placeholder="Taper province..." id='province'>
-       
+            <input type="text"  id='province'>
+           
            
         </div>
                
@@ -215,20 +215,10 @@ session_start();
         
     </footer>
 
-    <script>
-        // document.addEventListener("DOMContentLoaded", function() {
-        //   var navbarToggle = document.querySelector(".navbar-toggler");
-        //   var navbarCollapse = document.querySelector(".bar_top_sec");
-      
-        //   navbarToggle.addEventListener("click", function() {
-        //     navbarCollapse.classList.toggle("show");
-        //   });
-        // });
-
-      </script>
+   
       <script type="text/javascript">
-   $(document).ready(function() {
-  $('#province').keyup(function() { // Listen for keyup event on the input field
+     $(document).ready(function() {
+     $('#province').keyup(function() { // Listen for keyup event on the input field
     $.ajax({
       method: 'GET',
       url: 'selecthotel.php',

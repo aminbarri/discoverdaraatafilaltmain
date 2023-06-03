@@ -75,6 +75,7 @@ margin-left:45px; /* Change margin for smaller screens */
     .center-bar>div{
         box-sizing: unset;
         width: 80%;
+        z-index: 1000;
     }
     .bottom_footer>span>a{
 text-decoration: none;
@@ -93,7 +94,7 @@ color: white;
 position: relative;
 top: 3px;
 }
-    .center-bar>div>input[type="text"] {
+    #province[type="text"] {
 
 border: none;
 outline: none;
@@ -109,19 +110,26 @@ background-position-y: center;
 
 
 }
-.center-bar>div>input::placeholder{
+/* .tttt>input::placeholder{
 color: white;
-}
+} */
 nav{
 background-color:#469754;
 }
 .logo{
 margin-left: 79px;
+
+
+    padding-right: 150px;
+    
 }
 @media (max-width: 600px) {
         .logo {
-            float: left;
-margin-left:0px; /* Change margin for smaller screens */
+           
+                text-align: center;
+                padding-right: 0;
+                margin-left: 0;
+            
 }
 .bar_top_sec {
 float: right;
@@ -161,4 +169,5 @@ color: white;
     position:absolute;
     top:47vh;
    left:8vw;
+z-index: 0;
 }
