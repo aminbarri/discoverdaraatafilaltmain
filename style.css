@@ -1,7 +1,12 @@
 
-.containner{}
+body{
+  max-width: 1351px;
+  padding: 0;
+  margin: 0;
+}
 .top_containner{
   width: 100%;
+ 
 
 
 }
@@ -185,8 +190,8 @@ padding: 5px;
 margin: 12px 4px 8px 5px;
 }
 .hotel_sec{
-margin:50px;
-padding-left: 19px;
+/* margin:50px;
+padding-left: 19px; */
 padding-top: 29px;
 }
 
@@ -208,12 +213,43 @@ margin-left: 15px;
   /* width: 100%; */
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 .toptext>div>span{
   font-size: 1.6em;
   font-weight: bold;
 }
 .frsttoptext{
-  font-family:Roboto Condensed;
-  font-size: 1em;
+  font-family:Unica none;
+  font-size: 20px;
+  letter-spacing: 8px;
+}
+
+.sectoptext{
+  font-size: 20px;
+text-align: center;
+}
+.second-hotel{
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+@media screen and (max-width: 600px) {
+  .toptext>div>span{
+    font-size: 1.6em;
+    font-weight: bold;
+  }
+  .frsttoptext{
+    font-family:Unica none;
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+  .sectoptext{
+    font-size: 20px;
+  }
+  
 }

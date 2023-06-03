@@ -71,4 +71,9 @@ svg {
 .textabout>h3{
     padding: 15px;
     border-bottom: 3px solid darkgray;
+    text-align: center;
+}
+
+.textabout>div>p{
+    text-align: center;
 }

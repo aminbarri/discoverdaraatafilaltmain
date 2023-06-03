@@ -8,15 +8,15 @@
     <script type="text/javascript" src="jquery/jquery-3.6.3.min.js"></script>
     <script src="jquery.backstretch.min.js"></script>
 
-    <link rel="stylesheet" href="cssjs.css">
+    <link rel="stylesheet" href="cssjs.css" defer>
 
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="hotel.css">
-    <link rel="stylesheet" href="resrvastion.css">
+    <link rel="stylesheet" href="hotel.css" defer>
+    <link rel="stylesheet" href="resrvastion.css" defer>
 
-    <link rel="stylesheet" href="footer.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer.css" defer>
+    <link rel="stylesheet" href="style.css" defer>
     <script type="text/javascript" src="Supersized/theme/supersized.shutter.min.js"></script>
     <script type="text/javascript" src="Supersized/js/jquery.easing.min.js"></script>
 
@@ -29,7 +29,7 @@
     <div class="top_containner">
 
 
-      <div class="top " id="backstretch">
+      <div class="top " id="backstretch" >
         <div class="bar_top_first ">
 
             <ul class=" ">
@@ -70,10 +70,13 @@
        
        <div class="hotel_sec">
        <div class='toptext'>
-        <div class="frsttoptext">Most popilaire <span>HOTELS</span></div>
-        <div>Families, couples, workaholics, adventurers, find your own piece of paradise</div>
+        <div class="frsttoptext">Most Populare <span>HOTELS</span></div>
+        <div class="sectoptext" >Families, couples, workaholics, adventurers, find your own piece of paradise</div>
        </div>
-        <div class="box-hotel">
+           
+
+           <div class='second-hotel'>
+           <div class="box-hotel">
           <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
             <div class="text">
                <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
@@ -89,7 +92,7 @@
               </div>
              <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
             </div>
-            <div class="box-hotel">
+           <div class="box-hotel">
               <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
                <div class="text">
               <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
@@ -106,24 +109,8 @@
               <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
                 </div>
 
-                <div class="box-hotel">
-                  <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                   <div class="text">
-                  <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                  </div>
 
-                  <div class="adress">kasr ifri, Achbaro</div>
-                  <div class="description">1-star hotel</div>
-                   </div>
-                  <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-                    </div>
-
-                    <div class="box-hotel">
+            <div class="box-hotel">
                       <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
                        <div class="text">
                       <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
@@ -139,7 +126,25 @@
                        </div>
                       <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
                         </div>
-      </div>
+             <div class="box-hotel">
+              <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
+               <div class="text">
+              <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+              </div>
+
+              <div class="adress">kasr ifri, Achbaro</div>
+              <div class="description">1-star hotel</div>
+               </div>
+              <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
+                </div>
+
+              </div>
+        </div>
 
 
        </div>

@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Document</title>
     <style>
         .box-hotel{
             width: 270px;
+            max-width: 270px;
             height: max-content;
             border-radius: 5px;
             position: relative;
@@ -49,6 +53,7 @@
         .dure{
             border-top: 1px solid black;
             padding: 5px 0px 5px 10px;
+            width: 270px;
         }
         .dure>span{
             font-size: 1.1em;
@@ -69,96 +74,150 @@
         .text{
             padding: 10px;
         }
+        .main{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 16px;
+            border-radius: 8px;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
-    
-    <div class="box-hotel">
-            <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-             <div class="text">
-            <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
+    <div class="">
+        <div class="swiper main ">
+            <div class="test">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide box-hotel">
+                        <img src="img/3.jpg" alt="" width="270px" height="150px">
+                        <span>MAD350</span>
+                        <div class="text">
+                            <div class="hotel-name">Gite Luna Del Fuego</div>
+                            <div class="rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="adress">kasr ifri, Achbaro</div>
+                            <div class="description">1-star hotel</div>
+                        </div>
+                        <div class="dure">
+                            <span>Duration</span>: 6 hours
+                            <a href="#">...</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide box-hotel">
+                        <img src="img/3.jpg" alt="" width="270px" height="150px">
+                        <span>MAD350</span>
+                        <div class="text">
+                            <div class="hotel-name">Gite Luna Del Fuego</div>
+                            <div class="rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="adress">kasr ifri, Achbaro</div>
+                            <div class="description">1-star hotel</div>
+                        </div>
+                        <div class="dure">
+                            <span>Duration</span>: 6 hours
+                            <a href="#">...</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide box-hotel">
+                        <img src="img/3.jpg" alt="" width="270px" height="150px">
+                        <span>MAD350</span>
+                        <div class="text">
+                            <div class="hotel-name">Gite Luna Del Fuego</div>
+                            <div class="rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="adress">kasr ifri, Achbaro</div>
+                            <div class="description">1-star hotel</div>
+                        </div>
+                        <div class="dure">
+                            <span>Duration</span>: 6 hours
+                            <a href="#">...</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide box-hotel">
+                        <img src="img/3.jpg" alt="" width="270px" height="150px">
+                        <span>MAD350</span>
+                        <div class="text">
+                            <div class="hotel-name">Gite Luna Del Fuego</div>
+                            <div class="rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="adress">kasr ifri, Achbaro</div>
+                            <div class="description">1-star hotel</div>
+                        </div>
+                        <div class="dure">
+                            <span>Duration</span>: 6 hours
+                            <a href="#">...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next swiper-navBtn"></div>
+                <div class="swiper-button-prev swiper-navBtn"></div>
+                <div class="swiper-pagination"></div>
             </div>
+              
+        </div>
+    </div>
            
-            <div class="adress">kasr ifri, Achbaro</div>
-            <div class="description">1-star hotel</div>
-        </div>
-            <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-    </div>
-    <div class="box-hotel">
-        <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-         <div class="text">
-        <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
-        </div>
-       
-        <div class="adress">kasr ifri, Achbaro</div>
-        <div class="description">1-star hotel</div>
-    </div>
-        <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-</div>
-<div class="box-hotel">
-    <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-     <div class="text">
-    <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-    </div>
-   
-    <div class="adress">kasr ifri, Achbaro</div>
-    <div class="description">1-star hotel</div>
-</div>
-    <!-- <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div> -->
-    <div class="dure"><a href="#">RESERVER</a></div>
-</div>
 
+
+<script src="js/swiper-bundle.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script>
+    var swiper = new Swiper(".test", {
+    slidesPerView: 3,
+    spaceBetween: 25,
+    loop: true,
+    centerSlide: 'true',
+    fade: 'true',
+    grabCursor: 'true',
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints:{
+        0: {
+            slidesPerView: 1,
+        },
+        520: {
+            slidesPerView: 1,
+        },
+        950: {
+            slidesPerView: 3,
+        },
+    },
+  });
+  </script>
 </body>
 </html>
-
-
-<!--
-  
-            <nav class="container navbar navbar-expand-lg">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="index.html"><img src="img/WhatsApp Image 2023-04-27 at 11.20.30.jpg" width="150px" height="50" alt=""></a>
-                  
-                  <div class="top_bar collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                      <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-                      </li>
-                      
-                    </ul>
-                    <form class="d-flex" role="search">
-                        
-                        <input class="form-control me-2 search_cls " type="search" placeholder="Search" aria-label="Search">
-                        
-                      </form>
-                    
-                  </div>
-                </div>
-              </nav>
--->
