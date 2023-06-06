@@ -11,7 +11,14 @@ body{
   height: 100vh;
 
 }
- 
+ .search_btn{
+  width: 34px;
+    height: 26px;
+    position: absolute;
+    background: none;
+    border: none;
+    right: 0px
+ }
 
   .top_bar{
       margin-left: 150px;
@@ -116,7 +123,7 @@ display: flex;
 .search-container {
 display: flex;
 align-items: center;
-
+position: relative;
 height: 100%;
 }
 

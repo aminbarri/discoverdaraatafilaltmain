@@ -7,7 +7,10 @@ if($query){
 $url .= "?".$query;
 }
 $_SESSION['current_page'] = $url;
-
+@$serch= $_GET["search_btn"];
+if(isset($_GET['submit_ser'])){
+  header('Location: search.php?value='.$serch.'');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,10 +55,11 @@ $_SESSION['current_page'] = $url;
               <li class="social_media "><a href=""><i class="bi bi-instagram"></i></a></li>
               <li class="social_media "><a href=""><i class="bi bi-youtube"></i></a></li>
               <li><div class="search-container">
-
-                <input type="text" placeholder="Search...">
-                <button type="submit"><i class="bi bi-search"></i></button></div>
-              </li>
+                <form action="" method="get">
+                 <input type="text" name='search_btn' placeholder="Search...">
+                <button type="submit" name="submit_ser" class='search_btn'><i class="bi bi-search"></i></button></div>
+             </form> 
+             </li>
             </ul>
         </div>
         <nav class="navbar  navbar-expand-lg  container-fluid">
@@ -286,12 +290,64 @@ $_SESSION['current_page'] = $url;
        </div>
 
        
-</div>
+
 
       </header>
 
-  <?php include 'fotter.php';?>
-    </div>
+ 
+    
+   <footer>
+   <div class="top_footer">
+            <a href=""><img src="img/logo.png" alt="" width="150px" height="70px"></a> 
+            <ul>
+                <li class="social_media_footer"><a href=""><i class="bi bi-facebook"></i></a></li>
+                <li class="social_media_footer"><a href=""><i class="bi bi-instagram"></i></a></li>
+                <li class="social_media_footer"><a href=""><i class="bi bi-youtube"></i></a></li>
+                
+        </div>
+        <div class="medium_footer">
+            <ul>
+            
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Main</a></li>
+                <li><a href="#">Hotel</a></li>
+                <li><a href="#">Rest</a></li>
+                <li><a href="#">Blog</a></li>
+    
+        
+              </ul>
+
+              <ul class="info">
+            
+                <li>ADDRESS & INFO</li>
+                <li><i class="bi bi-geo-alt-fill"></i> <span id="first_adress"> Faculté des Sciences et Technique Errachidia 
+                    52003</span></li>
+                   <li> <span>Errachidia</span> </li>
+                 <li><span>Morocco</span> </li>
+                <li><i class="bi bi-envelope"></i> <span id="email_address"> support@discoverdaraatafilalt.com</span></li>
+                <li></li>
+                <li></li>
+    
+        
+              </ul>
+              <ul class="stay_connected">
+                <li>STAY CONNECTED</li>
+                <li>
+                <form action="" class="stay_connected_form" method="">
+                    <input type="email" class="input-group" placeholder="email">
+                    <input type="submit" value="SIGN UP" >
+                </form></li>
+              </ul>
+
+
+        </div>
+        <div class="bottom_footer">
+
+                <span><i class="bi bi-c-circle"></i> <a href="">discoverdaraatafilalt.com</a> All right reserved</span>
+        </div>
+        
+   </footer> 
+</div></div>
 
 </body>
 <script src="js/swiper-bundle.min.js"></script>

@@ -1,3 +1,46 @@
+<?php
+
+session_start();
+include 'connection.php';
+
+$serach =$_GET['value'];
+$sql = 'SELECT *
+        FROM hotel
+        where ville LIKE :serach';
+$statement = $pdo->prepare($sql);
+$statement->bindValue(':serach', $serach);
+$statement->execute();
+
+$resu = $statement->fetchAll(PDO::FETCH_ASSOC);
+$sql1 = 'SELECT *
+        FROM `destination`
+        where ville LIKE :serach';
+$statement1 = $pdo->prepare($sql1);
+$statement1->bindValue(':serach', $serach);
+$statement1->execute();
+
+$resu1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
+
+$sql2 = 'SELECT *
+        FROM `moussem`
+        where ville LIKE :serach';
+$statement2 = $pdo->prepare($sql2);
+$statement2->bindValue(':serach', $serach);
+$statement2->execute();
+
+$resu3 = $statement2->fetchAll(PDO::FETCH_ASSOC);
+
+$sql4 = 'SELECT *
+        FROM `restau`
+        where ville LIKE :serach';
+$statement4 = $pdo->prepare($sql4);
+$statement4->bindValue(':serach', $serach);
+$statement4->execute();
+
+$resu4 = $statement4->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,15 +59,23 @@
   <title>Search Results</title>
   <style>
     /* CSS styling for search results */
-    
+    body{
+     
+    }
     .countainer{
-        height: 100%;
+       /* min-height: 100vh; */
         background-color:white ;
+    }
+    .countainer-search{
+      
+      min-height: 100%;
+
     }.result {
       margin-bottom: 10px;
       padding: 10px;
       border: 1px solid #ccc;
       display: flex;
+     
       align-items: center;
     }
     .result img {
@@ -73,7 +124,7 @@
                     <li class="nav-item"><a href="#">RESTURANT</a></li>
                     <li class="nav-item"><a href="#">CONTACT</a></li>
                     <li class="nav-item">
-                      <!-- <?php
+                      <?php
                       if(@$_SESSION['login']!= 'oui') {
                         echo "<a href='login.php' name=''>SE CONNECTER</a>";
                       }
@@ -81,7 +132,7 @@
                         echo "<a href='deconection.php' name=''>DECONNECTER</a>";
                       }
                       ?>
-                     -->
+                     
                   
                   </li>
             
@@ -93,35 +144,68 @@
         </div>
    
            <div class="countainer-search">
-            <h1>Search Results</h1>
-  
-            <div class="result">
-              <img src="img/3.jpg" alt="Image 1">
-              <div>
-                <h3>Result Title 1</h3>
-                <p>This is the description for Result 1.</p>
-                <a href="result1.html">Read More</a>
-              </div>
-            </div>
             
+            <?php 
+           $i=0;
+            if(!$resu && !$resu1 && !$resu3){
+              echo '<h3>Aucun résultat trouvé</h3>' ;
+            }
+            if($resu){
+              
+              echo '<h4>Résultats de recherche - Hôtels</h4>' ;
+            foreach ($resu as $res){?>
             <div class="result">
-              <img src="img/3.jpg" alt="Image 2">
+              <img src="<?php echo '../admin-ver/img/hotels/'.$res['img2']?>" alt="Image 1">
               <div>
-                <h3>Result Title 2</h3>
-                <p>This is the description for Result 2.</p>
+                <h3><?php echo $res['nom']?></h3>
+                <p><?php echo $res['ville']?></p>
                 <a href="result1.html">Read More</a>
               </div>
             </div>
+            <?php $i++; if($i>4){break;} }}?>
+              <?php
+            if($resu1){
+              echo '<h4>Résultats de recherche - destinations</h4>' ;
+            foreach ($resu1 as $res){?>
+            <div class="result">
+              <img src="<?php echo '../admin-ver/img/destinations/'.$res['img2']?>" alt="Image 1">
+              <div>
+                <h3><?php echo $res['nom']?></h3>
+                <p><?php echo $res['ville']?></p>
+                <a href="result1.html">Read More</a>
+              </div>
+            </div>
+            <?php  $i++; if($i>4){break;}  }}?>
+              <?php
+            if($resu3){
+              echo '<h4>Résultats de recherche - Moussems</h4>' ;
+            foreach ($resu3 as $res){?>
+            <div class="result">
+              <img src="<?php echo '../admin-ver/img/moussem/'.$res['img1']?>" alt="Image 1">
+              <div>
+                <h3><?php echo $res['nom']?></h3>
+                <p><?php echo $res['ville']?></p>
+                <a href="result1.html">Read More</a>
+              </div>
+            </div>
+            <?php  $i++; if($i>4){break;}  }}?>
+            <?php
+            if($resu4){
+              echo '<h4>Résultats de recherche - Restaurants</h4>' ;
+            foreach ($resu4 as $res){?>
+            <div class="result">
+              <img src="<?php echo '../admin-ver/img/restau/'.$res['img1']?>" alt="Image 1">
+              <div>
+                <h3><?php echo $res['nom']?></h3>
+                <p><?php echo $res['ville']?></p>
+                <a href="result1.html">Read More</a>
+              </div>
+            </div>
+            <?php  $i++; if($i>4){break;}  }}?>
             
-            <div class="result">
-              <img src="img/3.jpg" alt="Image 3">
-              <div>
-                <h3>Result Title 3</h3>
-                <p>This is the description for Result 3.</p>
-                <a href="result1.html">Read More</a>
-              </div>
-            </div>
            </div>
+
+  </div>
  <footer class="">
        
     <div class="bottom_footer">
@@ -130,7 +214,7 @@
     </div>
     
 </footer>
-</div>
+
 
 
 </body>
