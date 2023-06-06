@@ -4,6 +4,7 @@
 include 'connection.php';
 
 session_start();
+$previous_page = $_SESSION['current_page'];
 $_SESSION['login']= 'non';
 $message="";
 foreach ($_POST as $key => $value) {
@@ -33,8 +34,11 @@ foreach ($_POST as $key => $value) {
  {
       if (@$email === @$loggin[0]['email'] && @$password === @$loggin[0]['password']) {
         $_SESSION['login'] = true;
-        header('Location: destinationpage.php');
-        exit; // Make sure to exit after redirecting
+        if(isset($_SERVER['HTTP_REFERER'])) {
+          header("Location: $previous_page");
+        } 
+
+        exit; 
       } else {
         $message .= 'Wrong password or email!';
       }

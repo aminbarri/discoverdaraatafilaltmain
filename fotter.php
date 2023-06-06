@@ -163,9 +163,10 @@
               </ul>
               <ul class="stay_connected">
                 <li>STAY CONNECTED</li>
-                <li><form action="" class="stay_connected_form">
+                <li>
+                <form action="" class="stay_connected_form" method="">
                     <input type="email" class="input-group" placeholder="email">
-                    <input type="submit" value="SIGN UP">
+                    <input type="submit" value="SIGN UP" >
                 </form></li>
               </ul>
 

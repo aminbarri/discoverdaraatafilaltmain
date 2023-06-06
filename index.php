@@ -1,3 +1,14 @@
+
+<?php
+session_start();
+$url = basename($_SERVER['PHP_SELF']);
+$query = $_SERVER['QUERY_STRING'];
+if($query){
+$url .= "?".$query;
+}
+$_SESSION['current_page'] = $url;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,9 +91,11 @@
             </nav>
           
         <div class="pre_paragraf">
-          <div class="welcome">Welcome to <span>Daraa-Tafilalt</span></div>
-          <div class="region">the region that time forgot</div>
-          <div><i class="bi bi-caret-left-fill"></i><i class="bi bi-caret-right-fill"></i></div>
+          <div class="welcome">Bienvenue À <span>Daraa-Tafilalet</span></div>
+          <div class="region">La Région Que Le Temps A Oubliée</div>
+          <div>
+          <i class="bi bi-caret-left-fill" id="nextBtn" role="buttonn"></i><i class="bi bi-caret-right-fill" id="prevBtn" role="buttonn"></i>
+          </div>
 
         </div>
       </div>
@@ -93,13 +106,13 @@
        
        <div class="hotel_sec">
          <div class='toptext'>
-          <div class="frsttoptext">Most Populare <span>HOTELS</span></div>
-          <div class="sectoptext" >Families, couples, workaholics, adventurers, find your own piece of paradise</div>
+         <div class="frsttoptext">Le Plus Populaire <span>HOTLES</span></div>
+          <div class="sectoptext" >Familles,Couples, Accros Du Travail, Aventuriers, Trouvez Votre Propre Coin</div>
           </div>
           <div class='swiper '>
           
-           <i class="bi bi-arrow-left-circle-fill swiper-button-nextt swapp"></i>
-           <div class='second-hotel '>
+           <i class="bi bi-arrow-left-circle-fill swiper-button-nextt1 swiper-button-nextt swapp"></i>
+           <div class='second-hotel hotel-swipper1'>
           
             <div class='swiper-wrapper'>
             
@@ -174,7 +187,7 @@
           
             <!-- <div class="swiper-pagination"></div> -->
            </div>
-           <i class="bi bi-arrow-right-circle-fill swiper-button-prevv swapp"></i>
+           <i class="bi bi-arrow-right-circle-fill swiper-button-prevv1 swiper-button-prevv swapp"></i>
           </div>
        </div>
 
@@ -184,13 +197,13 @@
        
        <div class="hotel_sec">
          <div class='toptext'>
-          <div class="frsttoptext">Most Populare <span>HOTELS</span></div>
-          <div class="sectoptext" >Families, couples, workaholics, adventurers, find your own piece of paradise</div>
+          <div class="frsttoptext">Le Plus Populaire <span>DESTINATION</span></div>
+          <div class="sectoptext" >Familles,Couples, Accros Du Travail, Aventuriers, Trouvez Votre Propre Coin</div>
           </div>
           <div class='swiper '>
           
-           <i class="bi bi-arrow-left-circle-fill swiper-button-nextt swapp"></i>
-           <div class='second-hotel '>
+           <i class="bi bi-arrow-left-circle-fill swiper-button-nextt swiper-button-nextt2 swapp"></i>
+           <div class='second-hotel hotel-swipper2'>
           
             <div class='swiper-wrapper'>
             
@@ -265,7 +278,7 @@
           
             <!-- <div class="swiper-pagination"></div> -->
            </div>
-           <i class="bi bi-arrow-right-circle-fill swiper-button-prevv swapp"></i>
+           <i class="bi bi-arrow-right-circle-fill swiper-button-prevv swiper-button-prevv2 swapp"></i>
           </div>
        </div>
 
@@ -277,21 +290,60 @@
 
       </header>
 
-  <?php include 'fotter.html';?>
+  <?php include 'fotter.php';?>
     </div>
 
 </body>
 <script src="js/swiper-bundle.min.js"></script>
     <script>
-      $(document).ready(function() {
-      $('#backstretch').backstretch([
-        "img/2.jpg",
-        "img/4.jpg",
-        "img/3.jpg"
-      ], {duration: 7000, fade: 750});
-    });
-     
-    var swiper = new Swiper(".second-hotel", {
+    //   $(document).ready(function() {
+    //   $('#backstretch').backstretch([
+    //     "img/2.jpg",
+    //     "img/4.jpg",
+    //     "img/3.jpg"
+    //   ], {duration: 7000, fade: 750});
+    // });
+    $(document).ready(function() {
+  var images = [
+         "img/2.jpg",
+         "img/4.jpg",
+         "img/3.jpg"
+  ];
+
+  // Initialize Backstretch with the first image
+  $('#backstretch').backstretch(images[0]);
+
+  var currentIndex = 0;
+  var totalImages = images.length;
+  
+
+
+  // Function to change the background image
+  function changeBackground() {
+    $('#backstretch').backstretch(images[currentIndex]);
+
+    currentIndex = (currentIndex + 1) % totalImages;
+  }
+
+  // Initial background image
+  changeBackground();
+
+  // Change background image every 5 seconds (5000 milliseconds)
+  setInterval(changeBackground, 5000);
+
+  // Bind click event handlers to the previous and next buttons
+  $('#prevBtn').click(function() {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    $('#backstretch').backstretch(images[currentIndex]);
+  });
+
+  $('#nextBtn').click(function() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    $('#backstretch').backstretch(images[currentIndex]);
+  });
+});
+
+    var swiper = new Swiper(".hotel-swipper1", {
     slidesPerView: 3,
     spaceBetween:20,
     loop: true,
@@ -304,8 +356,39 @@
       dynamicBullets: true,
     },
     navigation: {
-      nextEl: ".swiper-button-nextt",
-      prevEl: ".swiper-button-prevv",
+      nextEl: ".swiper-button-nextt1",
+      prevEl: ".swiper-button-prevv1",
+    },
+
+    breakpoints:{
+        0: {
+            slidesPerView: 1,
+        },
+        600: {
+            slidesPerView: 1,
+        },
+        950: {
+            slidesPerView: 4,
+        },
+    },
+  });
+
+    
+  var swiper = new Swiper(".hotel-swipper2", {
+    slidesPerView: 3,
+    spaceBetween:20,
+    loop: true,
+    centerSlide: 'true',
+    fade: 'true',
+    grabCursor: 'true',
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-nextt2",
+      prevEl: ".swiper-button-prevv2",
     },
 
     breakpoints:{
