@@ -77,7 +77,7 @@
     }
     .bottom_footer{
         position: relative;
-        bottom: -27px;
+        bottom: 0px;
         background-color: #1e4633;
         height: 30px;
         text-align: center;
