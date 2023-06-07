@@ -8,6 +8,17 @@ foreach ($_POST as $key => $value) {
 }
 
 $id=$_GET['id'];
+@$id_hotel = $_GET['id'];
+
+$sql = 'SELECT *
+        FROM hotel
+        WHERE `id-hotel` = :id_hotel';
+
+$statement = $pdo->prepare($sql);
+$statement->bindValue(':id_hotel', $id_hotel);
+$statement->execute();
+
+$hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 if(isset($confirmer)){
   if(!empty($name)&&!empty($scname)&&!empty($email)&&!empty($phone)&&!empty($type)&&!empty($nbrpersone)
@@ -87,10 +98,10 @@ if(isset($confirmer)){
             <div class="all-page">
                 <div class="hotel_des">
                     <div class="img_hotel">
-                        <img src="img/3.jpg" alt="" width="100%" height="100%">
+                        <img src="<?php echo '../admin-ver/img/hotels/'.$hotel[0]['img1']; ?>" alt="" width="100%" height="100%">
                     </div>
-                    <h4>Hôtel Palais du Désert & Spa</h4>
-                    <div class="hotel-name">Gite Luna Del Fuego</div>
+                    <h4>Hôtel <?php echo $hotel[0]['nom']; ?></h4>
+                    <div class="hotel-name"><?php echo $hotel[0]['ville']; ?></div>
                     <div class="rating">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>

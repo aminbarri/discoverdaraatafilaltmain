@@ -41,7 +41,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="style.css" defer>
     <link rel="stylesheet" href="cssjs.css" defer>
     <link rel="stylesheet" href="css/swiper-bundle.min.css" defer>
-    <title>Document</title>
+    <title>Discover Daraa Tafilalet</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="hotel.css" defer>
     <link rel="stylesheet" href="resrvastion.css" defer>
@@ -155,7 +155,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
                   </div>
                   <div class="dure"> <a href="reserverhotel.php?id=<?php echo $hote1['id-hotel']; ?>">RESERVER</a></div>
                 </div>
-                <?php $i++; if($i>8){
+                <?php $i++; if($i>7){
                   break;
                 }}?>
                
@@ -183,7 +183,8 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
            <div class='second-hotel hotel-swipper2'>
           
             <div class='swiper-wrapper'>
-              <?php foreach($destination as $dest) {?>
+              <?php $i=0;
+               foreach($destination as $dest) {?>
                 <div class="swiper-slide box-hotel">
                  <img src="<?php echo '../admin-ver/img/destinations/'.$dest['img1'] ?>" alt="" width="270px" height="150px">
                 <div class="text">
@@ -193,7 +194,9 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
                   </div>
                 <div class="dure"><span>Lire la suite</span> <a href="#">...</a></div>
                 </div>
-                <?php }?>
+                <?php if($i>8){
+                  break;
+                } }?>
                 
             </div>
             
@@ -205,7 +208,8 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
        </div>
           <div class='travelsection'>
 
-          <?php foreach($voyage as $voy){
+          <?php
+          $i=0; foreach($voyage as $voy){
             ?>
           <div class="card">
             <img src="<?php echo '../admin-ver/img/cercuit/'.$voy['img']?>" alt="Travel Organization">
@@ -219,7 +223,9 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
             <p>Prix: <?php echo $voy['prix']?></p>
             <a href="reservervoyage.php?id=<?php echo $voy['id-cer']?>">Reserver</a>
           </div>
-          <?php } ?>
+          <?php if($i>2){
+                  break;
+                } } ?>
           </div>
             
        </div>
