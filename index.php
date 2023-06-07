@@ -19,6 +19,15 @@ $statement = $pdo->prepare($sql);
 $statement->execute();
 $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+$sql1 ='SELECT * FROM `voyage`';
+$statement1 = $pdo->prepare($sql1);
+$statement1->execute();
+$voyage = $statement1->fetchAll(PDO::FETCH_ASSOC);
+
+$sql3 ='SELECT * FROM `destination`';
+$statement3 = $pdo->prepare($sql3);
+$statement3->execute();
+$destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -174,73 +183,18 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
            <div class='second-hotel hotel-swipper2'>
           
             <div class='swiper-wrapper'>
-            
+              <?php foreach($destination as $dest) {?>
                 <div class="swiper-slide box-hotel">
-              <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
+                 <img src="<?php echo '../admin-ver/img/destinations/'.$dest['img1'] ?>" alt="" width="270px" height="150px">
                 <div class="text">
-                  <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
+                  <div class="hotel-name"><?php echo$dest['nom'] ?></div>
+                <div class="adress"><?php echo$dest['ville'] ?>,<?php echo$dest['province'] ?></div>
+                
+                  </div>
+                <div class="dure"><span>Lire la suite</span> <a href="#">...</a></div>
                 </div>
-
-                <div class="adress">kasr ifri, Achbaro</div>
-                <div class="description">1-star hotel</div>
-                  </div>
-                <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-                </div>
-                <div class="swiper-slide box-hotel">
-                  <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                  <div class="text">
-                  <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                  </div>
-
-                  <div class="adress">kasr ifri, Achbaro</div>
-                  <div class="description">1-star hotel</div>
-                  </div>
-                  <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-                    </div>
-
-                <div class="swiper-slide box-hotel">
-                          <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                          <div class="text">
-                          <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                          </div>
-
-                          <div class="adress">kasr ifri, Achbaro</div>
-                          <div class="description">1-star hotel</div>
-                          </div>
-                          <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-                            </div>
-                <div class="swiper-slide box-hotel">
-                  <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                  <div class="text">
-                  <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                  </div>
-
-                  <div class="adress">kasr ifri, Achbaro</div>
-                  <div class="description">1-star hotel</div>
-                  </div>
-                  <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-                    </div>
-
+                <?php }?>
+                
             </div>
             
           
@@ -250,42 +204,22 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
           </div>
        </div>
           <div class='travelsection'>
+
+          <?php foreach($voyage as $voy){
+            ?>
           <div class="card">
-            <img src="img/3.jpg" alt="Travel Organization">
-            <h2>Travel Organization</h2>
-            <p>Ville de départ: Paris</p>
-            <p>Ville d'arrivée: Rome</p>
-            <p>Trajet: Direct</p>
-            <p>Date de départ</p>
-            <p>Heure de départ: 9:00 AM</p>
-            <p>Durée: 3 hours</p>
-            <p>Prix: $200</p>
-            <a href="contact.html">Reserver</a>
+            <img src="<?php echo '../admin-ver/img/cercuit/'.$voy['img']?>" alt="Travel Organization">
+            <h2>Organisation  Voyages</h2>
+            <p>Ville de départ: <?php echo $voy['ville-depart']?></p>
+            <p>Ville d'arrivée: <?php echo $voy['ville-arrive']?></p>
+            <p>Trajet: <?php echo $voy['trajet']?></p>
+            <p>Date de départ: <?php echo $voy['date-depart']?></p>
+            <p>Heure de départ: <?php echo $voy['heure-depart']?></p>
+            <p>Durée: <?php echo $voy['dure']?></p>
+            <p>Prix: <?php echo $voy['prix']?></p>
+            <a href="reservervoyage.php?id=<?php echo $voy['id-cer']?>">Reserver</a>
           </div>
-          <div class="card">
-            <img src="img/3.jpg" alt="Travel Organization">
-            <h2>Travel Organization</h2>
-            <p>Ville de départ: Paris</p>
-            <p>Ville d'arrivée: Rome</p>
-            <p>Trajet: Direct</p>
-            <p>Date de départ</p>
-            <p>Heure de départ: 9:00 AM</p>
-            <p>Durée: 3 hours</p>
-            <p>Prix: $200</p>
-            <a href="contact.html">Reserver</a>
-          </div>
-          <div class="card">
-            <img src="img/3.jpg" alt="Travel Organization">
-            <h2>Travel Organization</h2>
-            <p>Ville de départ: Paris</p>
-            <p>Ville d'arrivée: Rome</p>
-            <p>Trajet: Direct</p>
-            <p>Date de départ</p>
-            <p>Heure de départ: 9:00 AM</p>
-            <p>Durée: 3 hours</p>
-            <p>Prix: $200</p>
-            <a href="contact.html">Reserver</a>
-          </div>
+          <?php } ?>
           </div>
             
        </div>
