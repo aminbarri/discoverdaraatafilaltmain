@@ -1,6 +1,8 @@
 
 <?php
+
 session_start();
+include 'connection.php';
 $url = basename($_SERVER['PHP_SELF']);
 $query = $_SERVER['QUERY_STRING'];
 if($query){
@@ -11,6 +13,12 @@ $_SESSION['current_page'] = $url;
 if(isset($_GET['submit_ser'])){
   header('Location: search.php?value='.$serch.'');
 }
+
+$sql ='SELECT * FROM `hotel`';
+$statement = $pdo->prepare($sql);
+$statement->execute();
+$hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +36,7 @@ if(isset($_GET['submit_ser'])){
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="hotel.css" defer>
     <link rel="stylesheet" href="resrvastion.css" defer>
-
+    <link rel="stylesheet" href="cardoffvoyaage.css" defer>
     <link rel="stylesheet" href="footer.css" defer>
     
     <script type="text/javascript" src="Supersized/theme/supersized.shutter.min.js"></script>
@@ -51,9 +59,9 @@ if(isset($_GET['submit_ser'])){
         <div class="bar_top_first ">
 
             <ul class=" ">
-              <li class="social_media "><a href=""><i class="bi bi-facebook"></i></a></li>
-              <li class="social_media "><a href=""><i class="bi bi-instagram"></i></a></li>
-              <li class="social_media "><a href=""><i class="bi bi-youtube"></i></a></li>
+              <li class="social_media "><a href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a></li>
+              <li class="social_media "><a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a></li>
+              <li class="social_media "><a href="https://www.youtube.com/"><i class="bi bi-youtube"></i></a></li>
               <li><div class="search-container">
                 <form action="" method="get">
                  <input type="text" name='search_btn' placeholder="Search...">
@@ -119,11 +127,13 @@ if(isset($_GET['submit_ser'])){
            <div class='second-hotel hotel-swipper1'>
           
             <div class='swiper-wrapper'>
-            
-                <div class="swiper-slide box-hotel">
-              <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
+            <?php $i=0;
+             foreach($hotel as $hote1) {?>
+             
+              <div class="swiper-slide box-hotel">
+              <img src="<?php echo '../admin-ver/img/hotels/'.$hote1['img1']; ?>" alt="" width="270px" height="150px"><span>MAD350</span>
                 <div class="text">
-                  <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
+                  <div class="hotel-name"><?php echo $hote1['nom']; ?></div><div class="rating">
                   <i class="bi bi-star-fill"></i>
                   <i class="bi bi-star-fill"></i>
                   <i class="bi bi-star-fill"></i>
@@ -131,61 +141,15 @@ if(isset($_GET['submit_ser'])){
                   <i class="bi bi-star-fill"></i>
                 </div>
 
-                <div class="adress">kasr ifri, Achbaro</div>
-                <div class="description">1-star hotel</div>
+                <div class="adress"><?php echo $hote1['ville']; ?></div>
+                <div class="description"><?php echo $hote1['classe']; ?>-star hotel</div>
                   </div>
-                <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
+                  <div class="dure"> <a href="reserverhotel.php?id=<?php echo $hote1['id-hotel']; ?>">RESERVER</a></div>
                 </div>
-                <div class="swiper-slide box-hotel">
-                  <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                  <div class="text">
-                  <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                  </div>
-
-                  <div class="adress">kasr ifri, Achbaro</div>
-                  <div class="description">1-star hotel</div>
-                  </div>
-                  <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-                    </div>
-
-                <div class="swiper-slide box-hotel">
-                          <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                          <div class="text">
-                          <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                          </div>
-
-                          <div class="adress">kasr ifri, Achbaro</div>
-                          <div class="description">1-star hotel</div>
-                          </div>
-                          <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-                            </div>
-                <div class="swiper-slide box-hotel">
-                  <img src="img/3.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                  <div class="text">
-                  <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                  </div>
-
-                  <div class="adress">kasr ifri, Achbaro</div>
-                  <div class="description">1-star hotel</div>
-                  </div>
-                  <div class="dure"><span>Duration</span> :6 hours <a href="#">...</a></div>
-                    </div>
-
+                <?php $i++; if($i>8){
+                  break;
+                }}?>
+               
             </div>
             
           
@@ -285,8 +249,45 @@ if(isset($_GET['submit_ser'])){
            <i class="bi bi-arrow-right-circle-fill swiper-button-prevv swiper-button-prevv2 swapp"></i>
           </div>
        </div>
-
-
+          <div class='travelsection'>
+          <div class="card">
+            <img src="img/3.jpg" alt="Travel Organization">
+            <h2>Travel Organization</h2>
+            <p>Ville de départ: Paris</p>
+            <p>Ville d'arrivée: Rome</p>
+            <p>Trajet: Direct</p>
+            <p>Date de départ</p>
+            <p>Heure de départ: 9:00 AM</p>
+            <p>Durée: 3 hours</p>
+            <p>Prix: $200</p>
+            <a href="contact.html">Reserver</a>
+          </div>
+          <div class="card">
+            <img src="img/3.jpg" alt="Travel Organization">
+            <h2>Travel Organization</h2>
+            <p>Ville de départ: Paris</p>
+            <p>Ville d'arrivée: Rome</p>
+            <p>Trajet: Direct</p>
+            <p>Date de départ</p>
+            <p>Heure de départ: 9:00 AM</p>
+            <p>Durée: 3 hours</p>
+            <p>Prix: $200</p>
+            <a href="contact.html">Reserver</a>
+          </div>
+          <div class="card">
+            <img src="img/3.jpg" alt="Travel Organization">
+            <h2>Travel Organization</h2>
+            <p>Ville de départ: Paris</p>
+            <p>Ville d'arrivée: Rome</p>
+            <p>Trajet: Direct</p>
+            <p>Date de départ</p>
+            <p>Heure de départ: 9:00 AM</p>
+            <p>Durée: 3 hours</p>
+            <p>Prix: $200</p>
+            <a href="contact.html">Reserver</a>
+          </div>
+          </div>
+            
        </div>
 
        
@@ -300,9 +301,9 @@ if(isset($_GET['submit_ser'])){
    <div class="top_footer">
             <a href=""><img src="img/logo.png" alt="" width="150px" height="70px"></a> 
             <ul>
-                <li class="social_media_footer"><a href=""><i class="bi bi-facebook"></i></a></li>
-                <li class="social_media_footer"><a href=""><i class="bi bi-instagram"></i></a></li>
-                <li class="social_media_footer"><a href=""><i class="bi bi-youtube"></i></a></li>
+                <li class="social_media_footer"><a href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a></li>
+                <li class="social_media_footer"><a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a></li>
+                <li class="social_media_footer"><a href="https://www.youtube.com/"><i class="bi bi-youtube"></i></a></li>
                 
         </div>
         <div class="medium_footer">
@@ -400,9 +401,10 @@ if(isset($_GET['submit_ser'])){
 });
 
     var swiper = new Swiper(".hotel-swipper1", {
-    slidesPerView: 3,
+    slidesPerView: 1,
     spaceBetween:20,
     loop: true,
+    swiperactiveIndex:9,
     centerSlide: 'true',
     fade: 'true',
     grabCursor: 'true',
@@ -431,7 +433,7 @@ if(isset($_GET['submit_ser'])){
 
     
   var swiper = new Swiper(".hotel-swipper2", {
-    slidesPerView: 3,
+    slidesPerView: 1,
     spaceBetween:20,
     loop: true,
     centerSlide: 'true',

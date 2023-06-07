@@ -7,7 +7,7 @@ foreach ($_POST as $key => $value) {
   ${$key} = $value;
 }
 
-$id=8;
+$id=$_GET['id'];
 
 if(isset($confirmer)){
   if(!empty($name)&&!empty($scname)&&!empty($email)&&!empty($phone)&&!empty($type)&&!empty($nbrpersone)

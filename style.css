@@ -342,3 +342,14 @@ position: absolute;
 nav{
   background-color:#469754;
   }
+
+/* SECTION voyage */
+
+.travelsection{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  margin-bottom: 80px;
+}
