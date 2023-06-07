@@ -110,19 +110,19 @@ $resu4 = $statement4->fetchAll(PDO::FETCH_ASSOC);
          
         <div class="">
             <nav class="navbar  navbar-expand-lg  container-fluid">
-                <div class="logo"><a href=""><img src="img/logo.png" alt="" width="200px" height="70px"></a></div>
+                <div class="logo"><a href="index.php"><img src="img/logo.png" alt="" width="200px" height="70px"></a></div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
               <div   class=" bar_top_sec collapse navbar-collapse"  id="navbarScroll">
                   <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" >
                    
-                    <li class="nav-item"><a href="#">ACCUEIL</a></li>
-                    <li class="nav-item"><a href="#">HOTELS</a></li>
-                    <li class="nav-item"><a href="#">DESTINATION</a></li>
-                    <li class="nav-item"><a href="#">MOUSSEM</a></li>
-                    <li class="nav-item"><a href="#">RESTURANT</a></li>
-                    <li class="nav-item"><a href="#">CONTACT</a></li>
+                        <li class="nav-item"><a href="index.php">ACCUEIL</a></li>
+                        <li class="nav-item"><a href="hotelpage.php">HOTELS</a></li>
+                        <li class="nav-item"><a href="destinationpage.php">DESTINATION</a></li>
+                        <li class="nav-item"><a href="moussempage.php">MOUSSEM</a></li>
+                        <li class="nav-item"><a href="pagerestau.php">RESTAURANT</a></li>
+                        <li class="nav-item"><a href="contact.php">CONTACT</a></li>
                     <li class="nav-item">
                       <?php
                       if(@$_SESSION['login']!= 'oui') {

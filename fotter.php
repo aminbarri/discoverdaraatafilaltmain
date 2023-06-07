@@ -129,7 +129,7 @@
 
     <footer>
         <div class="top_footer">
-            <a href=""><img src="img/logo.png" alt="" width="150px" height="70px"></a> 
+            <a href="index.php"><img src="img/logo.png" alt="" width="150px" height="70px"></a> 
             <ul>
                 <li class="social_media_footer"><a href=""><i class="bi bi-facebook"></i></a></li>
                 <li class="social_media_footer"><a href=""><i class="bi bi-instagram"></i></a></li>

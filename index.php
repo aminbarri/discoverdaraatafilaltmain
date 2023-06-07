@@ -80,7 +80,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
             </ul>
         </div>
         <nav class="navbar  navbar-expand-lg  container-fluid">
-                <div class="logo"><a href=""><img src="img/logo.png" alt="" width="200px" height="70px"></a></div>
+                <div class="logo"><a href="index.php"><img src="img/logo.png" alt="" width="200px" height="70px"></a></div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -239,7 +239,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
     
    <footer>
    <div class="top_footer">
-            <a href=""><img src="img/logo.png" alt="" width="150px" height="70px"></a> 
+            <a href="index.php"><img src="img/logo.png" alt="" width="150px" height="70px"></a> 
             <ul>
                 <li class="social_media_footer"><a href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a></li>
                 <li class="social_media_footer"><a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a></li>
