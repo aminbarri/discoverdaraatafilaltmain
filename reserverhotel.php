@@ -42,11 +42,11 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
             header('Location: index.php?success= Resrvation envoyé avec succès!');
           }
           else{
-            header("Location: index.php?error= Resrvation de l'envoi du message");
+            header("Location: reserverhotel.php?error= Resrvation de l'envoi du message");
           }
         }
         else{
-          header('Location: index.php?error= Il y a un champ vide!');
+          header('Location: reserverhotel.php?error= Il y a un champ vide!');
         }
       }
 }

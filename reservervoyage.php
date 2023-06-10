@@ -2,7 +2,15 @@
 <?php
 session_start();
 include 'connection.php';
-
+if(@$_SESSION['login'] != 'oui'){
+    $url = basename($_SERVER['PHP_SELF']);
+    $query = $_SERVER['QUERY_STRING'];
+    if($query){
+        $url .= "?".$query;
+        }
+     $_SESSION['current_page'] = $url;
+    header('Location: login.php');
+}
 foreach ($_POST as $key => $value) {
   ${$key} = $value;
 }
@@ -22,21 +30,21 @@ $statement->execute();
 $Voyage = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 if(isset($confirmer)){
-  if(!empty($name)&&!empty($scname)&&!empty($email)&&!empty($phone)){
-  $sql='INSERT INTO `reserver-voyage` ( `id-cer`, `nom`, `prenom`, `email`, `phone`,  `date-reservartion`) 
-    VALUES (?,?,?,?,?,CURRENT_TIMESTAMP)';
+  if(!empty($email)&&!empty($phone)){
+  $sql='INSERT INTO `reserver-voyage` ( `id-cer`, `id-cleint`, `email`, `phone`,  `date-reservartion`) 
+    VALUES (?,?,?,?,CURRENT_TIMESTAMP)';
     $ins = $pdo->prepare($sql);
-    $ins->execute([$id,$name ,$scname,$email, $phone]);
+    $ins->execute([$id,$_SESSION['id_client'],$email, $phone]);
     if($ins){
       
-      header('Location: index.html?success= Message envoyé avec succès!');
+      header('Location: index.php?success= Resevation envoyé avec succès!');
     }
     else{
-      header("Location: reservervoyage.php?error= Échec de poursuivre le processus!");
+      header("Location: index.php?error= Échec de poursuivre le processus!");
     }
   }
   else{
-    header('Location: reservervoyage.php?error=Échec de poursuivre le processus!');
+    header('Location: index.php?error=Échec de poursuivre le processus!');
   }
 }
 
@@ -123,7 +131,7 @@ if(isset($confirmer)){
                     <h4>Personel Information</h4>
                     <div>
                         <form action="" class="" method="post">
-                            <div class="information">
+                            <!-- <div class="information">
                                 <div class="input-group mb-3 frst_name">
                                     <i class="bi bi-person-circle input-group-text"></i>
                                     <input type="text" class="form-control" name="name" placeholder='Enter votre nom'>
@@ -133,6 +141,7 @@ if(isset($confirmer)){
                                     <input type="text" class="form-control" name="scname" placeholder='Enter votre prenom'>
                                 </div>
                             </div>
+                             -->
                             <div class="information">
                                 <div class="input-group mb-3 email_rese">
                                     <i class="bi bi-envelope-fill input-group-text"></i>
