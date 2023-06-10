@@ -1,7 +1,8 @@
 <?php 
+session_start();
 include 'connection.php';
 
-
+$previous_page = $_SESSION['current_page'];
 
 
 
@@ -28,7 +29,10 @@ if(isset($flexCheckChecked)){
         $statement->execute([$name, $username, $email, $hashedPassword]);
 
         if ($statement) {
-            header('location: login.php');
+            if(isset($_SERVER['HTTP_REFERER'])) {
+                header("Location: $previous_page");
+              } 
+      
             exit;
         }
     } else {

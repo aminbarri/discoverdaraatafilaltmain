@@ -33,7 +33,11 @@ foreach ($_POST as $key => $value) {
   
  {
       if (@$email === @$loggin[0]['email'] && @$password === @$loggin[0]['password']) {
-        $_SESSION['login'] = true;
+        $_SESSION['login'] = 'oui';
+        $_SESSION['id_client'] =$loggin[0]['id_client'];
+        $_SESSION['nom'] =$loggin[0]['nom'];
+        $_SESSION['prenom'] =$loggin[0]['prenom'];
+        $_SESSION['email'] =$loggin[0]['email'];
         if(isset($_SERVER['HTTP_REFERER'])) {
           header("Location: $previous_page");
         } 

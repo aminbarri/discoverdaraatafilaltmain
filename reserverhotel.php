@@ -3,6 +3,15 @@
 session_start();
 include 'connection.php';
 
+if(@$_SESSION['login'] != 'oui'){
+    $url = basename($_SERVER['PHP_SELF']);
+    $query = $_SERVER['QUERY_STRING'];
+    if($query){
+        $url .= "?".$query;
+        }
+     $_SESSION['current_page'] = $url;
+    header('Location: login.php');
+}
 foreach ($_POST as $key => $value) {
   ${$key} = $value;
 }
@@ -19,27 +28,30 @@ $statement->bindValue(':id_hotel', $id_hotel);
 $statement->execute();
 
 $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-if(isset($confirmer)){
-  if(!empty($name)&&!empty($scname)&&!empty($email)&&!empty($phone)&&!empty($type)&&!empty($nbrpersone)
-  &&!empty($datedebut)&&!empty($datefin)){
-  $sql='INSERT INTO `reserver-hotel` ( `id-hotel`, `nom`, `prenom`, `email`, `phone`, `type`, `nmbre-perssone`, 
-    `date-debut`, `date-fin`, `date-reservartion`) 
-    VALUES (?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)';
-    $ins = $pdo->prepare($sql);
-    $ins->execute([$id,$name ,$scname,$email, $phone,$type,$nbrpersone,$datedebut,$datefin]);
-    if($ins){
-      
-      header('Location: index.html?success= Message envoyé avec succès!');
-    }
-    else{
-      header("Location: index.html?error= Échec de l'envoi du message");
-    }
-  }
-  else{
-    header('Location: index.html?error= Il y a un champ vide!');
-  }
+{
+    if(isset($confirmer)){
+        if(!empty($phone)&&!empty($type)&&!empty($nbrpersone)
+        &&!empty($datedebut)&&!empty($datefin)){
+        $sql='INSERT INTO `reserver-hotel` ( `id-hotel`, `id-client`,  `phone`, `type`, `nmbre-perssone`, 
+          `date-debut`, `date-fin`, `date-reservartion`) 
+          VALUES (?,?,?,?,?,?,?,CURRENT_TIMESTAMP)';
+          $ins = $pdo->prepare($sql);
+          $ins->execute([$id,$_SESSION['id_client'] ,$phone,$type,$nbrpersone,$datedebut,$datefin]);
+          if($ins){
+            
+            header('Location: index.php?success= Resrvation envoyé avec succès!');
+          }
+          else{
+            header("Location: index.php?error= Resrvation de l'envoi du message");
+          }
+        }
+        else{
+          header('Location: index.php?error= Il y a un champ vide!');
+        }
+      }
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -113,8 +125,13 @@ if(isset($confirmer)){
                 </div>
                 <div class="reservehotel">
                     <h4>Personel Information</h4>
-                    <div>
-                        <form action="" class="" method="post">
+                    <form action="" class="" method="post">
+                    <div class="input-group mb-6 telephone_num">
+                                    <i class="bi bi-telephone-fill input-group-text"></i>
+                                    <input type="number" class="form-control" name="phone" placeholder='Enter votre telephone'>
+                    </div>
+                <!--     <div>
+                        
                             <div class="information">
                                 <div class="input-group mb-3 frst_name">
                                     <i class="bi bi-person-circle input-group-text"></i>
@@ -138,6 +155,7 @@ if(isset($confirmer)){
                        
 
                     </div>
+                     -->
                     <h4>Chamber</h4>
                     <div class="chamber">
                         <div class="type-chamber">
