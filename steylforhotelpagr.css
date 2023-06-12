@@ -42,10 +42,12 @@ background-color: #469754;
 list-style: none;
 display: inline;
 margin:0 20px 0 20px;
+cursor: pointer;
 }
 .bar_top_sec >ul>li>a{
 text-decoration: none;
 color: white;
+cursor: pointer;
 }
 .bar_top_first>ul>li{
 list-style: none;

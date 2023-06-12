@@ -71,6 +71,7 @@ margin:0 20px 0 20px;
 .bar_top_sec >ul>li>a{
 text-decoration: none;
 color: white;
+cursor: pointer;
 }
 .bar_top_first>ul>li{
 list-style: none;
@@ -309,6 +310,7 @@ text-align: center;
   }
   .bar_top_sec >ul>li {
     margin: 0 20px 0 20px;
+    cursor: pointer;
   }
   
 }
@@ -352,4 +354,51 @@ nav{
   align-content: center;
   justify-content: space-between;
   margin-bottom: 80px;
+}
+
+
+
+.modal-container {
+  display: none; /* Hidden by default */
+  position: fixed; /* Position it on top of other content */
+  z-index: 1; /* Set a high z-index value to make it appear on top */
+  border-radius: 8px;
+  top:20%;
+  right: 62px;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(21, 117, 21); /* Black background with transparency */
+}
+
+/* Style for the modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered horizontally */
+  padding: 20px;
+  border: 1px solid #888;
+ 
+}
+.modal-content a{
+  text-decoration: none;
+  color: white;
+}
+.modal-content a:hover{
+  text-decoration: none;
+  color: rgb(155, 148, 148);
+}
+
+
+/* Style for the close button */
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Hover effect on the close button */
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

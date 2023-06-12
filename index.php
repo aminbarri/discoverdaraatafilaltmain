@@ -99,7 +99,8 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
                         echo "<a href='login.php' name=''>SE CONNECTER</a>";
                       }
                       else{
-                        echo "<a href='deconection.php' name=''>DECONNECTER</a>";
+                        echo '<a  onclick="openModal()" style="color: white">MON PROFFILE</a>
+                        ';
                       }
                       ?>
                     
@@ -109,6 +110,14 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
                   </ul>
            
               </div>  
+              <div id="modalContainer" class="modal-container">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <span class="close-button" onclick="closeModal()">&times;</span>
+                          <a href="client.php" >INFORMATION</a>
+                          <a href="">DECONNECTER</a>
+                        </div>
+                      </div>
             </nav>
           
         <div class="pre_paragraf">
@@ -300,6 +309,14 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
     //     "img/3.jpg"
     //   ], {duration: 7000, fade: 750});
     // });
+    function openModal() {
+      document.getElementById("modalContainer").style.display = "block";
+    }
+
+    // Function to close the modal
+    function closeModal() {
+      document.getElementById("modalContainer").style.display = "none";
+    }
     $(document).ready(function() {
   var images = [
          "img/2.jpg",

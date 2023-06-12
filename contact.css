@@ -89,6 +89,7 @@ float: right;
 }
 .bar_top_sec >ul>li{
 margin-top: 5px;
+cursor: pointer;
 }
 
 .sendmsg{

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Style for the modal container */
+    .modal-container {
+      display: none; /* Hidden by default */
+      position: fixed; /* Position it on top of other content */
+      z-index: 1; /* Set a high z-index value to make it appear on top */
+      left: 0;
+      top: 0;
+      width: 80vw; /* Full width */
+      height: 30vh; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+    }
+    
+    /* Style for the modal content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; /* 15% from the top and centered horizontally */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* Set the width of the modal */
+    }
+    
+    /* Style for the close button */
+    .close-button {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    /* Hover effect on the close button */
+    .close-button:hover,
+    .close-button:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Button to open the modal -->
+  <a onclick="openModal()">Open Modal</a>
+
+  <!-- The modal container -->
+  <div id="modalContainer" class="modal-container">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <h2>Modal Content</h2>
+      <p>This is the content of the modal.</p>
+    </div>
+  </div>
+
+  <script>
+    // Function to open the modal
+    function openModal() {
+      document.getElementById("modalContainer").style.display = "block";
+    }
+
+    // Function to close the modal
+    function closeModal() {
+      document.getElementById("modalContainer").style.display = "none";
+    }
+  </script>
+</body>
+</html>
