@@ -201,7 +201,8 @@ if(isset($submit)){
            
               </div>  
               
-            </nav><div id="modalContainer" class="modal-container">
+            </nav>
+            <div id="modalContainer" class="modal-container">
                         <!-- Modal content -->
                         <div class="modal-content">
                           <span class="close-button" onclick="closeModal()">&times;</span>
@@ -209,7 +210,7 @@ if(isset($submit)){
                           <a href="">DECONNECTER</a>
                         </div>
                       </div>
-                    </div> 
+            </div> 
         <div  id="second2" >
               
     <div class="sendmsg">

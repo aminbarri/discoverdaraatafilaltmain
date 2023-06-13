@@ -1,5 +1,14 @@
 <?php
+ob_start();
 session_start();
+include 'connection.php';
+
+$url = basename($_SERVER['PHP_SELF']);
+$query = $_SERVER['QUERY_STRING'];
+if($query){
+$url .= "?".$query;
+}
+$_SESSION['current_page'] = $url;
 ?>
 
 
@@ -15,7 +24,9 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
       
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src='js/jsformodul.js' defer></script>
     <link rel="stylesheet" href="steylforhotelpagr.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -29,7 +40,7 @@ session_start();
            
          
         <div class="top-header">
-            <nav class="navbar  navbar-expand-lg  container-fluid">
+        <nav class="navbar  navbar-expand-lg  container-fluid">
                 <div class="logo"><a href="index.php"><img src="img/logo.png" alt="" width="200px" height="70px"></a></div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -37,15 +48,14 @@ session_start();
               <div   class=" bar_top_sec collapse navbar-collapse"  id="navbarScroll">
                   <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" >
                    
-                        <li class="nav-item"><a href="index.php">ACCUEIL</a></li>
+                       <li class="nav-item"><a href="index.php">ACCUEIL</a></li>
                         <li class="nav-item"><a href="hotelpage.php">HOTELS</a></li>
                         <li class="nav-item"><a href="destinationpage.php">DESTINATION</a></li>
                         <li class="nav-item"><a href="moussempage.php">MOUSSEM</a></li>
                         <li class="nav-item"><a href="pagerestau.php">RESTAURANT</a></li>
                         <li class="nav-item"><a href="contact.php">CONTACT</a></li>
                     <li class="nav-item">
-                      
-                    <?php
+                      <?php
                       if(@$_SESSION['login']!= 'oui') {
                         echo "<a href='login.php' name=''>SE CONNECTER</a>";
                       }
@@ -54,13 +64,22 @@ session_start();
                       }
                       ?>
                     
-                    </li>
+                  
+                  </li>
             
                   </ul>
            
               </div>  
+              
             </nav>
-            
+            <div id="modalContainer" class="modal-container">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <span class="close-button" onclick="closeModal()">&times;</span>
+                          <a href="client.php" >INFORMATION</a>
+                          <a href="deconection.php">DECONNECTER</a>
+                        </div>
+                      </div>
                 <center>
                     <div class='h'>
                         <div class="htl">HOTELS</div>
@@ -91,75 +110,33 @@ session_start();
            
         </div>
         <div  id="second3" >
-        <div class="box-hotel"> 
-                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
+        <?php $i=0;
+        $sql88 ='SELECT * FROM `hotel`';
+        $statement88 = $pdo->prepare($sql88);
+        $statement88->execute();
+        $hotel = $statement88->fetchAll(PDO::FETCH_ASSOC);
+             foreach($hotel as $hote1) {?>
+        <div class="swiper-slide box-hotel">
+              <img src="<?php echo '../admin-ver/img/hotels/'.$hote1['img1']; ?>" alt="" width="270px" height="150px"><span>MAD350</span>
                 <div class="text">
-                <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
+                  <div class="hotel-name"><?php echo $hote1['nom']; ?></div><div class="rating">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
                 </div>
-            
-                <div class="adress">kasr ifri, Achbaro</div>
-                <div class="description">1-star hotel</div>
+
+                <div class="adress"><?php echo $hote1['ville']; ?></div>
+                <div class="description"><?php echo $hote1['classe']; ?>-star hotel</div>
+                  </div>
+                  <div class="dure"> <a href="reserverhotel.php?id=<?php echo $hote1['id-hotel']; ?>">RESERVER</a></div>
                 </div>
-                 <div class="dure"> <a href="#">RESERVER</a></div>
-    
-               </div>
-        <div class="box-hotel"> 
-                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                <div class="text">
-                <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                </div>
-            
-                <div class="adress">kasr ifri, Achbaro</div>
-                <div class="description">1-star hotel</div>
-                </div>
-                 <div class="dure"> <a href="#">RESERVER</a></div>
-    
-               </div>
-        <div class="box-hotel"> 
-                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                <div class="text">
-                <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                </div>
-            
-                <div class="adress">kasr ifri, Achbaro</div>
-                <div class="description">1-star hotel</div>
-                </div>
-                 <div class="dure"> <a href="#">RESERVER</a></div>
-    
-               </div>
-        <div class="box-hotel"> 
-                <img src="img/444.jpg" alt="" width="270px" height="150px"><span>MAD350</span>
-                <div class="text">
-                <div class="hotel-name">Gite Luna Del Fuego</div><div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                </div>
-            
-                <div class="adress">kasr ifri, Achbaro</div>
-                <div class="description">1-star hotel</div>
-                </div>
-                <div class="dure"> <a href="#">RESERVER</a></div>
-    
-               </div>
-           
+                <?php $i++; if($i>7){
+                  break;
+                }}?>
+               
+            </div> 
         </div>
         
    

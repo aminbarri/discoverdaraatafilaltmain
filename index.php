@@ -2,6 +2,7 @@
 <?php
 
 session_start();
+$_SESSION['login']='non';
 include 'connection.php';
 $url = basename($_SERVER['PHP_SELF']);
 $query = $_SERVER['QUERY_STRING'];
