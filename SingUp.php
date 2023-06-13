@@ -72,9 +72,11 @@ if(isset($flexCheckChecked)){
             </h3>
         </div>
         <div class="secend-singup">
+      
             <h4>Aready a member? <a href="login.php">Sing in now!</a></h4>
-
+            
             <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
+            
                 <div class="mb-3">
                   <label for="exampleInputname11" class="form-label">Name</label>
                   <input type="text" class="form-control" id="exampleInputname11" name="name">
@@ -104,8 +106,11 @@ if(isset($flexCheckChecked)){
                       <button type="submit" name="submit" class="btn btn-primary">Create account</button>
                     
             </form>  
-            <?php echo $message2 ; ?>
-
+            <?php if(!empty($message2)){?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $message2; ?>
+                    </div>
+                    <?php }?>
             
         </div>
 

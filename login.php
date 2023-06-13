@@ -129,8 +129,11 @@ foreach ($_POST as $key => $value) {
         <div class="secend-signin">
               <h5>Not a member <a href="SingUp.php">Sing up now!</a></h5>
             <div class="login_class">
-           
-                
+                 <?php if(!empty($message)){?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo $message; ?>
+                    </div>
+                    <?php }?>
                 <form method='post'> 
                     <?php 
                   if(isset($_GET['success'])){ ?>
@@ -153,9 +156,12 @@ foreach ($_POST as $key => $value) {
                     
                 </form>
                  <h4><a href="forgetpass.php">forget password?</a></h4>
-                 <?php 
-                    echo $message;
+                <div class="mssg">
+                   <?php 
+                    
                 ?>
+                </div>
+               
 
             </div>
         </div>
