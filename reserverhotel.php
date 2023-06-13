@@ -97,7 +97,7 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
                             if (@$_SESSION['login'] != 'oui') {
                                 echo "<a href='login.php' name=''>SE CONNECTER</a>";
                             } else {
-                                echo "<a href='deconection.php' name=''>DECONNECTER</a>";
+                                echo '<a  onclick="openModal()" style="color: white">MON PROFFILE</a>';
                             }
                             ?>
                         </li>

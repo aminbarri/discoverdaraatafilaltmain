@@ -2,7 +2,12 @@
 <?php
 session_start();
 include 'connection.php';
-
+$url = basename($_SERVER['PHP_SELF']);
+$query = $_SERVER['QUERY_STRING'];
+if($query){
+$url .= "?".$query;
+}
+$_SESSION['current_page'] = $url;
 foreach ($_POST as $key => $value) {
   ${$key} = $value;
 }
@@ -43,6 +48,7 @@ if(isset($submit)){
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="steylforhotelpagr.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='js/jsformodul.js' defer></script>
     <title>Contact</title>
 
 <style>
@@ -110,6 +116,51 @@ if(isset($submit)){
         height: 100vh;
      }
      
+.modal-container {
+  display: none; /* Hidden by default */
+  position: fixed; /* Position it on top of other content */
+  z-index: 1; /* Set a high z-index value to make it appear on top */
+  border-radius: 8px;
+  top:20%;
+  right: 62px;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(21, 117, 21); /* Black background with transparency */
+}
+
+/* Style for the modal content */
+.modal-content {
+  /* background-color: #fefefe; */
+  margin: 15% auto; /* 15% from the top and centered horizontally */
+  padding: 20px;
+  /* border: 1px solid #888; */
+ 
+}
+.modal-content a{
+  text-decoration: none;
+  color: white;
+}
+.modal-content a:hover{
+  text-decoration: none;
+  color: rgb(155, 148, 148);
+}
+
+
+/* Style for the close button */
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Hover effect on the close button */
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+     
 </style>
 </head>
 <body>
@@ -139,7 +190,7 @@ if(isset($submit)){
                         echo "<a href='login.php' name=''>SE CONNECTER</a>";
                       }
                       else{
-                        echo "<a href='deconection.php' name=''>DECONNECTER</a>";
+                        echo '<a  onclick="openModal()" style="color: white">MON PROFFILE</a>';
                       }
                       ?>
                     
@@ -149,7 +200,15 @@ if(isset($submit)){
                   </ul>
            
               </div>  
-            </nav>
+              
+            </nav><div id="modalContainer" class="modal-container">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <span class="close-button" onclick="closeModal()">&times;</span>
+                          <a href="client.php" >INFORMATION</a>
+                          <a href="">DECONNECTER</a>
+                        </div>
+                      </div>
                     </div> 
         <div  id="second2" >
               

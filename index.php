@@ -47,6 +47,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="resrvastion.css" defer>
     <link rel="stylesheet" href="cardoffvoyaage.css" defer>
     <link rel="stylesheet" href="footer.css" defer>
+    <script src='js/jsformodul.js' defer></script>
     
     <script type="text/javascript" src="Supersized/theme/supersized.shutter.min.js"></script>
     <script type="text/javascript" src="Supersized/js/jquery.easing.min.js"></script>
@@ -309,14 +310,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
     //     "img/3.jpg"
     //   ], {duration: 7000, fade: 750});
     // });
-    function openModal() {
-      document.getElementById("modalContainer").style.display = "block";
-    }
-
-    // Function to close the modal
-    function closeModal() {
-      document.getElementById("modalContainer").style.display = "none";
-    }
+    
     $(document).ready(function() {
   var images = [
          "img/2.jpg",
