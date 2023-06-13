@@ -35,6 +35,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
  $stmt2->execute();
  $resultsRes = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -98,8 +99,6 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
       color: #fff;
       border-radius: 3px;
       cursor: pointer;
-      text-align: center;
-      text-decoration: none;
     }
 
     .edit-input {
@@ -223,120 +222,91 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     // Update client information if values are present
     if (!empty($_POST["name"])) {
       $clientName = $_POST["name"];
+      $sql4  ='UPDATE client 
+              SET nom = :clientName
+              WHERE `id_client` = :id';
+        $stmt4 = $pdo->prepare($sql4);
+        $stmt4->bindParam(':id', $id);
+        $stmt4->bindParam(':clientName', $clientName);
+       $stmt4->execute();
+       if($stmt4){
+        header('location: client.php?success=Les informations ont été modifiées avec succès.');
+       }
     }
     if (!empty($_POST["email"])) {
       $clientEmail = $_POST["email"];
+      $sql5  ='UPDATE client 
+      SET email = :clientEmail
+      WHERE `id_client` = :id';
+        $stmt5 = $pdo->prepare($sql5);
+        $stmt5->bindParam(':id', $id);
+        $stmt5->bindParam(':clientEmail', $clientEmail);
+        $stmt5->execute();
+        if($stmt5){
+            header('location: client.php?success=Les informations ont été modifiées avec succès.');
+           }
     }
-    if (!empty($_POST["phone"])) {
-      $clientPhone = $_POST["phone"];
+    if (!empty($_POST["prenom"])) {
+      $clientPrenom = $_POST["prenom"];
+      $sql6  ='UPDATE client 
+      SET prenom = :clientPrenom
+      WHERE `id_client` = :id';
+        $stmt6 = $pdo->prepare($sql6);
+        $stmt6->bindParam(':id', $id);
+        $stmt6->bindParam(':clientPrenom', $clientPrenom);
+        $stmt6->execute();
+        if($stmt6){
+            header('location: client.php?success=Les informations ont été modifiées avec succès.');
+           }
     }
-    if (!empty($_POST["address"])) {
-      $clientAddress = $_POST["address"];
+    if (!empty($_POST["password"])) {
+        $clientPassword= $_POST["password"];
+        $clientPassword = md5($clientPassword);
+        $sql7  ='UPDATE client 
+        SET `password` = :clientPassword
+        WHERE `id_client` = :id';
+          $stmt7 = $pdo->prepare($sql7);
+          $stmt7->bindParam(':id', $id);
+          $stmt7->bindParam(':clientPassword', $clientPassword);
+          $stmt7->execute();
+          if($stmt7){
+            header('location: client.php?success=Les informations ont été modifiées avec succès.');
+           }
+      }
     }
-  }
+    // if (!empty($_POST["address"])) {
+    //   $clientPass = $_POST["address"];
+    // }
+    ob_end_flush();
   ?>
 
-              <?php 
-                  if(isset($_GET['success'])){ ?>
-                  <div class="containerr">
-                    <div class="alert alert-success" role="alert">
-                      <?php echo$_GET['success']; ?>
-                    </div>
-                  </div>
-                <?php } ?>
    <div class="containerr">
-    <h1>Bounjour   <?php echo $_SESSION['nom'].' '. $_SESSION['prenom'] ?></h1>
+    <h1>Bounjour <?php echo $_SESSION['nom'] ." ".$_SESSION['prenom'] ?></h1>
+    <form method="POST" action="">
     <div class="info">
-        <label>Name:</label>
-        <span> <?php echo$clientName ; ?></span>
-      </div>
-      <div class="info">
-        <label>Prenom:</label>
-        <span> <?php echo $clientPrenom; ?></span>
-      </div>
-      <div class="info">
-        <label>Email:</label>
-        <span> <?php echo $clientEmail; ?></span>
-      </div>
-    <form action="" method="post">
-  <a  class="edit-button" name="edit" href="update_client.php" >Edit</a>
-    </form>
- 
+    <label>Name:</label>
+    <input type="text" name="name" class="edit-input" value="<?php echo $clientName ;?>">
+  </div>
+  <div class="info">
+    <label>prenom:</label>
+    <input type="text" name="prenom" class="edit-input" value=" <?php echo $clientPrenom ;?>" >
+  </div>
+  <div class="info">
+    <label>Email:</label>
+    <input type="email" name="email" class="edit-input" value=" <?php echo $clientEmail ;?>">
   </div>
   
-   
-   <!-- <a href="update_client.php">edit</a> -->
-  
-  <!--  -->
-<div class="reservation containerr">
-  
-  <h2>Réservation des hôtels</h2>
-  <table class="table">
-  <thead>
-    <tr>
-    <th>#</th>
-        <th>Nom de Hôtel</th>
-        
-        <th>Date de réservation</th>
-        <th>Date début</th>
-        <th>Date fin</th>
-        <th>statut</th>
-    </tr>
-  </thead>
-  <tbody>
-   <?php  if($results) {
-    $i=1;
-    foreach ($results as $results )?>
-    <tr>
-      <th scope="row"><?php echo $i; ?></th>
-      <td><?php echo $results['nom'];?></td>
-      <td><?php echo $results['date-reservartion'];?></td>
-      <td><?php echo $results['date-debut'];?></td>
-      <td><?php echo $results['date-fin'];?></td>
-      <td><?php echo $results['statu'];?></td>
-      
-    </tr>
-    <?php }?>
-  </tbody>
-</table>
+  <div class="info">
+    <label>Password:</label>
+    <input type="password" name="password" class="edit-input" value="">
+  </div>
+  <button type="submit" class="save-button">Save</button>
+    </form>
+  </div>
 
-</div>
+ 
+ 
 
-<div class="reservation containerr">
-  
-  <h2>Réservation des voyages</h2>
-  <table class="table">
-  <thead>
-    <tr>
-    <th>#</th>
-         <th>Ville départ</th>
-        <th>Ville arrive</th>
-        
-        
-        <th>Prix</th>
-        <th>Date départ</th>
-        <th>Durée</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php  if($resultsRes) {
-    $i=1;
-    foreach ($resultsRes as $resultsRes )?>
-    <tr>
-      <th scope="row"><?php echo $i; ?></th>
-      <td><?php echo $resultsRes['ville-depart'];?></td>
-      <td><?php echo $resultsRes['ville-arrive'];?></td>
-      <td><?php echo $resultsRes['prix'];?></td>
-      <td><?php echo $resultsRes['date-depart'];?></td>
-      <td><?php echo $resultsRes['dure'];?></td>
-      
-    </tr>
-    <?php }
-    ob_end_flush();?>
-  </tbody>
-</table>
-
-</div>
 
 <footer class="">
        
