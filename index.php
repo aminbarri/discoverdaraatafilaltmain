@@ -2,7 +2,6 @@
 <?php
 
 session_start();
-$_SESSION['login']='non';
 include 'connection.php';
 $url = basename($_SERVER['PHP_SELF']);
 $query = $_SERVER['QUERY_STRING'];
@@ -96,15 +95,14 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
                         <li class="nav-item"><a href="pagerestau.php">RESTAURANT</a></li>
                         <li class="nav-item"><a href="contact.php">CONTACT</a></li>
                     <li class="nav-item">
-                      <?php
-                      if(@$_SESSION['login']!= 'oui') {
-                        echo "<a href='login.php' name=''>SE CONNECTER</a>";
-                      }
-                      else{
-                        echo '<a  onclick="openModal()" style="color: white">MON PROFFILE</a>
-                        ';
-                      }
-                      ?>
+                    <?php
+                     if(@$_SESSION['login']!= 'oui') {
+                       echo "<a href='login.php' name=''>SE CONNECTER</a>";
+                     }
+                     else{
+                       echo '<a  onclick="openModal()" style="color: white">MON PROFFILE</a>';
+                     }
+                     ?>
                     
                   
                   </li>
