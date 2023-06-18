@@ -356,7 +356,16 @@ nav{
   margin-bottom: 80px;
 }
 
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
 .modal-container {
   display: none; /* Hidden by default */

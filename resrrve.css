@@ -1,9 +1,9 @@
 .all-page{
     padding: 50px;
-    
-    background-color: rgb(197, 187, 176);
+    background-color: rgb(249 247 245);
 }
         
+
 .input-group{
             width: 250px;
             
@@ -55,6 +55,7 @@
         border-radius: 10px;
        background-color: rgb(255, 255, 255);
         padding: 25px;
+        height: max-content;
 
     }
     h4{
@@ -96,7 +97,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .dure, .information,.chamber,.confirmation_res{
@@ -198,3 +199,64 @@
  cursor: pointer;
  }
 
+
+ .description{
+    margin-top: 5px;
+ }
+ .location{
+    border-radius: 5px;
+    width: 40vw;
+    height: 40vh;
+    margin-top: 5px;
+ }
+ .location>iframe{
+    border-radius: 5px;
+    width: 40vw;
+    height: 40vh;
+ }
+ .description>img{
+    border-radius: 5px;
+    width: 40vw;
+    height: 40vh;
+    margin-top: 5px;
+ }
+  /* Media query for devices with a maximum width of 600px */
+  @media (max-width: 600px) {
+    .hotel_des {
+      width: 80%;
+      padding: 0px;
+    }
+  
+    .logo {
+      float: left;
+      margin-left: 0px; /* Change margin for smaller screens */
+    }
+  
+    .bar_top_sec {
+      float: right;
+    }
+    .description>img{
+        width: 60vw;
+       
+     }
+     .location{
+        width: 60vw;
+     }
+     .location>iframe{
+        width: 60vw;
+     }
+     .all-page {
+        padding: 10px;
+     }
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
