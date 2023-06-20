@@ -187,7 +187,7 @@ $moussem = $statement3->fetchAll(PDO::FETCH_ASSOC);
                 
                 
                  
-                 <a href="moussempage.php?id=<?php echo$dest['id-mous'] ?>">Read More</a>
+                 <a href="moussempage.php?id=<?php echo$dest['id-mous'] ?>">En savoir plus...</a>
                 </div>
                 <?php if($i>8){
                   break;

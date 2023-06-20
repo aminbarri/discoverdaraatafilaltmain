@@ -34,7 +34,7 @@ $i = 0;
                 
                 
                  
-                 <a href="destinationpage.php?<?php echo$dest['id-des'] ?>">Read More</a>
+                 <a href="destinationpage.php?<?php echo$dest['id-des'] ?>">En savoir plus...</a>
                 </div>
                 <?php if($i>8){
                   break;
@@ -43,6 +43,6 @@ $i = 0;
    
 <?php $i++;
 
- if($i==8){
+ if($i==12){
     break;
  } } }?>

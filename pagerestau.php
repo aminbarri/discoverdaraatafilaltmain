@@ -1,6 +1,16 @@
-
 <?php
 session_start();
+include 'connection.php';
+$url = basename($_SERVER['PHP_SELF']);
+$query = $_SERVER['QUERY_STRING'];
+if($query){
+$url .= "?".$query;
+}
+$_SESSION['current_page'] = $url;
+$sql3 ='SELECT * FROM `restau`';
+$statement3 = $pdo->prepare($sql3);
+$statement3->execute();
+$restau = $statement3->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -12,6 +22,9 @@ session_start();
     <link rel="stylesheet" href="font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="hotel.css">
     <link rel="stylesheet" href="page-affiche.css">
+    
+    <script src='js/jsformodul.js' defer></script>
+    <link rel="stylesheet" href="cardread.css" defer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
       
@@ -120,6 +133,14 @@ session_start();
                   </ul>
            
               </div>  
+              <div id="modalContainer" class="modal-container">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <span class="close-button" onclick="closeModal()">&times;</span>
+                          <a href="client.php" >INFORMATION</a>
+                          <a href="deconection.php">DECONNECTER</a>
+                        </div>
+                      </div>
             </nav>
             <div class="h">
                 <center>
@@ -154,7 +175,20 @@ session_start();
            
         </div>
         <div  id="second3" >
- 
+        <?php $i=0;
+               foreach($restau as $dest) {?>
+                <div class=" carteread">
+                 <img src="<?php echo '../admin-ver/img/restau/'.$dest['img1'] ?>" alt="" width="270px" height="150px">
+                 <h3><?php echo$dest['nom'] ?></h3>
+                 <p><?php echo$dest['ville'] ?>,<?php echo$dest['province'] ?></p>
+                
+                
+                 
+                 <a href="pagerestau.php?id=<?php echo$dest['id-rest'] ?>">En savoir plus...</a>
+                </div>
+                <?php if($i>8){
+                  break;
+                } }?>
      </div>
         </div>
         
@@ -186,7 +220,7 @@ session_start();
   $('#province').keyup(function() { // Listen for keyup event on the input field
     $.ajax({
       method: 'GET',
-      url: 'selecthotel.php',
+      url: 'selectrest.php',
       data: {
         province1: $('#province').val()
       },
@@ -196,9 +230,15 @@ session_start();
         // Actions to be performed before the AJAX request is sent
       },
       success: function(data) {
-        $('#second2').html(data);
+        if (data.length === 0) {
+          // Display a message when no results are found
+          $('#second2').html('<div class="noresfind"><p>No results found.</p><div>');
+        } else {
+          // Display the results
+          $('#second2').html(data);
+        }
         $("#second3").hide();
-          $("#second2").show();
+        $("#second2").show();
       }
     });
   });

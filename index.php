@@ -202,7 +202,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
                 
                 
                  
-                 <a href="destinationpage.php?id=<?php echo$dest['id-des'] ?>">Read More</a>
+                 <a href="destinationpage.php?id=<?php echo$dest['id-des'] ?>">En savoir plus...</a>
                 </div>
                 <?php if($i>8){
                   break;
