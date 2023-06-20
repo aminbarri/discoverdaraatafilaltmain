@@ -1,6 +1,17 @@
 
 <?php
 session_start();
+include 'connection.php';
+$url = basename($_SERVER['PHP_SELF']);
+$query = $_SERVER['QUERY_STRING'];
+if($query){
+$url .= "?".$query;
+}
+$_SESSION['current_page'] = $url;
+$sql3 ='SELECT * FROM `destination`';
+$statement3 = $pdo->prepare($sql3);
+$statement3->execute();
+$destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -12,6 +23,8 @@ session_start();
     <link rel="stylesheet" href="font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="hotel.css">
      <link rel="stylesheet" href="page-affiche.css">  
+     
+    <link rel="stylesheet" href="cardread.css" defer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
       
@@ -139,6 +152,9 @@ session_start();
                         </div>
         </div>
         <div id="second">
+        <?php if (isset($_GET['id'])) { ?>
+      <h2>Helllo</h2>
+    <?php } else { ?>
         <div class="center-bar">
         <div class="tttt">
             
@@ -154,57 +170,28 @@ session_start();
            
         </div>
         <div  id="second3" >
+
+
+        <?php $i=0;
+               foreach($destination as $dest) {?>
+                <div class=" carteread">
+                 <img src="<?php echo '../admin-ver/img/destinations/'.$dest['img1'] ?>" alt="" width="270px" height="150px">
+                 <h3><?php echo$dest['nom'] ?></h3>
+                 <p><?php echo$dest['ville'] ?>,<?php echo$dest['province'] ?></p>
+                
+                
+                 
+                 <a href="destinationpage.php?id=<?php echo$dest['id-des'] ?>">Read More</a>
+                </div>
+                <?php if($i>8){
+                  break;
+                } }?>
  
-        <div class="box-hotel"> 
-              <div class="mainborder">
-              <div class="imageclass">
-                  <img src="img/2.jpg" alt="">
-              </div>
-              <div class="divtext">
-                  <h3 class="tiltle">Kasbah N’Kob</h3>
-
-                  <h5>N'kob is the only village in Morocco that counts more than forty Kasbahs all built with rammed earth.</h5>
-              </div>
-              <div class="bottombar">
-                  <a href="">READ MORE...</a>
-              </div>
-                </div>
-          </div>   
-          <div class="box-hotel"> 
-              <div class="mainborder">
-              <div class="imageclass">
-                  <img src="img/2.jpg" alt="">
-              </div>
-              <div class="divtext">
-                  <h3 class="tiltle">Kasbah N’Kob</h3>
-
-                  <h5>N'kob is the only village in Morocco that counts more than forty Kasbahs all built with rammed earth.</h5>
-              </div>
-              <div class="bottombar">
-                  <a href="">READ MORE...</a>
-              </div>
-                </div>
-          </div>   
-          <div class="box-hotel"> 
-              <div class="mainborder">
-              <div class="imageclass">
-                  <img src="img/2.jpg" alt="">
-              </div>
-              <div class="divtext">
-                  <h3 class="tiltle">Kasbah N’Kob</h3>
-
-                  <h5>N'kob is the only village in Morocco that counts more than forty Kasbahs all built with rammed earth.</h5>
-              </div>
-              <div class="bottombar">
-                  <a href="">READ MORE...</a>
-              </div>
-                </div>
-          </div>   
-        </div>
+       </div>
         </div>
         
         </div>
-        
+        <?php } ?>
     </div>
     <footer class="">
        
@@ -221,7 +208,7 @@ session_start();
      $('#province').keyup(function() { // Listen for keyup event on the input field
     $.ajax({
       method: 'GET',
-      url: 'selecthotel.php',
+      url: 'select_des.php',
       data: {
         province1: $('#province').val()
       },

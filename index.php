@@ -47,6 +47,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="resrvastion.css" defer>
     <link rel="stylesheet" href="cardoffvoyaage.css" defer>
     <link rel="stylesheet" href="footer.css" defer>
+    <link rel="stylesheet" href="cardread.css" defer>
     <script src='js/jsformodul.js' defer></script>
     
     <script type="text/javascript" src="Supersized/theme/supersized.shutter.min.js"></script>
@@ -194,14 +195,14 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
             <div class='swiper-wrapper'>
               <?php $i=0;
                foreach($destination as $dest) {?>
-                <div class="swiper-slide box-hotel">
+                <div class="swiper-slide carteread">
                  <img src="<?php echo '../admin-ver/img/destinations/'.$dest['img1'] ?>" alt="" width="270px" height="150px">
-                <div class="text">
-                  <div class="hotel-name"><?php echo$dest['nom'] ?></div>
-                <div class="adress"><?php echo$dest['ville'] ?>,<?php echo$dest['province'] ?></div>
+                 <h3><?php echo$dest['nom'] ?></h3>
+                 <p><?php echo$dest['ville'] ?>,<?php echo$dest['province'] ?></p>
                 
-                  </div>
-                <div class="dure"><span>Lire la suite</span> <a href="#">...</a></div>
+                
+                 
+                 <a href="destinationpage.php?id=<?php echo$dest['id-des'] ?>">Read More</a>
                 </div>
                 <?php if($i>8){
                   break;
@@ -229,7 +230,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
             <p>Date de départ: <?php echo $voy['date-depart']?></p>
             <p>Heure de départ: <?php echo $voy['heure-depart']?></p>
             <p>Durée: <?php echo $voy['dure']?></p>
-            <p>Prix: <?php echo $voy['prix']?></p>
+            <p>Prix: <?php echo $voy['prix']?> MAD</p>
             <a href="reservervoyage.php?id=<?php echo $voy['id-cer']?>">Reserver</a>
           </div>
           <?php if($i>2){
