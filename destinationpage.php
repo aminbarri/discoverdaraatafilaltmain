@@ -23,7 +23,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="hotel.css">
      <link rel="stylesheet" href="page-affiche.css">  
-     
+     <script src='js/jsformodul.js' defer></script>
     <link rel="stylesheet" href="cardread.css" defer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
@@ -133,6 +133,14 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
                   </ul>
            
               </div>  
+              <div id="modalContainer" class="modal-container">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <span class="close-button" onclick="closeModal()">&times;</span>
+                          <a href="client.php" >INFORMATION</a>
+                          <a href="deconection.php">DECONNECTER</a>
+                        </div>
+                      </div>
             </nav>
             <div class="h">
                 <center>

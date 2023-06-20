@@ -207,7 +207,7 @@ if(isset($submit)){
                         <div class="modal-content">
                           <span class="close-button" onclick="closeModal()">&times;</span>
                           <a href="client.php" >INFORMATION</a>
-                          <a href="">DECONNECTER</a>
+                          <a href="deconection.php">DECONNECTER</a>
                         </div>
                       </div>
             </div> 
