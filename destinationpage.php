@@ -226,9 +226,15 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
         // Actions to be performed before the AJAX request is sent
       },
       success: function(data) {
-        $('#second2').html(data);
+        if (data.length === 0) {
+          // Display a message when no results are found
+          $('#second2').html('<div class="noresfind"><p>No results found.</p><div>');
+        } else {
+          // Display the results
+          $('#second2').html(data);
+        }
         $("#second3").hide();
-          $("#second2").show();
+        $("#second2").show();
       }
     });
   });

@@ -36,7 +36,10 @@ text-align: center;
         background-size: cover;
     }
     
-   
+    .noresfind{
+        min-height: 50vh;
+    }
+  
     #second2,#second3{
         width: 80%;
         

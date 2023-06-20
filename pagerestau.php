@@ -155,52 +155,7 @@ session_start();
         </div>
         <div  id="second3" >
  
-        <div class="box-hotel"> 
-              <div class="mainborder">
-              <div class="imageclass">
-                  <img src="img/2.jpg" alt="">
-              </div>
-              <div class="divtext">
-                  <h3 class="tiltle">Kasbah N’Kob</h3>
-
-                  <h5>N'kob is the only village in Morocco that counts more than forty Kasbahs all built with rammed earth.</h5>
-              </div>
-              <div class="bottombar">
-                  <a href="">READ MORE...</a>
-              </div>
-                </div>
-          </div>   
-          <div class="box-hotel"> 
-              <div class="mainborder">
-              <div class="imageclass">
-                  <img src="img/2.jpg" alt="">
-              </div>
-              <div class="divtext">
-                  <h3 class="tiltle">Kasbah N’Kob</h3>
-
-                  <h5>N'kob is the only village in Morocco that counts more than forty Kasbahs all built with rammed earth.</h5>
-              </div>
-              <div class="bottombar">
-                  <a href="">READ MORE...</a>
-              </div>
-                </div>
-          </div>   
-          <div class="box-hotel"> 
-              <div class="mainborder">
-              <div class="imageclass">
-                  <img src="img/2.jpg" alt="">
-              </div>
-              <div class="divtext">
-                  <h3 class="tiltle">Kasbah N’Kob</h3>
-
-                  <h5>N'kob is the only village in Morocco that counts more than forty Kasbahs all built with rammed earth.</h5>
-              </div>
-              <div class="bottombar">
-                  <a href="">READ MORE...</a>
-              </div>
-                </div>
-          </div>   
-        </div>
+     </div>
         </div>
         
         </div>
