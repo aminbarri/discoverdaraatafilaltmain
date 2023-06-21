@@ -204,7 +204,7 @@ $moussem = $statement3->fetchAll(PDO::FETCH_ASSOC);
        
         <div class="bottom_footer">
 
-                <span><i class="bi bi-c-circle"></i> <a href="">discoverdaraatafilalt.com</a> All right reserved</span>
+                <span><i class="bi bi-c-circle"></i> <a href="index.php">discoverdaraatafilalt.com</a> All right reserved</span>
         </div>
         
     </footer>

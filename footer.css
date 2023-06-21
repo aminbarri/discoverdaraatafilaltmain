@@ -81,9 +81,14 @@ margin-left: 64px;
     height: 49px;
     color: white;
      border: none;
+     padding-left: 10px;
     background-color:#589277 ;
     
-} .stay_connected_form>input[type="submit"]{
+}
+.input-group:focus {
+    outline: none;
+    border-color: transparent;
+  } .stay_connected_form>input[type="submit"]{
     font-weight: bold;
     margin-left: 20px;
     padding-left: 15px;
@@ -94,7 +99,7 @@ margin-left: 64px;
 }
 
 .stay_connected_form>input:first-child::placeholder{
-    padding-left: 15px;
+    /* padding-left: 15px; */
     color: white;
 }
 .bi-c-circle{

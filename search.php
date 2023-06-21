@@ -159,7 +159,7 @@ $resu4 = $statement4->fetchAll(PDO::FETCH_ASSOC);
               <div>
                 <h3><?php echo $res['nom']?></h3>
                 <p><?php echo $res['ville']?></p>
-                <a href="result1.html">Read More</a>
+                <a href="reserverhotel.php?id=<?php echo $res['id-hotel']; ?>">Resever</a>
               </div>
             </div>
             <?php $i++; if($i>4){break;} }}?>
@@ -172,7 +172,7 @@ $resu4 = $statement4->fetchAll(PDO::FETCH_ASSOC);
               <div>
                 <h3><?php echo $res['nom']?></h3>
                 <p><?php echo $res['ville']?></p>
-                <a href="result1.html">Read More</a>
+                <a href="destinationpage.php?id=<?php echo $res['id-des']; ?>">Read More</a>
               </div>
             </div>
             <?php  $i++; if($i>4){break;}  }}?>
@@ -185,7 +185,7 @@ $resu4 = $statement4->fetchAll(PDO::FETCH_ASSOC);
               <div>
                 <h3><?php echo $res['nom']?></h3>
                 <p><?php echo $res['ville']?></p>
-                <a href="result1.html">Read More</a>
+                <a href="moussempage.php?id=<?php echo $res['id-mous']; ?>">Read More</a>
               </div>
             </div>
             <?php  $i++; if($i>4){break;}  }}?>

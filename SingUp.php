@@ -88,8 +88,12 @@ if(isset($flexCheckChecked)){
 
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email'>
-                    
+                    <?php if(isset($_GET['eamil'])){?>
+                    <input type="email" value="<?php echo $_GET['eamil'];?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email'>
+                    <?php }else{?>
+                         <input type="email" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email'>
+                   
+                  <?php  }?>
                   </div>
   
                    <div class="mb-3">

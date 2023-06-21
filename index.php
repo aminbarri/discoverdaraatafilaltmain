@@ -1,5 +1,6 @@
 
 <?php
+ob_start();
 
 session_start();
 include 'connection.php';
@@ -284,17 +285,21 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
               <ul class="stay_connected">
                 <li>STAY CONNECTED</li>
                 <li>
-                <form action="" class="stay_connected_form" method="">
-                    <input type="email" class="input-group" placeholder="email">
-                    <input type="submit" value="SIGN UP" >
+                <form action="" class="stay_connected_form" method="post">
+                    <input type="email" class="input-group" name='email' placeholder="email">
+                    <input type="submit" value="SIGN UP" name="send">
                 </form></li>
+                <?php 
+                if(isset($_POST['send'])){
+                  header('location: SingUp.php?eamil='.$_POST["email"].'');
+                }?>
               </ul>
 
 
         </div>
         <div class="bottom_footer">
 
-                <span><i class="bi bi-c-circle"></i> <a href="">discoverdaraatafilalt.com</a> All right reserved</span>
+                <span><i class="bi bi-c-circle"></i> <a href="index.php">discoverdaraatafilalt.com</a> All right reserved</span>
         </div>
         
    </footer> 
@@ -418,3 +423,5 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
 
 </html>
 
+<?php 
+ob_end_flush(); ?>
