@@ -158,7 +158,7 @@ $moussem = $statement3->fetchAll(PDO::FETCH_ASSOC);
 
                         </div>
         </div>
-        <div id="second">
+       
         <div id="second">
         <?php if (isset($_GET['id'])) { ?>
       <h2>Helllo</h2>

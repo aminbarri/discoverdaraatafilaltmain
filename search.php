@@ -198,7 +198,7 @@ $resu4 = $statement4->fetchAll(PDO::FETCH_ASSOC);
               <div>
                 <h3><?php echo $res['nom']?></h3>
                 <p><?php echo $res['ville']?></p>
-                <a href="result1.html">Read More</a>
+                <a href="pagerestau.php?id=<?php echo $res['id-rest']; ?>">Read More</a>
               </div>
             </div>
             <?php  $i++; if($i>4){break;}  }}?>
