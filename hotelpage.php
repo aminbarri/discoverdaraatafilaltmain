@@ -10,6 +10,13 @@ $url .= "?".$query;
 }
 $_SESSION['current_page'] = $url;
 
+@$id=$_GET['id'];
+$slectHotle="select * from hotel ";
+$slectHotle = $pdo->prepare($slectHotle);
+
+
+$slectHotle->execute();
+$hotel  = $slectHotle->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -203,7 +210,7 @@ main {
       </div>
       <div id="second3">
         <?php
-       
+       $i=0;
         foreach ($hotel as $hote1) {
         ?>
           <div class="swiper-slide box-hotel">
