@@ -164,7 +164,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
                 <div class="adress"><?php echo $hote1['ville']; ?></div>
                 <div class="description"><?php echo $hote1['classe']; ?>-star hotel</div>
                   </div>
-                  <div class="dure"> <a href="reserverhotel.php?id=<?php echo $hote1['id-hotel']; ?>">RESERVER</a></div>
+                  <div class="dure"> <a href="hotelpage.php?id=<?php echo $hote1['id-hotel']; ?>#second">RESERVER</a></div>
                 </div>
                 <?php $i++; if($i>7){
                   break;

@@ -121,13 +121,13 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                     </div>
-                    <div class="description">
-                    <img src="<?php echo '../admin-ver/img/hotels/'.$hotel[0]['img2']; ?>" alt="" width="100%" height="100%">
-                    <img src="<?php echo '../admin-ver/img/hotels/'.$hotel[0]['img3']; ?>" alt="" width="100%" height="100%">
+                    <!-- <div class="description">
+                    <img src="<?php // echo '../admin-ver/img/hotels/'.$hotel[0]['img2']; ?>" alt="" width="100%" height="100%">
+                    <img src="<?php //echo '../admin-ver/img/hotels/'.$hotel[0]['img3']; ?>" alt="" width="100%" height="100%">
                     <div class='location'>
-                    <?php echo $hotel[0]['carte']; ?>
+                    <?php //echo $hotel[0]['carte']; ?>
                     </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="reservehotel">
                     <h4>Personel Information</h4>

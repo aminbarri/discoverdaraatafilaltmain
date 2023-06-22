@@ -9,6 +9,9 @@ if($query){
 $url .= "?".$query;
 }
 $_SESSION['current_page'] = $url;
+
+
+
 ?>
 
 
@@ -25,6 +28,7 @@ $_SESSION['current_page'] = $url;
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
       
     <link rel="stylesheet" href="style.css">
+  
     
     <script src='js/jsformodul.js' defer></script>
     <link rel="stylesheet" href="steylforhotelpagr.css">
@@ -105,8 +109,90 @@ main {
     </div>
   </div>
   <div id="second" class='test'>
-    <?php if (isset($_GET['id'])) { ?>
-      <h2>Helllo</h2>
+    <?php if (isset($_GET['id'])) { 
+      @$id=$_GET['id'];
+      $slectHotle="select * from hotel where `id-hotel`=:id";
+      $slectHotle = $pdo->prepare($slectHotle);
+      
+      $slectHotle->bindValue(':id', $id);
+      $slectHotle->execute();
+      $slectHotle = $slectHotle->fetchAll(PDO::FETCH_ASSOC);
+      $i = 0;
+      $sql88 = 'SELECT * FROM `hotel` WHERE ville LIKE :ville';
+      $statement88 = $pdo->prepare($sql88);
+      $ville = '%' . $slectHotle[0]['ville'] . '%'; // Assuming 'ville' is a parameter from the GET request
+      $statement88->bindParam(':ville', $ville);
+      $statement88->execute();
+      $hotel2 = $statement88->fetchAll(PDO::FETCH_ASSOC);
+
+
+      $sql89 = 'SELECT * FROM `restau` WHERE ville LIKE :ville';
+      $statement89 = $pdo->prepare($sql89);
+      $ville = '%' . $slectHotle[0]['ville'] . '%'; // Assuming 'ville' is a parameter from the GET request
+      $statement89->bindParam(':ville', $ville);
+      $statement89->execute();
+      $restau = $statement89->fetchAll(PDO::FETCH_ASSOC);
+
+      ?>
+      <div class="article_sec">
+        <div class="first-seccc">
+            <div class="left-section">
+                <div class="main-article">
+                    <!-- Content for the main article -->
+                    <h2><?php echo $slectHotle[0]['nom']; ?></h2>
+                    <img src="<?php echo '../admin-ver/img/hotels/'.$slectHotle[0]['img1']; ?>" alt="Slide Image" class="imgarticle">
+                    
+
+                    <img src="<?php echo '../admin-ver/img/hotels/'.$slectHotle[0]['img2']; ?>" alt="Slide Image" class="imgarticle">
+                   
+                    <img src="<?php echo '../admin-ver/img/hotels/'.$slectHotle[0]['img3']; ?>" alt="Slide Image" class="imgarticle">
+                   
+
+                    <!-- <p><?php echo $slectHotle[0]['ville']; ?></p> -->
+
+                    <?php echo $slectHotle[0]['carte']; ?>
+                    <div class='reserver_btn'><a href="reserverhotel.php?id=<?php echo $slectHotle[0]['id-hotel']; ?>">RESERVER</a></div>
+                 </div>
+            </div>
+
+            <div class="other-articles">
+                <!-- Content for the other articles -->
+                <p class="parag1">Hotels dans la même ville</p>
+                <?php  $j=0;foreach ($hotel2 as $hote1){ ?>
+                <div class="article-card" onclick="location.href=' hotelpage.php?id=<?php echo $hote1['id-hotel']; ?>#second' ">
+                    <!-- Content for the first article card -->
+                    <h3><?php echo $hote1['nom']; ?></h3>
+                    <img src="<?php echo '../admin-ver/img/hotels/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
+                    
+                </div>
+                 <?php $j++;
+                if($j>8){
+                  break;
+                } } ?>
+                
+
+                <!-- Add more article cards for other articles -->
+            </div>
+        </div>
+        <p class="parag1">Restarants dans la même ville</p>
+        <div class="bottom-section">
+        
+        <?php  $j=0;foreach ($restau as $hote1){ ?>
+                <div class="article-card" onclick="location.href=' pagerestau.php?id=<?php echo $hote1['id-rest']; ?>#second' ">
+                    <!-- Content for the first article card -->
+                    <h3><?php echo $hote1['nom']; ?></h3>
+                    <img src="<?php echo '../admin-ver/img/restau/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
+                    
+                </div>
+                 <?php $j++;
+                if($j>8){
+                  break;
+                } } ?>
+            
+
+            <!-- Add more article cards for the bottom section -->
+        </div>
+    </div>
     <?php } else { ?>
       <div class="center-bar">
         <div>
@@ -117,16 +203,12 @@ main {
       </div>
       <div id="second3">
         <?php
-        $i = 0;
-        $sql88 = 'SELECT * FROM `hotel`';
-        $statement88 = $pdo->prepare($sql88);
-        $statement88->execute();
-        $hotel = $statement88->fetchAll(PDO::FETCH_ASSOC);
+       
         foreach ($hotel as $hote1) {
         ?>
           <div class="swiper-slide box-hotel">
             <img src="<?php echo '../admin-ver/img/hotels/' . $hote1['img1']; ?>" alt="" width="270px" height="150px">
-            <span>MAD350</span>
+            <span>MAD<?php echo $hote1['prix']; ?></span>
             <div class="text">
               <div class="hotel-name"><?php echo $hote1['nom']; ?></div>
               <div class="rating">
@@ -140,7 +222,7 @@ main {
               <div class="description"><?php echo $hote1['classe']; ?>-star hotel</div>
             </div>
             <div class="dure">
-              <a href="reserverhotel.php?id=<?php echo $hote1['id-hotel']; ?>">RESERVER</a>
+            <a href="hotelpage.php?id=<?php echo $hote1['id-hotel']; ?>#second">RESERVER</a>
             </div>
           </div>
           <?php

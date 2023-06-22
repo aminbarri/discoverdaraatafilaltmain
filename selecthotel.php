@@ -39,7 +39,7 @@ $i = 0;
                 <div class="adress"><?php echo $selecthotel['ville']; ?></div>
                 <div class="description"><?php echo $selecthotel['classe']; ?>-star hotel</div>
                   </div>
-                  <div class="dure"> <a href="reserverhotel.php?id=<?php echo $selecthotel['id-hotel']; ?>">RESERVER</a></div>
+                  <div class="dure"><a href="hotelpage.php?id=<?php echo $selecthotel['id-hotel']; ?>#second">RESERVER</a></div>
                 </div>
                
                
