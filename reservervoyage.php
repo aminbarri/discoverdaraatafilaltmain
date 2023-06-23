@@ -57,7 +57,7 @@ if(isset($confirmer)){
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="resrrve.css">
-  
+    <script src='js/jsformodul.js' defer></script>
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
@@ -98,6 +98,14 @@ if(isset($confirmer)){
                         </li>
                     </ul>
                 </div>
+                <div id="modalContainer" class="modal-container">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <span class="close-button" onclick="closeModal()">&times;</span>
+                          <a href="client.php" >INFORMATION</a>
+                          <a href="deconection.php">DECONNECTER</a>
+                        </div>
+                      </div>
             </nav>
         </div>
        

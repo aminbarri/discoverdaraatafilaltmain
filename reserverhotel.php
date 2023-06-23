@@ -62,6 +62,7 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="resrrve.css" defer>
+    <script src='js/jsformodul.js' defer></script>
   
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -85,24 +86,32 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="bar_top_sec collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
-                        <li class="nav-item"><a href="#">ACCUEIL</a></li>
-                        <li class="nav-item"><a href="#">HOTELS</a></li>
-                        <li class="nav-item"><a href="#">DESTINATION</a></li>
-                        <li class="nav-item"><a href="#">MOUSSEM</a></li>
-                        <li class="nav-item"><a href="#">RESTAURANT</a></li>
-                        <li class="nav-item"><a href="contact.php">CONTACT</a></li>
-                        <li class="nav-item">
-                            <?php
-                            if (@$_SESSION['login'] != 'oui') {
-                                echo "<a href='login.php' name=''>SE CONNECTER</a>";
-                            } else {
-                                echo '<a  onclick="openModal()" style="color: white">MON PROFFILE</a>';
-                            }
-                            ?>
-                        </li>
-                    </ul>
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+            <li class="nav-item"><a href="index.php">ACCUEIL</a></li>
+            <li class="nav-item"><a href="hotelpage.php">HOTELS</a></li>
+            <li class="nav-item"><a href="destinationpage.php">DESTINATION</a></li>
+            <li class="nav-item"><a href="moussempage.php">MOUSSEM</a></li>
+            <li class="nav-item"><a href="pagerestau.php">RESTAURANT</a></li>
+            <li class="nav-item"><a href="contact.php">CONTACT</a></li>
+            <li class="nav-item">
+              <?php
+              if (@$_SESSION['login'] != 'oui') {
+                echo "<a href='login.php' name=''>SE CONNECTER</a>";
+              } else {
+                echo '<a  onclick="openModal()" style="color: white">MON PROFFILE</a>';
+              }
+              ?>
+            </li>
+          </ul>
                 </div>
+                <div id="modalContainer" class="modal-container">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                          <span class="close-button" onclick="closeModal()">&times;</span>
+                          <a href="client.php" >INFORMATION</a>
+                          <a href="deconection.php">DECONNECTER</a>
+                        </div>
+                      </div>
             </nav>
         </div>
         <div id="second2">

@@ -203,7 +203,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
                 
                 
                  
-                 <a href="destinationpage.php?id=<?php echo$dest['id-des'] ?>">En savoir plus...</a>
+                 <a href="destinationpage.php?id=<?php echo$dest['id-des'] ?>#second">En savoir plus...</a>
                 </div>
                 <?php if($i>8){
                   break;
@@ -260,11 +260,11 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
         <div class="medium_footer">
             <ul>
             
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Main</a></li>
-                <li><a href="#">Hotel</a></li>
-                <li><a href="#">Rest</a></li>
-                <li><a href="#">Blog</a></li>
+                        <li class="nav-item"><a href="index.php">ACCUEIL</a></li>
+                        <li class="nav-item"><a href="hotelpage.php">HOTELS</a></li>
+                        <li class="nav-item"><a href="destinationpage.php">DESTINATION</a></li>
+                        <li class="nav-item"><a href="moussempage.php">MOUSSEM</a></li>
+                        <li class="nav-item"><a href="pagerestau.php">RESTAURANT</a></li>
     
         
               </ul>
