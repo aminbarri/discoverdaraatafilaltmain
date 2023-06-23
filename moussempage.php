@@ -160,8 +160,117 @@ $moussem = $statement3->fetchAll(PDO::FETCH_ASSOC);
         </div>
        
         <div id="second">
-        <?php if (isset($_GET['id'])) { ?>
-      <h2>Helllo</h2>
+        <?php if (isset($_GET['id'])) { 
+      @$id=$_GET['id'];
+      $selectmouss="select * from moussem where `id-mous`=:id";
+      $selectmouss = $pdo->prepare($selectmouss);
+      
+      $selectmouss->bindValue(':id', $id);
+      $selectmouss->execute();
+      $selectmouss = $selectmouss->fetchAll(PDO::FETCH_ASSOC);
+      $i = 0;
+      $sql88 = 'SELECT * FROM `moussem` WHERE ville LIKE :ville';
+      $statement88 = $pdo->prepare($sql88);
+      $ville = '%' . $selectmouss[0]['ville'] . '%'; // Assuming 'ville' is a parameter from the GET request
+      $statement88->bindParam(':ville', $ville);
+      $statement88->execute();
+      $hotel2 = $statement88->fetchAll(PDO::FETCH_ASSOC);
+
+
+      $sql89 = 'SELECT * FROM `restau` WHERE ville LIKE :ville';
+      $statement89 = $pdo->prepare($sql89);
+      $ville = '%' . $selectmouss[0]['ville'] . '%'; // Assuming 'ville' is a parameter from the GET request
+      $statement89->bindParam(':ville', $ville);
+      $statement89->execute();
+      $restau = $statement89->fetchAll(PDO::FETCH_ASSOC);
+
+      ?>
+      <div class="article_sec">
+        <div class="first-seccc">
+            <div class="left-section">
+                <div class="main-article">
+                    <!-- Content for the main article -->
+                    <h2><?php echo $selectmouss[0]['nom']; ?></h2>
+                    <img src="<?php echo '../admin-ver/img/moussem/'.$selectmouss[0]['img1']; ?>" alt="Slide Image" class="imgarticle">
+                    <p>Date de début: <?php echo $selectmouss[0]['date-debut']; ?></p>
+                    <p>Date de fin: <?php echo $selectmouss[0]['date-fin']; ?></p>
+                    <div> <?php echo $selectmouss[0]['description']; ?></div>
+                    <img src="<?php echo '../admin-ver/img/moussem/'.$selectmouss[0]['img2']; ?>" alt="Slide Image" class="imgarticle">
+                   
+                    <img src="<?php echo '../admin-ver/img/moussem/'.$selectmouss[0]['img3']; ?>" alt="Slide Image" class="imgarticle">
+                   
+                    
+
+                    <?php echo $selectmouss[0]['location']; ?>
+                 </div>
+            </div>
+
+            <div class="other-articles">
+                <!-- Content for the other articles -->
+                <p class="parag1">Distinations dans la même ville</p>
+                <?php  $j=0;foreach ($hotel2 as $hote1){ ?>
+                <div class="article-card" onclick="location.href=' moussempage.php?id=<?php echo $hote1['id-mous']; ?>#second' ">
+                    <!-- Content for the first article card -->
+                    <h3><?php echo $hote1['nom']; ?></h3>
+                    <img src="<?php echo '../admin-ver/img/moussem/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
+                    
+                </div>
+                 <?php $j++;
+                if($j>8){
+                  break;
+                } } ?>
+                
+
+                <!-- Add more article cards for other articles -->
+            </div>
+        </div>
+        <p class="parag1">Restarants dans la même ville</p>
+        <div class="bottom-section">
+        
+        <?php  $j=0;foreach ($restau as $hote1){ ?>
+                <div class="article-card" onclick="location.href=' pagerestau.php?id=<?php echo $hote1['id-rest']; ?>#second' ">
+                    <!-- Content for the first article card -->
+                    <h3><?php echo $hote1['nom']; ?></h3>
+                    <img src="<?php echo '../admin-ver/img/restau/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
+                    
+                </div>
+                 <?php $j++;
+                if($j>8){
+                  break;
+                } } ?>
+            
+
+            <!-- Add more article cards for the bottom section -->
+        </div>
+        <p class="parag1">Hotels dans la même ville</p>
+        <div class="bottom-section">
+        
+        <?php  
+        
+        $sql88 = 'SELECT * FROM `hotel` WHERE ville LIKE :ville';
+      $statement88 = $pdo->prepare($sql88);
+      $ville = '%' . $selectmouss[0]['ville'] . '%'; // Assuming 'ville' is a parameter from the GET request
+      $statement88->bindParam(':ville', $ville);
+      $statement88->execute();
+      $hotel2 = $statement88->fetchAll(PDO::FETCH_ASSOC);
+
+        $j=0;foreach ($hotel2 as $hote1){ ?>
+                <div class="article-card" onclick="location.href=' hotelpage.php?id=<?php echo $hote1['id-hotel']; ?>#second' ">
+                    <!-- Content for the first article card -->
+                    <h3><?php echo $hote1['nom']; ?></h3>
+                    <img src="<?php echo '../admin-ver/img/restau/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
+                    
+                </div>
+                 <?php $j++;
+                if($j>8){
+                  break;
+                } } ?>
+            
+
+            <!-- Add more article cards for the bottom section -->
+        </div>
+        
+    </div>
     <?php } else { ?>
         <div class="center-bar">
         <div>
@@ -187,7 +296,7 @@ $moussem = $statement3->fetchAll(PDO::FETCH_ASSOC);
                 
                 
                  
-                 <a href="moussempage.php?id=<?php echo$dest['id-mous'] ?>">En savoir plus...</a>
+                 <a href="moussempage.php?id=<?php echo$dest['id-mous'] ?>#second">En savoir plus...</a>
                 </div>
                 <?php if($i>8){
                   break;
