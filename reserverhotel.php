@@ -30,7 +30,7 @@ $statement->execute();
 $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
 {
     if(isset($confirmer)){
-        if(!empty($phone)&&!empty($type)&&!empty($nbrpersone)
+        if(!empty($phone)&&!empty($type)
         &&!empty($datedebut)&&!empty($datefin)){
         $sql='INSERT INTO `reserver-hotel` ( `id-hotel`, `id-client`,  `phone`, `type`, `nmbre-perssone`, 
           `date-debut`, `date-fin`, `date-reservartion`) 
@@ -42,11 +42,11 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
             header('Location: index.php?success= Resrvation envoyé avec succès!');
           }
           else{
-            header("Location: reserverhotel.php?error= Resrvation de l'envoi du message");
+            header("Location: reserverhotel.php?id=".$id."&error= Resrvation de l'envoi du message");
           }
         }
         else{
-          header('Location: reserverhotel.php?error= Il y a un champ vide!');
+          header('Location: reserverhotel.php?id='.$id.'&error= Il y a un champ vide!');
         }
       }
 }
@@ -139,6 +139,13 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
                     </div> -->
                 </div>
                 <div class="reservehotel">
+            
+                <?php 
+                  if(isset($_GET['error'])){ ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo$_GET['error']; ?>
+                    </div>
+                <?php } ?>
                     <h4>Personel Information</h4>
                     <form action="" class="" method="post">
                     <div class="input-group mb-6 telephone_num">
@@ -175,15 +182,15 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <div class="chamber">
                         <div class="type-chamber">
                             <label for="">Type de chambre</label>
-                            <select class="form-select" aria-label="Default select example" name='type'>
-                                <option selected>Open this select menu</option>
+                            <select class="form-select" aria-label="Default select example" id='typeb' name='type'>
+                                <option  value="Open this select menu" >Open this select menu</option>
                                 <option value="seul">seul</option>
                                 <option value="partagé">partagé</option>
                             </select>
                         </div>
                         <div class="nomber-per">
                             <label for="">Nombre of personne</label>
-                            <input type="number" class="form-control" name='nbrpersone' placeholder="Number of personne">
+                            <input type="number" class="form-control" id="nbprs" name='nbrpersone' placeholder="Number of personne">
                         </div>
                     </div>
                     <h4>Duree</h4>
@@ -199,11 +206,12 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <h4>Prix Total</h4>
                     <div class="prix">
-                        <span class="input-group-text" id='datefun' name='datefun'>Prix Total</span>
+                        <span class="input-group-text" id='prixtotal' name='datefun'>Prix Total</span>
                     </div>
                     <h4>Confirmer</h4>
                     <div class="confirmation_res">
                         <input type="submit" name="confirmer" value="Confirmer">
+                        <input type="text" id='prixtotall' value="<?php echo $hotel[0]['prix']; ?>" hidden>
                         <button type="button" class="btn"><a href="">Cancel</a></button>
                     </div>
                 </div>
@@ -216,6 +224,40 @@ $hotel = $statement->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </footer>
     </div>
+
+
+    <script>
+
+$(document).ready(function() {
+  $('#nbprs, #typeb').change(function() {
+    var provinceValue = $('#prixtotall').val();
+    var provinceValue2 = $('#typeb').val();
+    var provinceValue3 = $('#nbprs').val();
+    
+    if (provinceValue.trim() === '') {
+      $("#prixtotal").html('Prix Total');
+      return;
+    }
+    
+    $.ajax({
+      method: 'GET',
+      url: 'prixhtl.php',
+      data: {
+        province1: provinceValue,
+        province2: provinceValue2, // Fix: Correct variable name
+        province3: provinceValue3 // Fix: Correct variable name
+      },
+      beforeSend: function() {
+        // You can add any loading or processing logic here
+      },
+      success: function(data) {
+        $('#prixtotal').html(data);
+      }
+    });
+  });
+});
+
+    </script>
 </body>
 
 </html>

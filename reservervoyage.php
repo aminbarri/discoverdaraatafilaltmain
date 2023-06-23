@@ -166,7 +166,7 @@ if(isset($confirmer)){
                     
                     
                     <div class="prix">
-                        <span class="input-group-text" id='datefun' name='datefun'>Prix Total</span>
+                        <span class="input-group-text" id='datefun' name='datefun'><?php echo  $Voyage[0]['prix'] ; ?> MAD</span>
                     </div>
                     <h4>Confirmer</h4>
                     <div class="confirmation_res">
