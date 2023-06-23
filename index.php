@@ -151,7 +151,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
              foreach($hotel as $hote1) {?>
              
               <div class="swiper-slide box-hotel">
-              <img src="<?php echo '../admin-ver/img/hotels/'.$hote1['img1']; ?>" alt="" width="270px" height="150px"><span>MAD350</span>
+              <img src="<?php echo '../admin-ver/img/hotels/'.$hote1['img1']; ?>" alt="" width="270px" height="150px"><span>MAD<?php echo $hote1['prix']; ?></span>
                 <div class="text">
                   <div class="hotel-name"><?php echo $hote1['nom']; ?></div><div class="rating">
                   <i class="bi bi-star-fill"></i>
