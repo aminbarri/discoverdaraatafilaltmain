@@ -199,7 +199,7 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
                 <div class="swiper-slide carteread">
                  <img src="<?php echo '../admin-ver/img/destinations/'.$dest['img1'] ?>" alt="" width="270px" height="150px">
                  <h3><?php echo$dest['nom'] ?></h3>
-                 <p><?php echo$dest['ville'] ?>,<?php echo$dest['province'] ?></p>
+                 <p><?php echo$dest['ville'] ?></p>
                 
                 
                  
