@@ -230,9 +230,10 @@ flex-direction: row;
 }
 
 .article-card img {
-    /* width: 100%; */
+    width: 100%; 
     height: auto;
     margin-bottom: 10px;
+    bottom: 0px;
 }
 .imgarticle{
     width: 100%;
