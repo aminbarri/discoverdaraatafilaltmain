@@ -200,17 +200,17 @@ $restau = $statement3->fetchAll(PDO::FETCH_ASSOC);
                    
                     
 
-                    <?php echo $selectrest[0]['location']; ?>
+                    <?php echo $selectrest[0]['carte']; ?>
                  </div>
             </div>
 
             <div class="other-articles">
                 <!-- Content for the other articles -->
-                <p class="parag1">Distinations dans la même ville</p>
+                <p class="parag1">Restaurants dans la même ville</p>
                 <?php  $j=0;foreach ($hotel2 as $hote1){ ?>
                 <div class="article-card" onclick="location.href='pagerestau.php?id=<?php echo $hote1['id-rest']; ?>#second' ">
                     <!-- Content for the first article card -->
-                    <h3><?php echo $hote1['nom']; ?></h3>
+                    <h5><?php echo $hote1['nom']; ?></h5>
                     <img src="<?php echo '../admin-ver/img/restau/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
                     
                 </div>
@@ -227,14 +227,14 @@ $restau = $statement3->fetchAll(PDO::FETCH_ASSOC);
         <div class="bottom-section">
         
         <?php  $j=0;foreach ($selectdes as $hote1){ ?>
-                <div class="article-card" onclick="location.href=' destinationpage.php?id=<?php echo $hote1['id-des']; ?>#second' ">
+                <div class=" article-card " onclick="location.href=' destinationpage.php?id=<?php echo $hote1['id-des']; ?>#second' ">
                     <!-- Content for the first article card -->
-                    <h3><?php echo $hote1['nom']; ?></h3>
-                    <img src="<?php echo '../admin-ver/img/destinations/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
+                    <h5><?php echo $hote1['nom']; ?></h5>
+                    <img class="distination" src="<?php echo '../admin-ver/img/destinations/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
                     
                 </div>
                  <?php $j++;
-                if($j>8){
+                if($j>1){
                   break;
                 } } ?>
             
@@ -256,8 +256,8 @@ $restau = $statement3->fetchAll(PDO::FETCH_ASSOC);
         $j=0;foreach ($hotel2 as $hote1){ ?>
                 <div class="article-card" onclick="location.href=' hotelpage.php?id=<?php echo $hote1['id-hotel']; ?>#second' ">
                     <!-- Content for the first article card -->
-                    <h3><?php echo $hote1['nom']; ?></h3>
-                    <img src="<?php echo '../admin-ver/img/restau/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
+                    <h5><?php echo $hote1['nom']; ?></h5>
+                    <img src="<?php echo '../admin-ver/img/hotels/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
                     
                 </div>
                  <?php $j++;
