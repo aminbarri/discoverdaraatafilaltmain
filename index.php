@@ -318,9 +318,10 @@ $destination = $statement3->fetchAll(PDO::FETCH_ASSOC);
     
     $(document).ready(function() {
   var images = [
-         "img/2.jpg",
-         "img/4.jpg",
-         "img/3.jpg"
+         "img/11.jpg",
+         "img/22.jpg",
+         "img/33.jpg",
+         "img/44.jpg"
   ];
 
   // Initialize Backstretch with the first image

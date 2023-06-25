@@ -8,7 +8,7 @@ include 'connection.php';
 @$province = $_GET['province1'];
 $sql = 'SELECT * 
 		FROM destination
-        WHERE `ville` LIKE :province or `province` LIKE :province';
+        WHERE `ville` LIKE :province or `province` LIKE :province or `description` LIKE :province  ';
 $statement = $pdo->prepare($sql);
 $statement->bindValue(':province',  '%' . $province . '%');
 $statement->execute();

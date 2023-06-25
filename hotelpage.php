@@ -47,6 +47,9 @@ $hotel  = $slectHotle->fetchAll(PDO::FETCH_ASSOC);
   height: 100%;
   margin: 0;
 }
+.top-header {
+  background-image: url('img/merzouga.jpg');
+}
 
 .container {
   display: flex;
@@ -234,7 +237,7 @@ main {
           </div>
           <?php
           $i++;
-          if ($i > 7) {
+          if ($i > 15) {
             break;
           }
         }
