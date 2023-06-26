@@ -186,6 +186,10 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                        <li class="nav-item"><a href="contact.php">CONTACT</a></li>
                    <li class="nav-item">
                      <?php
+                       $clientName = $_SESSION['nom'];
+                       $clientEmail = $_SESSION['email'];
+                       $clientPrenom = $_SESSION['prenom'];
+                     
                      if(@$_SESSION['login']!= 'oui') {
                        echo "<a href='login.php' name=''>SE CONNECTER</a>";
                      }
@@ -210,24 +214,62 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                        </div>
                      </div>
       </div> 
+
+
+   <div class="containerr">
+    <h1>Bounjour <?php echo $_SESSION['nom'] ." ".$_SESSION['prenom'] ?></h1>
+    <form method="POST" action="">
+    <div class="info">
+    <label>Name:</label>
+    <input type="text" name="name" class="edit-input" value="">
+  </div>
+  <div class="info">
+    <label>prenom:</label>
+    <input type="text" name="prenom" class="edit-input" value=" <?php echo $clientPrenom ;?>" >
+  </div>
+  <div class="info">
+    <label>Email:</label>
+    <input type="email" name="email" class="edit-input" value=" <?php echo $clientEmail ;?>">
+  </div>
+  
+  <div class="info">
+    <label>Password:</label>
+    <input type="password" name="password" class="edit-input" value="">
+  </div>
+  <button type="submit" class="save-button" name="submit">Save</button>
+    </form>
+  </div>
+
+ 
+ 
+
+
+<footer class="">
+       
+       <div class="bottom_footer">
+
+               <span><i class="bi bi-c-circle"></i> <a href="">discoverdaraatafilalt.com</a> All right reserved</span>
+       </div>
+       
+   </footer>
+  
+</body>
 <?php
   // Initialize client information
-  $clientName = $_SESSION['nom'];
-  $clientEmail = $_SESSION['email'];
-  $clientPrenom = $_SESSION['prenom'];
 
 
   // Check if form is submitted
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  
     // Update client information if values are present
+if(isset($_POST['submit'])){
     if (!empty($_POST["name"])) {
-      $clientName = $_POST["name"];
+      @$clientName1= $_POST['name'];
       $sql4  ='UPDATE client 
-              SET nom = :clientName
+              SET nom = :clientName1
               WHERE `id_client` = :id';
         $stmt4 = $pdo->prepare($sql4);
         $stmt4->bindParam(':id', $id);
-        $stmt4->bindParam(':clientName', $clientName);
+        $stmt4->bindParam(':clientName1', $clientName1);
        $stmt4->execute();
        if($stmt4){
         header('location: client.php?success=Les informations ont été modifiées avec succès.');
@@ -273,49 +315,10 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             header('location: client.php?success=Les informations ont été modifiées avec succès.');
            }
       }
-    }
+}
     // if (!empty($_POST["address"])) {
     //   $clientPass = $_POST["address"];
     // }
     ob_end_flush();
   ?>
-
-   <div class="containerr">
-    <h1>Bounjour <?php echo $_SESSION['nom'] ." ".$_SESSION['prenom'] ?></h1>
-    <form method="POST" action="">
-    <div class="info">
-    <label>Name:</label>
-    <input type="text" name="name" class="edit-input" value="<?php echo $clientName ;?>">
-  </div>
-  <div class="info">
-    <label>prenom:</label>
-    <input type="text" name="prenom" class="edit-input" value=" <?php echo $clientPrenom ;?>" >
-  </div>
-  <div class="info">
-    <label>Email:</label>
-    <input type="email" name="email" class="edit-input" value=" <?php echo $clientEmail ;?>">
-  </div>
-  
-  <div class="info">
-    <label>Password:</label>
-    <input type="password" name="password" class="edit-input" value="">
-  </div>
-  <button type="submit" class="save-button">Save</button>
-    </form>
-  </div>
-
- 
- 
-
-
-<footer class="">
-       
-       <div class="bottom_footer">
-
-               <span><i class="bi bi-c-circle"></i> <a href="">discoverdaraatafilalt.com</a> All right reserved</span>
-       </div>
-       
-   </footer>
-  
-</body>
 </html>
