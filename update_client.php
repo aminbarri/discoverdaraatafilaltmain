@@ -221,15 +221,15 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <form method="POST" action="">
     <div class="info">
     <label>Name:</label>
-    <input type="text" name="name" class="edit-input" value="">
+    <input type="text" name="name" class="edit-input" value="<?php echo $_SESSION['nom']?>">
   </div>
   <div class="info">
     <label>prenom:</label>
-    <input type="text" name="prenom" class="edit-input" value=" <?php echo $clientPrenom ;?>" >
+    <input type="text" name="prenom" class="edit-input" value=" <?php echo  $_SESSION['prenom'] ;?>" >
   </div>
   <div class="info">
     <label>Email:</label>
-    <input type="email" name="email" class="edit-input" value=" <?php echo $clientEmail ;?>">
+    <input type="email" name="email" class="edit-input" value=" <?php echo $_SESSION['email'];?>">
   </div>
   
   <div class="info">
@@ -261,9 +261,11 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
   // Check if form is submitted
   
     // Update client information if values are present
+    @$clientName1= $_POST['name'];
 if(isset($_POST['submit'])){
-    if (!empty($_POST["name"])) {
-      @$clientName1= $_POST['name'];
+    if (!empty($_POST["name"])) 
+   {
+      
       $sql4  ='UPDATE client 
               SET nom = :clientName1
               WHERE `id_client` = :id';
@@ -316,6 +318,19 @@ if(isset($_POST['submit'])){
            }
       }
 }
+$sql = 'SELECT *
+FROM client
+WHERE `id_client` = :id';
+
+$statement = $pdo->prepare($sql);
+$statement->bindParam(':id', $id);
+$statement->execute();
+
+$loggin = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+$_SESSION['nom'] =$loggin[0]['nom'];
+        $_SESSION['prenom'] =$loggin[0]['prenom'];
+        $_SESSION['email'] =$loggin[0]['email'];
     // if (!empty($_POST["address"])) {
     //   $clientPass = $_POST["address"];
     // }

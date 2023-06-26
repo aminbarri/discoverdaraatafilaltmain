@@ -248,15 +248,15 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <h1>Bounjour   <?php echo $_SESSION['nom'].' '. $_SESSION['prenom'] ?></h1>
     <div class="info">
         <label>Name:</label>
-        <span> <?php echo$clientName ; ?></span>
+        <span> <?php echo $_SESSION['nom']; ?></span>
       </div>
       <div class="info">
         <label>Prenom:</label>
-        <span> <?php echo $clientPrenom; ?></span>
+        <span> <?php echo $_SESSION['prenom']; ?></span>
       </div>
       <div class="info">
         <label>Email:</label>
-        <span> <?php echo $clientEmail; ?></span>
+        <span> <?php echo $_SESSION['email']; ?></span>
       </div>
     <form action="" method="post">
   <a  class="edit-button" name="edit" href="update_client.php" >Edit</a>
