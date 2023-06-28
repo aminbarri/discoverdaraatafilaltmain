@@ -31,7 +31,7 @@ $restau = $statement3->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="steylforhotelpagr.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Restarants</title>
 
 <style>
           .mainborder{
@@ -291,7 +291,7 @@ $restau = $statement3->fetchAll(PDO::FETCH_ASSOC);
                 <div class=" carteread">
                  <img src="<?php echo '../admin-ver/img/restau/'.$dest['img1'] ?>" alt="" width="270px" height="150px">
                  <h3><?php echo$dest['nom'] ?></h3>
-                 <p><?php echo$dest['ville'] ?>,<?php echo$dest['province'] ?></p>
+                 <p><?php echo$dest['ville'] ?></p>
                 
                 
                  

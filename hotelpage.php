@@ -191,7 +191,7 @@ main {
                 <div class="article-card" onclick="location.href=' pagerestau.php?id=<?php echo $hote1['id-rest']; ?>#second' ">
                     <!-- Content for the first article card -->
                     <h5><?php echo $hote1['nom']; ?></h5>
-                    <img src="<?php echo '../admin-ver/img/restau/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
+                    <img src="<?php echo '../admin-ver/img/restau/' . $hote1['img1']; ?>" alt="Article 1 Image" width="100%" height="50%">
                     
                 </div>
                  <?php $j++;

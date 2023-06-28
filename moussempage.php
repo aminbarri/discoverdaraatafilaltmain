@@ -258,7 +258,7 @@ $moussem = $statement3->fetchAll(PDO::FETCH_ASSOC);
                 <div class="article-card" onclick="location.href=' hotelpage.php?id=<?php echo $hote1['id-hotel']; ?>#second' ">
                     <!-- Content for the first article card -->
                     <h3><?php echo $hote1['nom']; ?></h3>
-                    <img src="<?php echo '../admin-ver/img/restau/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
+                    <img src="<?php echo '../admin-ver/img/hotels/' . $hote1['img1']; ?>" alt="Article 1 Image" width="60px" height="50px">
                     
                 </div>
                  <?php $j++;
