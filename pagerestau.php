@@ -94,6 +94,9 @@ $restau = $statement3->fetchAll(PDO::FETCH_ASSOC);
        font-weight: bold;
        
      }
+     .top-header{
+      background-image: url('img/restaurant.jpg');
+     }
 </style>
 </head>
 <body>
