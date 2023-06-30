@@ -116,17 +116,11 @@ if(isset($confirmer)){
             
                 <div class="hotel_des">
                     <div class="img_hotel">
-                        <img src="<?php echo '../admin-ver/img/destinations/'.$Voyage[0]['img']; ?>" alt="" width="100%" height="100%">
+                        <img src="<?php echo '../admin-ver/img/cercuit/'.$Voyage[0]['img']; ?>" alt="" width="100%" height="100%">
                     </div>
                     <h4><?php echo $Voyage[0]['ville-depart']; ?> vers <?php echo $Voyage[0]['ville-arrive']; ?></h4>
-                    <div class="hotel-name"><?php echo $Voyage[0]['dure']; ?></div>
-                    <div class="rating">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </div>
+                    <div class="hotel-name"><?php echo '<h4>Dure: '.$Voyage[0]['dure'].' </h4>'; ?></div>
+                    
                     <div class="description"><?php echo $Voyage[0]['trajet']; ?></div>
                 </div>
                 <div class="reservehotel">
