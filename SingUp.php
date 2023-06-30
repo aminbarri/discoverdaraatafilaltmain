@@ -67,27 +67,27 @@ if(isset($flexCheckChecked)){
     
     <div class="main-signup">
         <div class="first-singup">
-            <h3>Discover the world’s <br>
+            <h3>Découvrez le monde de<br>
                 DARAA TAFILALT
             </h3>
         </div>
         <div class="secend-singup">
       
-            <h4>Aready a member? <a href="login.php">Sing in now!</a></h4>
+            <h4>Déjà membre ? <a href="login.php">Connectez-vous maintenant !</a></h4>
             
             <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
             
                 <div class="mb-3">
-                  <label for="exampleInputname11" class="form-label">Name</label>
+                  <label for="exampleInputname11" class="form-label">Nom</label>
                   <input type="text" class="form-control" id="exampleInputname11" name="name">
                 </div>
                 <div class="mb-3 username-input">
-                    <label for="exampleInputname11" class="form-label">Username</label>
+                    <label for="exampleInputname11" class="form-label">Nom d'utilisateur</label>
                     <input type="text" class="form-control" id="exampleInputUsername11" name="username">
                   </div>
 
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <label for="exampleInputEmail1" class="form-label">Adresse e-mail</label>
                     <?php if(isset($_GET['eamil'])){?>
                     <input type="email" value="<?php echo $_GET['eamil'];?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email'>
                     <?php }else{?>
@@ -97,17 +97,17 @@ if(isset($flexCheckChecked)){
                   </div>
   
                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
                       <input type="password" class="form-control" id="exampleInputPassword1" name='password'>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" name="flexCheckChecked" >
                         <span class="form-check-label" for="flexCheckChecked">
-                            Creating an account means you’re okay with our Terms of Service, Privacy Policy.
+                        Créer un compte signifie que vous acceptez nos Conditions d'utilisation et notre Politique de confidentialité.
                         </span>
                       </div>
 
-                      <button type="submit" name="submit" class="btn btn-primary">Create account</button>
+                      <button type="submit" name="submit" class="btn btn-primary">Créer un compte</button>
                     
             </form>  
             <?php if(!empty($message2)){?>

@@ -122,12 +122,12 @@ foreach ($_POST as $key => $value) {
     
     <div class="main-signin">
         <div class="first-signin">
-            <h3>Discover the world’s <br>
+            <h3>Découvrez le monde de<br>
                 DARAA TAFILALT
             </h3>
         </div>
         <div class="secend-signin">
-              <h5>Not a member <a href="SingUp.php">Sing up now!</a></h5>
+              <h5>Pas encore membre<a href="SingUp.php">Inscrivez-vous maintenant !</a></h5>
             <div class="login_class">
                  <?php if(!empty($message)){?>
                     <div class="alert alert-danger" role="alert">
@@ -142,20 +142,20 @@ foreach ($_POST as $key => $value) {
                     </div>
                 <?php } ?>
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Username Or Email address</label>
+                      <label for="exampleInputEmail1" class="form-label">Nom d'utilisateur ou adresse e-mail</label>
                       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
                       
                     </div>
     
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
                         <input type="password" class="form-control" id="exampleInputPassword1"name="password">
                       </div>
     
-                      <button type="submit" class="btn btn-primary"name='valider' >Sign In</button>
+                      <button type="submit" class="btn btn-primary"name='valider' >Se connecter</button>
                     
                 </form>
-                 <h4><a href="forgetpass.php">forget password?</a></h4>
+                 <h4><a href="forgetpass.php">Mot de passe oublié ?</a></h4>
                 <div class="mssg">
                    <?php 
                     
